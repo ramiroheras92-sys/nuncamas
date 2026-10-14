@@ -12,9 +12,11 @@ html{min-width:320px;scrollbar-gutter:stable}
 body{margin:0;min-height:100vh;background:linear-gradient(180deg,#09131d,#0c1722);color:var(--cream);font:18px/1.65 "Courier New",monospace;display:grid;place-items:center;padding:20px}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.025) 3px 4px)}
 .shell{width:min(980px,100%);border:3px solid var(--line);box-shadow:8px 8px 0 #02070a,0 0 28px #39d78c30;background:var(--panel);padding:clamp(18px,4vw,36px);position:relative}
-.top{display:flex;justify-content:space-between;gap:14px;align-items:center;border-bottom:2px dashed #48615e;padding-bottom:16px;color:var(--line);font-size:14px;line-height:1.5}
-.brand{color:inherit;text-decoration:none;font-weight:bold}.meter{color:var(--gold);text-align:right;white-space:nowrap}
+.top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:2px dashed #48615e;padding-bottom:16px;color:var(--line);font-size:14px;line-height:1.5}
+.brand{color:inherit;text-decoration:none;font-weight:bold}.meter{color:var(--gold);text-align:right;min-width:min(390px,62%)}
 .tag{margin:22px 0 10px;color:var(--gold);font-size:14px;letter-spacing:1px;text-transform:uppercase}
+.journey-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin-top:7px}.journey-step{padding:4px 3px;border-top:2px solid #405558;color:#91a39e;font-size:9px;line-height:1.25;text-align:center;white-space:normal}.journey-step.active{border-color:var(--gold);color:var(--gold);font-weight:bold}.journey-step.done{border-color:var(--line);color:var(--line)}
+.flow-hint{border-left:3px solid var(--gold);background:#0d1b23;padding:8px 12px;margin:12px 0;color:var(--muted);font-size:.88rem;line-height:1.45}.clue-steps{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 4px}.clue-steps span{padding:3px 7px;border:1px solid #48615e;color:var(--muted);font-size:10px}.clue-steps .done{border-color:var(--line);color:var(--line)}.clue-steps .current{border-color:var(--gold);color:var(--gold)}
 .stage-progress{display:flex;justify-content:flex-end;gap:7px;margin-top:3px;color:#b8c3bf;font-size:20px;line-height:1}.stage-star.earned{color:var(--gold);text-shadow:0 0 8px #ffc85780}
 .strassera-guide{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:center;gap:16px;border:0;background:transparent;padding:0;margin:18px 0;box-shadow:none}.strassera-avatar{width:88px;height:96px;display:grid;place-items:center;background:transparent;border:0;image-rendering:pixelated}.strassera-avatar svg{width:78px;height:92px;image-rendering:pixelated}.guide-name{display:block;color:var(--gold);font-weight:bold;font-size:13px;letter-spacing:.04em}.strassera-guide p{margin:4px 0;color:var(--cream);line-height:1.5}.guide-note{color:var(--muted);font-size:12px;line-height:1.4}.guide-phase{display:block;color:var(--line);font-size:12px;text-transform:uppercase;letter-spacing:.04em;font-weight:bold;margin-bottom:3px}
 .stage-board{border:2px solid var(--line);background:#10231f;padding:14px 16px;margin:18px 0}.stage-board h2{font-size:1.15rem}.stage-board>p{margin:4px 0 12px}.stage-board ol{list-style:none;padding:0;margin:0;display:grid;gap:8px}.stage-board li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;border-top:1px dashed #48615e;padding:10px 2px}.stage-board li>span{font-size:22px;color:#bdc6be;line-height:1.3}.stage-board li.stage-done>span{color:var(--gold)}.stage-board li.stage-done strong{color:var(--line)}.stage-board li p{margin:2px 0 4px;color:var(--cream)}.stage-board li .small{font-size:.8rem}
@@ -47,7 +49,7 @@ textarea,select{display:block;width:100%;background:#09151c;color:var(--cream);b
 .pick-panel{border:2px solid #536c67;padding:12px 14px;margin:18px 0;background:#0d1b23}.pick-panel .label{margin-top:0}.pick-panel p{margin:6px 0 12px}.pick-panel button{width:100%}
 .score-card{border:3px solid var(--gold);padding:clamp(14px,3vw,24px);margin:18px 0;background:#0b1820;box-shadow:6px 6px 0 #63471e}.score-card h2{font-size:clamp(2rem,6vw,3.4rem);margin:0;color:var(--gold)}.score-status{font-weight:bold;letter-spacing:.04em}.score-status.ready{color:var(--line)}.score-status.not-ready{color:var(--gold)}.score-track{height:20px;border:2px solid #81908b;background:#09131b;margin:12px 0}.score-track span{height:100%;display:block;background:var(--line)}
 .checklist{list-style:none;padding:0}.checklist li{margin:10px 0}.checklist .met{color:var(--line)}.checklist .missing{color:var(--gold)}.score-review{border:2px solid #536c67;padding:12px 14px;margin:18px 0}.score-review summary{cursor:pointer;color:var(--gold);font-weight:bold}.score-review li{margin:14px 0}.score-tier{color:var(--line);font-size:.9em;font-weight:bold}
-@media(max-width:650px){.board-columns{grid-template-columns:1fr}.board-column h3{min-height:0}.board-panel{padding:12px}.board-jump{left:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));font-size:11px;padding:9px 8px}.journal-jump{right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));font-size:11px;padding:9px 8px}body{padding:8px;font-size:16px}.shell{padding:16px}.top{font-size:12px}.quote{padding:14px}.controls{justify-content:center}.controls button{flex:1 1 42%}.footer{font-size:11px;flex-wrap:wrap}.journal{width:calc(100vw - 12px);max-height:96vh;padding:12px}.journal-header{gap:8px}.journal-header>button{padding:10px 8px;font-size:12px}.journal-layout{grid-template-columns:1fr;gap:12px}.journal-sidebar h3{margin-bottom:6px}.track-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:22vh}.track-choice{border-right:1px solid #49615e}.journal-editor{max-height:55vh;padding-right:3px}}
+@media(max-width:650px){.quick-axis-buttons{grid-template-columns:1fr}.quick-axis-buttons button{min-height:0}.board-columns{grid-template-columns:1fr}.board-column h3{min-height:0}.board-panel{padding:12px}.board-jump{left:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));font-size:11px;padding:9px 8px}.journal-jump{right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));font-size:11px;padding:9px 8px}body{padding:8px;font-size:16px}.shell{padding:16px}.top{font-size:12px}.quote{padding:14px}.controls{justify-content:center}.controls button{flex:1 1 42%}.footer{font-size:11px;flex-wrap:wrap}.journal{width:calc(100vw - 12px);max-height:96vh;padding:12px}.journal-header{gap:8px}.journal-header>button{padding:10px 8px;font-size:12px}.journal-layout{grid-template-columns:1fr;gap:12px}.journal-sidebar h3{margin-bottom:6px}.track-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:22vh}.track-choice{border-right:1px solid #49615e}.journal-editor{max-height:55vh;padding-right:3px}}
 @media(max-width:650px){.strassera-guide{grid-template-columns:72px minmax(0,1fr);gap:10px}.strassera-avatar{width:70px;height:82px}.strassera-avatar svg{width:64px;height:76px}.guide-name{font-size:11px}.guide-note{font-size:11px}.stage-board{padding:12px}}
 @media(max-width:760px){.destination-grid{grid-template-columns:1fr}.destination-card{grid-template-columns:minmax(100px,.6fr) minmax(0,1.4fr)}}
 @media(max-width:460px){.destination-card{grid-template-columns:1fr}.postcard-art{max-width:210px}.axis-choices{grid-template-columns:1fr}.destination-info button{font-size:11px}.debrief-card{padding:12px}}
@@ -65,7 +67,7 @@ body{padding-top:calc(20px + env(safe-area-inset-top,0px));padding-bottom:calc(2
 .destination-art svg,.postcard-art svg{image-rendering:pixelated}
 @media(prefers-reduced-motion:no-preference){.tw{animation:tw 3s steps(2) infinite}.bl{animation:bl 4s steps(1) infinite}.fl{animation:fl 2s steps(2) infinite}.pin{animation:pin 1s steps(2) infinite}.blink{animation:pin 1s steps(2) infinite}@keyframes tw{50%{opacity:.25}}@keyframes bl{50%{opacity:.3}}@keyframes fl{50%{opacity:.6}}@keyframes pin{50%{opacity:.25}}}
 @media(max-width:600px){.travel{grid-template-columns:100px minmax(0,1fr);gap:12px}}
-.quick-recap{list-style:none;padding:0;margin:16px 0}.quick-recap li{border-bottom:1px dashed #48615e;padding:9px 0}.quick-recap li span{display:block;color:var(--muted);font-size:.85rem}
+.quick-axis-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:10px 0}.quick-axis-buttons button{display:flex;flex-direction:column;align-items:flex-start;gap:5px;text-align:left;min-height:78px;padding:10px;font-size:12px;line-height:1.3}.quick-axis-buttons button small{font:400 10px/1.35 "Courier New",monospace;color:var(--muted)}.quick-axis-buttons button.gold small{color:#352810}.quick-recap{list-style:none;padding:0;margin:16px 0}.quick-recap li{border-bottom:1px dashed #48615e;padding:9px 0}.quick-recap li span{display:block;color:var(--muted);font-size:.85rem}
 [hidden]{display:none!important}.steps{padding-left:24px}.steps li{margin:10px 0}.pick-panel{padding:10px}.destination-card.single .destination-info p{color:var(--cream)}
 .board-panel{width:min(900px,calc(100vw - 24px));max-width:none;max-height:90vh;overflow:auto;border:3px solid var(--line);background:#101e29;color:var(--cream);box-shadow:8px 8px 0 #02070a;padding:20px;font:16px/1.5 "Courier New",monospace}.board-panel::backdrop{background:rgba(0,0,0,.82)}.board-intro{color:var(--muted);font-size:.9rem}.board-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}.board-column{border:2px dashed #49615e;padding:10px;min-width:0;background:#0b1820}.board-column h3{font-size:.9rem;min-height:2.5em}.board-pin{border:1px solid #536c67;background:#14232c;padding:9px;margin:8px 0;overflow-wrap:anywhere}.board-pin.pinned{border-color:var(--gold);background:#202b2b;position:relative;padding-top:14px}.board-pin.pinned:before{content:"";position:absolute;top:4px;left:8px;width:7px;height:7px;background:#ad6454;border:1px solid #f5edcf;border-radius:50%;box-shadow:1px 1px 0 #000}.board-pin strong{display:block;font-size:.85rem;line-height:1.35}.board-pin .small{font-size:.75rem}.board-pin select{font-size:14px;margin:7px 0;padding:8px}.board-pile{border-top:2px dashed #49615e;margin-top:18px;padding-top:12px}.connection-lab{margin-top:18px;padding:16px;border:3px solid #8a6245;background:repeating-linear-gradient(0deg,#8a62451c 0 2px,#b98a5b12 2px 5px),#1b2528;box-shadow:inset 0 0 0 3px #3e3028}.connection-lab h3{color:#e6bd72;margin:0 0 6px}.connection-lab form{display:grid;gap:8px}.connection-lab select,.connection-lab textarea{width:100%;box-sizing:border-box;background:#101e29;color:var(--cream);border:1px solid #8a6245;padding:10px;font:inherit}.connection-lab textarea{min-height:72px}.connection-list{margin-top:14px;border-top:1px dashed #a15b4c;padding-top:10px}.connection-note{position:relative;margin:10px 0;padding:12px 12px 12px 18px;border:1px solid #9b6656;background:#19262b}.connection-note:before{content:"";position:absolute;left:5px;top:8px;width:8px;height:8px;background:#bb4b3e;border:1px solid #f3d7b2;border-radius:50%;box-shadow:1px 1px 0 #000}.connection-note span{display:block;color:#e6bd72;font-size:.82rem;margin-top:4px}.connection-note p{margin:6px 0}.connection-lab button:disabled,.connection-lab select:disabled,.connection-lab textarea:disabled{opacity:.5;cursor:not-allowed}.interference-choices{display:grid;gap:9px;margin:16px 0}.interference-choices button{text-align:left}.interference-feedback{border-left:4px solid var(--gold);background:#14232c;padding:12px;margin:12px 0}.interview{border:2px solid #536c67;background:#0d1b23;padding:12px 14px;margin:12px 0}.interview .interviewer{color:var(--gold);font-size:11px;font-weight:bold;letter-spacing:.06em;text-transform:uppercase}.interview .answer{margin:7px 0 0}.interview .paraphrase-note{font-size:.75rem;color:var(--muted);margin:7px 0 0}.case-brief{border:2px solid var(--gold);background:#16242b;padding:12px 14px;margin:14px 0;font-size:.88rem;line-height:1.5}.case-brief h2{font-size:1rem;margin-bottom:6px}.case-brief p{margin:6px 0}.case-brief ul{padding-left:20px;margin:7px 0}.compact-summary{font-size:.95rem;line-height:1.45;margin:8px 0}.popup{width:min(520px,calc(100vw - 24px));border:3px solid var(--gold);background:#101e29;color:var(--cream);box-shadow:8px 8px 0 #02070a;padding:20px;font:16px/1.55 "Courier New",monospace;text-align:center}.popup::backdrop{background:rgba(0,0,0,.85)}.popup h2{color:var(--gold);font-size:1.2rem;margin:0 0 8px}.popup.alert{border-color:#ad6454}.popup.alert h2,.popup.alert .tag{color:#ff9d8a}.popup .note-actions{justify-content:center}.plaque-box{border:4px double var(--gold);padding:22px 12px;background:#0b1820}.popup h2.plaque-text{font-size:clamp(2.2rem,9vw,3.6rem);letter-spacing:.12em;margin:12px 0;text-shadow:0 0 10px #ffc85760}.popup .tag{margin:0 0 8px}
 .mini-meter{display:block;height:6px;border:1px solid #81908b;background:#09131b;margin-top:4px}.mini-meter span{display:block;height:100%;background:var(--line)}
@@ -83,6 +85,23 @@ input[type=text]{display:block;width:100%;background:#09151c;color:var(--cream);
 .npc-dialog::backdrop{background:rgba(0,0,0,.78)}.npc-scene{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:center;text-align:left}.npc-sprite{width:96px;height:112px;image-rendering:pixelated}.npc-dialog h2{color:var(--gold);font-size:1.12rem}.npc-dialog .npc-choices{display:grid;gap:8px;margin:14px 0}.npc-dialog .npc-choices button{text-align:left}.npc-dialog .npc-feedback{border-left:4px solid var(--line);background:#142b2b;padding:10px 12px;margin:10px 0}.npc-dialog .npc-feedback[hidden]{display:none}.npc-dialog .npc-feedback strong{display:block;color:var(--line);margin-bottom:5px}.npc-dialog .npc-feedback:has(strong){line-height:1.5}
 @media(max-width:440px){.npc-scene{grid-template-columns:72px minmax(0,1fr);gap:10px}.npc-sprite{width:68px;height:80px}}
 
+/* Pizarra de corcho: notas movibles e hilos visibles entre fuentes. */
+.board-panel{width:min(1180px,calc(100vw - 20px));max-height:96vh;padding:clamp(10px,2vw,22px);background:#17231f}
+.board-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.board-head .tag{margin:0 0 5px}.board-head h2{margin:0;color:var(--gold)}
+.board-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0;color:var(--muted);font-size:.78rem}.thread-status{color:var(--gold);font-weight:bold}
+.pinboard{--cols:3;position:relative;min-height:300px;overflow:hidden;border:12px solid #68452e;border-radius:4px;background-color:#8a6542;background-image:radial-gradient(#4a392c45 1px,transparent 1px),radial-gradient(#e3b97830 1px,transparent 1px),linear-gradient(135deg,#876344,#9a754c 45%,#805b3d);background-size:13px 13px,17px 17px,auto;box-shadow:inset 0 0 0 4px #4b382a, inset 0 0 22px #35251b80, 4px 6px 0 #080d0c;touch-action:pan-y}
+.thread-layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:6;pointer-events:none}.thread-path{fill:none;stroke:#b12620;stroke-width:5;stroke-linecap:round;filter:drop-shadow(1px 2px 1px #382016);pointer-events:stroke;cursor:pointer}.thread-path:hover{stroke:#ff5848;stroke-width:8}.thread-knot{fill:#c83d2f;stroke:#541d18;stroke-width:2}
+.case-note{position:absolute;z-index:2;width:calc(32% - 12px);min-height:142px;padding:10px 10px 9px;background:#f4df91;color:#27251c;box-shadow:3px 6px 8px #211a1590;transform:rotate(var(--tilt, -1deg));border-top:5px solid #ffffff24;touch-action:pan-y;overflow-wrap:anywhere}.case-note:nth-of-type(3n){background:#f2c8aa}.case-note:nth-of-type(4n){background:#d6e3ba}.case-note:nth-of-type(5n){background:#d4e1e4}.case-note.dragging{z-index:5;box-shadow:5px 10px 18px #17120f;transform:rotate(0) scale(1.025)}
+.case-pin{position:absolute;z-index:8;top:-13px;left:50%;width:23px;height:26px;padding:0;border:0;transform:translateX(-50%);background:transparent;cursor:grab;touch-action:none}.case-pin:before{content:"";position:absolute;top:0;left:5px;width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffaca0 0 12%,#c33229 35%,#791b18 100%);box-shadow:1px 2px 2px #24150e}.case-pin:after{content:"";position:absolute;width:2px;height:12px;left:11px;top:10px;background:#51473c;transform:rotate(18deg);transform-origin:top;box-shadow:1px 0 #d2c6a7}.case-pin:active{cursor:grabbing}
+.note-top{display:flex;justify-content:space-between;align-items:flex-start;gap:5px}.note-id{font-size:10px;font-weight:bold;letter-spacing:.04em}.note-type{font-size:8px;text-transform:uppercase;text-align:right;line-height:1.2}.note-title{font-size:12px;line-height:1.25;margin:7px 0 5px;color:#1e231e}.note-quote{font-size:11px;line-height:1.32;margin:5px 0;font-style:italic}.note-menu-toggle{padding:2px 6px;font:700 14px/1 "Courier New",monospace;background:#282b27;color:#fff1ce;border:1px solid #796b51;cursor:pointer}.note-menu{display:none;position:absolute;z-index:9;top:23px;right:6px;min-width:112px;padding:6px;background:#252a27;border:1px solid #b6a47a;box-shadow:3px 4px 8px #17120f;color:#fff1ce}.case-note.menu-open .note-menu{display:grid;gap:5px}.note-menu button,.note-menu select{width:100%;padding:6px;font:700 10px/1.2 "Courier New",monospace;cursor:pointer}.note-menu .thread-start{background:#a92e27;color:white}.thread-start[aria-pressed="true"]{outline:3px solid #ad3026;outline-offset:2px}.move-note{background:#403a30;color:#fff1ce;touch-action:none}.note-menu [data-unpin]{background:#4a302b;color:#ffe8dc}.note-menu select{margin:0;background:#33352d;color:white;border:1px solid #655640}
+.evidence-pile{margin-top:14px;border-top:1px dashed #728177;padding-top:10px}.evidence-pile h3{font-size:.9rem;margin:0 0 8px}.pile-cards{display:flex;gap:8px;overflow-x:auto;padding:5px 4px 12px}.pile-note{flex:0 0 210px;background:#eee0ab;color:#27251c;padding:9px;box-shadow:2px 3px 4px #0007;transform:rotate(-1deg)}.pile-note:nth-child(even){transform:rotate(1.2deg);background:#dce5c7}.pile-note strong{display:block;font-size:11px}.pile-note p{font-size:10px;line-height:1.3;margin:5px 0}.pile-note button{font-size:10px;padding:7px}
+.board-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.board-link-chip{display:flex;align-items:center;gap:6px;background:#202c2a;border:1px solid #ae3228;padding:4px 7px;color:#f4edcf;font-size:10px}.board-link-chip button{padding:3px 5px;font-size:10px}
+.verdict-scene{position:relative;overflow:hidden;min-height:290px;margin:18px 0 12px;border:5px solid #786444;background:linear-gradient(#152633 0 62%,#202a2c 62%);box-shadow:inset 0 0 0 3px #080e12,5px 6px 0 #080e12;display:grid;grid-template-columns:repeat(3,1fr);align-items:end;padding:24px 14px 12px;gap:10px}.verdict-prisoner{position:relative;z-index:1;text-align:center;color:#f4edcf}.verdict-prisoner svg{display:block;width:min(100%,130px);height:150px;margin:0 auto;image-rendering:pixelated;filter:drop-shadow(3px 4px 0 #071014)}.verdict-prisoner strong{display:block;margin-top:3px;font-size:clamp(10px,2vw,14px);text-shadow:2px 2px #071014}.bar-gate{position:absolute;z-index:3;top:0;bottom:0;width:54%;background:repeating-linear-gradient(90deg,#a7aca4 0 7px,#414c50 7px 10px,transparent 10px 34px);box-shadow:inset 0 0 0 4px #273337,3px 0 8px #05090c;transform:translateX(-105%)}.bar-gate.right{right:0;transform:translateX(105%);background:repeating-linear-gradient(90deg,transparent 0 20px,#414c50 20px 23px,#b7b8aa 23px 30px)}.bar-gate.left{left:0}.verdict-scene.close-bars .bar-gate.left{animation:slam-left .75s cubic-bezier(.2,.8,.25,1) .2s forwards}.verdict-scene.close-bars .bar-gate.right{animation:slam-right .75s cubic-bezier(.2,.8,.25,1) .2s forwards}@keyframes slam-left{70%{transform:translateX(4%)}100%{transform:translateX(0)}}@keyframes slam-right{70%{transform:translateX(-4%)}100%{transform:translateX(0)}}
+@media(max-width:700px){.pinboard{--cols:1;min-height:420px}.case-note{width:calc(100% - 16px);min-height:132px;padding:8px}.board-panel{max-height:98vh}.verdict-scene{min-height:240px;padding:18px 6px 10px}.verdict-prisoner svg{height:116px}}
+@media(prefers-reduced-motion:reduce){.verdict-scene.close-bars .bar-gate.left,.verdict-scene.close-bars .bar-gate.right{animation:none;transform:translateX(0)}}
+.verdict-names{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;text-align:center;margin:8px 0 12px}.verdict-names div{min-width:0}.verdict-names strong,.verdict-names span{display:block}.verdict-names strong{font-size:clamp(10px,2vw,14px);color:var(--gold)}.verdict-names span{font-size:clamp(9px,1.7vw,12px);color:var(--muted)}
+.verdict-prisoner{margin:0}.move-note{touch-action:none}
+
 </style>
 </head>
 <body>
@@ -90,7 +109,7 @@ input[type=text]{display:block;width:100%;background:#09151c;color:var(--cream);
 <main class="shell" aria-describedby="notice">
     <header class="top">
       <a class="brand" href="#inicio" aria-label="Causa 13, ir al inicio">ARCHIVO FEDERAL<br>CAUSA 13 · MODO INVESTIGACIÓN</a>
-      <div class="meter" aria-live="polite"><span id="progress">INICIO</span><div id="stage-progress" class="stage-progress" aria-label="Avance de las etapas"></div></div>
+      <div class="meter" aria-live="polite"><span id="progress">INICIO</span><div id="journey-steps" class="journey-steps" aria-label="Recorrido del juego"></div><div id="stage-progress" class="stage-progress" aria-label="Avance de los ejes"></div></div>
     </header>
     <p id="notice" class="sr-only">Actividad individual y local. Podés pausar o dejar la actividad en cualquier momento.</p>
     <aside id="player-badge" class="player-badge" aria-label="Personaje jugador" hidden>
@@ -99,7 +118,7 @@ input[type=text]{display:block;width:100%;background:#09151c;color:var(--cream);
     </aside>
     <section id="screen" tabindex="-1" aria-live="polite" aria-atomic="true"></section>
     <nav class="controls" id="controls" aria-label="Navegación del expediente"></nav>
-    <footer class="footer"><span id="points-status">PISTAS EN ALEGATO: 0 · EXPEDIENTE: 0% · DECISIONES: 0</span><span>CASO ABIERTO · 1985</span></footer>
+    <footer class="footer"><span id="points-status">PISTAS CLASIFICADAS: 0 · EJES: 0/3</span><span>CASO ABIERTO · 1985</span></footer>
   </main>
 <dialog id="journal" class="journal-panel" aria-labelledby="jp-title"><div class="note-head"><div><div class="tag">CUADERNO DE INVESTIGACIÓN</div><h2 id="jp-title">Bitácora · <span id="note-count">0 notas</span></h2></div><button id="close-journal" type="button" class="alt">CERRAR ✕</button></div><p class="small">Anotá lo que vas descubriendo: qué dice una fuente, qué relaciones ves, qué dudas te quedan. Es solo tuyo y se guarda en este navegador.</p><form id="note-form"><label for="note-axis">Eje de investigación</label><select id="note-axis"><option value="state">Órdenes y participación estatal</option><option value="clandestinity">Clandestinidad y negación</option><option value="system">Sistematicidad</option><option value="context">Contexto / duda general</option></select><label for="note-text">Nueva nota</label><textarea id="note-text" rows="4" required placeholder="¿Qué afirma la fuente? ¿Qué permite sostener? ¿Qué falta comprobar?"></textarea><div class="note-actions"><button id="save-note" type="submit">GUARDAR NOTA</button><button id="cancel-edit" type="button" class="alt" hidden>CANCELAR</button></div></form><div id="note-list"></div></dialog>
 <dialog id="board" class="board-panel" aria-labelledby="board-title"></dialog>
@@ -119,6 +138,7 @@ const noteAxis = document.querySelector('#note-axis');
 const noteList = document.querySelector('#note-list');
 const dialog = document.querySelector('#journal');
 const boardDialog = document.querySelector('#board');
+boardDialog.addEventListener('close', () => { if(boardDialog._boardResizeObserver) boardDialog._boardResizeObserver.disconnect(); boardDialog._boardResizeObserver=null; });
 const popup = document.querySelector('#popup');
 const TYPES = {
   'Testimonio': 'Relato testimonial transcripto en Nunca Más',
@@ -141,6 +161,11 @@ const STAGES = [
   { id:'clandestinity', title:'Clandestinidad y negación', clues:['C1','C2','F4'], prompt:'¿Qué indicios permiten analizar el funcionamiento clandestino y las respuestas frente a los pedidos de información?', guide:'Miremos qué muestran las fuentes sobre el ocultamiento y la negación. ¿Qué relación proponés y qué evidencia la sostiene?' },
   { id:'system', title:'Sistematicidad', clues:['A1','A2','A5','A3','A4'], prompt:'¿Qué semejanzas y diferencias aparecen al comparar dos testimonios y cruzarlos con una síntesis de CONADEP?', guide:'Comparemos dos testimonios y crucémoslos con CONADEP. ¿Qué patrón puede sostenerse y qué matices conviene conservar?' }
 ];
+const CLASSIFY_AXES = [
+  {id:'state',label:'Intervención estatal',short:'INTERVENCIÓN ESTATAL',help:'Actuaron fuerzas, mandos u órdenes del Estado.'},
+  {id:'clandestinity',label:'Detención clandestina',short:'DETENCIÓN CLANDESTINA',help:'La detención se ocultó o fue negada.'},
+  {id:'system',label:'Hecho que se repite',short:'PATRÓN REPETIDO',help:'El mismo modo de actuar aparece en varios casos.'}
+];
 const DESTINATIONS = [
   {id:'cordoba',title:'Córdoba',label:'TESTIMONIO · NUNCA MÁS',ids:['A1'],scene:'city',axes:['system'],role:'Leer un testimonio de un operativo y anotar qué detalles habría que comparar con otros casos.',question:'¿Qué detalles de este relato habría que comparar con otros casos antes de hablar de un método común?'},
   {id:'tucuman',title:'Tucumán',label:'TESTIMONIO · ANTECEDENTE',ids:['A2','F2'],scene:'route',axes:['system','context'],role:'Comparar con Córdoba y revisar qué dice la CONADEP sobre un antecedente del método.',question:'¿Qué semejanzas y diferencias hay con Córdoba? ¿Un antecedente demuestra por sí solo que el método se aplicó después de manera generalizada?'},
@@ -152,9 +177,9 @@ const DESTINATIONS = [
   {id:'ba-fiscalia',title:'Buenos Aires · Fiscalía',label:'ALEGATO · STRASSERA',ids:['E1'],scene:'desk',axes:['state','system'],role:'Leer el argumento de la fiscalía sobre la continuidad del plan.',question:'¿Qué sostiene Strassera en su alegato y cómo se diferencia de lo que concluye el fallo? Mantené las atribuciones separadas.'}
 ];
 const PROBLEMS = [
-  {id:'sistematicidad', title:'¿Fueron casos aislados o hay un patrón?', eje:'Sistematicidad', stops:['cordoba','tucuman','rosario'], intro:'Primero tenemos que ver si los hechos se repiten. Vamos a leer testimonios de lugares distintos y a comparar qué coincide y qué cambia.'},
-  {id:'cruce', title:'¿Qué dice la CONADEP al cruzar los casos?', eje:'Sistematicidad · Clandestinidad y negación', stops:['ba-nunca-mas','ba-clandestinidad'], intro:'Ahora cruzamos esos relatos con la síntesis de la CONADEP: ¿qué patrón formula y cómo se relaciona con la clandestinidad y la negación oficial?'},
-  {id:'ordenes', title:'¿Hubo órdenes y participación estatal?', eje:'Órdenes y participación estatal', stops:['ba-camara','ba-testimonios','ba-fiscalia'], intro:'Por último: ¿quién daba las órdenes y cómo participó el Estado? Vamos a ver qué dice el fallo, otros testimonios y el argumento de la fiscalía.'}
+  {id:'sistematicidad', title:'Encargo 1 · ¿Se repite el mismo método?', eje:'Sistematicidad', stops:['cordoba','tucuman','rosario'], task:'Compará Córdoba, Tucumán y Rosario: marcá una coincidencia y una diferencia.', guide:'Un testimonio muestra un caso. Necesitamos ver qué se repite en lugares diferentes.', reviewGuide:'Los indicios aparecen, pero un patrón requiere compararlos con una síntesis más amplia.', finding:'Los relatos de distintos lugares muestran coincidencias. Es un indicio de un patrón; todavía hay que contrastarlo con otras fuentes.', next:'Ahora cruzá esos testimonios con lo que investigó la CONADEP.'},
+  {id:'clandestinidad', title:'Encargo 2 · ¿Cómo se ocultó la represión?', eje:'Clandestinidad y sistematicidad', stops:['ba-nunca-mas','ba-clandestinidad'], task:'Contrastá la idea de “excesos aislados” con lo que la CONADEP documenta sobre clandestinidad y negación.', guide:'La repetición no explica todavía cómo se ocultaba la represión ni qué respondían las autoridades.', reviewGuide:'La clandestinidad y la negación describen el modo de funcionamiento; falta identificar quién lo organizó.', finding:'La clandestinidad y las respuestas negativas aparecen ligadas a un método. Al cruzarlas con testimonios y síntesis, la hipótesis de hechos aislados pierde fuerza.', next:'Ya tenemos indicios de un patrón y de su ocultamiento. Falta reconstruir quiénes daban las órdenes.'},
+  {id:'ordenes', title:'Encargo 3 · ¿Quiénes lo organizaron?', eje:'Responsabilidad estatal', stops:['ba-camara','ba-testimonios','ba-fiscalia'], task:'Cruzá el fallo, los testimonios y el alegato: ¿qué relación muestran entre mandos y operativos?', guide:'Para hablar de responsabilidad, hay que rastrear las órdenes y separar lo que afirma cada fuente.', reviewGuide:'Uní estas piezas en tu alegato. Separá lo que muestra la evidencia de la conclusión de la Fiscalía.', finding:'Las fuentes vinculan procedimientos clandestinos con órdenes impartidas desde los comandos. La Fiscalía debe unir esa responsabilidad estatal con el patrón que muestran los casos.', next:'Con las tres partes reunidas, ordená la evidencia y prepará una conclusión para el alegato.'}
 ];
 const STAGE_GUIDES = {
   A1:'Empecemos por este testimonio: ¿qué experiencia relata y con qué otro caso podrías compararla?', A2:'Ubicá lo que cuenta este testimonio. ¿Qué coincide o cambia frente a otro caso?', A3:'¿Qué elementos reúne esta síntesis? ¿Cómo dialogan con los testimonios concretos?', A4:'¿Qué aporta esta síntesis al comparar relatos, y qué voces individuales siguen siendo necesarias?', A5:'¿Qué aporta este relato al comparar casos? Separá el testimonio de tu inferencia.',
@@ -194,42 +219,39 @@ function bindControls() {
   controls.querySelectorAll('[data-action]').forEach(button => button.addEventListener('click', () => act(button.dataset.action)));
 }
 function focusScreen() { screen.focus({preventScroll:true}); }
+function renderJourneyProgress(activeOverride = null) {
+  const states = {intro:1,call:1,problem:2,assignmentReview:2,destinations:2,clues:2,debrief:2,finish:4,ending:4};
+  const active = activeOverride ?? states[route.state] ?? 0;
+  const labels = ['1 · CONTEXTO','2 · FUENTES','3 · PIZARRA','4 · ALEGATO'];
+  document.querySelector('#journey-steps').innerHTML = labels.map((label,index) => `<span class="journey-step ${index+1===active?'active':index+1<active?'done':''}" aria-current="${index+1===active?'step':'false'}">${label}</span>`).join('');
+}
 function setProgress() {
   const badge = document.querySelector('#player-badge');
   const badgeName = document.querySelector('#player-badge-name');
   if (badge) badge.hidden = ['intro','call'].includes(route.state);
   if (badgeName) badgeName.textContent = route.playerName ? `${route.playerName.toUpperCase()} · AYUDANTE` : 'AYUDANTE DE FISCALÍA';
   const cp = currentProblem();
-  const pn = cp ? cp.index + 1 : PROBLEMS.length;
   const ad = activeDestination();
-  const apn = ad ? PROBLEMS.findIndex(problem => problem.stops.includes(ad.id)) + 1 : pn;
-  if (route.state === 'intro') progress.textContent = 'INICIO';
-  else if (route.state === 'problem') progress.textContent = `PROBLEMA ${pn}/${PROBLEMS.length}`;
-  else if (route.state === 'destinations') progress.textContent = cp ? `PROBLEMA ${pn}/${PROBLEMS.length} · DESTINOS ${route.visited.length}/${DESTINATIONS.length}` : 'REVISIÓN';
-  else if (route.state === 'clues') progress.textContent = `PROBLEMA ${apn}/${PROBLEMS.length} · PISTA ${current + 1}/${ad?.ids.length || 2}`;
-  else if (route.state === 'debrief') progress.textContent = `PROBLEMA ${apn}/${PROBLEMS.length} · REPASO`;
-  else if (route.state === 'call') progress.textContent = 'CONVOCATORIA';
-  else if (route.state === 'ending') progress.textContent = 'SENTENCIA';
-  else progress.textContent = 'CIERRE';
-  const selected = [...picked].filter(id => cards.some(card => card.id === id));
+  if (route.state === 'intro' || route.state === 'call') progress.textContent = 'PASO 1/4 · CONTEXTO';
+  else if (route.state === 'problem') progress.textContent = `ENCARGO ${cp ? cp.index+1 : 1}/3`;
+  else if (['assignmentReview','destinations','clues','debrief'].includes(route.state)) progress.textContent = `ENCARGO ${cp ? cp.index+1 : 3}/3 · ${ad ? ad.title : cp ? cp.eje : 'PISTA'} `;
+  else if (route.state === 'ending') progress.textContent = 'FINAL · SENTENCIA';
+  else progress.textContent = 'PASO 4/4 · ALEGATO';
+  renderJourneyProgress();
   const pointsLabel = document.querySelector('#points-status');
-  if (pointsLabel) { const r = scoreCase(); pointsLabel.innerHTML = `EXPEDIENTE: ${r.score}% · EN PILA: ${selected.length} · EN PIZARRA: ${pinnedCards().length}<span class="mini-meter" aria-hidden="true"><span style="width:${r.score}%"></span></span>`; }
+  if (pointsLabel) { const completed = stageStatus().filter(stage => stage.complete).length; pointsLabel.textContent = `PISTAS CLASIFICADAS: ${pinnedCards().length} · EJES: ${completed}/3`; }
   updateBoardButton();
   renderStageProgress();
   const showScore = route.state === 'finish';
   document.querySelector('#points-status').hidden = ['intro','call','ending'].includes(route.state);
   document.querySelector('#stage-progress').hidden = !showScore;
 }
+
 function noteReflects(stageId) { return notes.some(note => note.axis === stageId && Boolean(note.text?.trim())); }
 function stageStatus() {
   return STAGES.map(stage => {
-    const hasReflection = noteReflects(stage.id);
     const hasEvidence = pinnedCards().some(card => stage.clues.includes(card.id) && route.pins[card.id] === stage.id);
-    const hasConnection = (route.connections || []).some(link => {
-      const a = trackById(link.a), b = trackById(link.b);
-      return a && b && stage.clues.includes(a.id) && stage.clues.includes(b.id);
-    });
-    return { ...stage, complete: Boolean(hasEvidence && (hasReflection || hasConnection)) };
+    return { ...stage, complete: Boolean(hasEvidence) };
   });
 }
 function renderStageProgress() {
@@ -238,11 +260,11 @@ function renderStageProgress() {
   host.innerHTML = stageStatus().map((stage, index) => `<span class="stage-star ${stage.complete ? 'earned' : ''}" aria-label="Etapa ${index + 1}: ${escapeHTML(stage.title)}${stage.complete ? ', revisada' : ', pendiente'}" title="${escapeHTML(stage.title)}">${stage.complete ? '★' : '☆'}</span>`).join('');
 }
 function strasseraGuide(text, phase = '') {
-  return `<aside class="strassera-guide" aria-label="Orientación de Julio César Strassera, recreación pedagógica"><div class="strassera-avatar" aria-hidden="true"><svg viewBox="0 0 48 56" shape-rendering="crispEdges"><rect x="15" y="3" width="20" height="5" fill="#c9d0cb"/><rect x="10" y="8" width="29" height="5" fill="#c9d0cb"/><rect x="8" y="13" width="33" height="16" fill="#e6c19a"/><rect x="11" y="18" width="5" height="3" fill="#10202a"/><rect x="31" y="18" width="5" height="3" fill="#10202a"/><rect x="18" y="24" width="13" height="3" fill="#7d3c38"/><rect x="4" y="31" width="40" height="22" fill="#263f4b"/><rect x="20" y="31" width="8" height="17" fill="#f0ead7"/><rect x="21" y="33" width="6" height="10" fill="#ad493d"/><rect x="1" y="43" width="10" height="9" fill="#9a713f"/><rect x="3" y="45" width="6" height="5" fill="#d1a759"/></svg></div><div>${phase ? `<span class="guide-phase">${escapeHTML(phase)}</span>` : ''}<span class="guide-name">JULIO CÉSAR STRASSERA · FISCAL</span><p>${escapeHTML(text)}</p><span class="guide-note">Orientación pedagógica recreada; no es una cita textual.</span></div></aside>`;
+  return `<aside class="strassera-guide" aria-label="Orientación de Julio César Strassera, recreación pedagógica"><div class="strassera-avatar" aria-hidden="true"><svg viewBox="0 0 48 56" shape-rendering="crispEdges"><rect x="15" y="3" width="20" height="5" fill="#c9d0cb"/><rect x="10" y="8" width="29" height="5" fill="#c9d0cb"/><rect x="8" y="13" width="33" height="16" fill="#e6c19a"/><rect x="11" y="18" width="5" height="3" fill="#10202a"/><rect x="31" y="18" width="5" height="3" fill="#10202a"/><rect x="18" y="24" width="13" height="3" fill="#7d3c38"/><rect x="4" y="31" width="40" height="22" fill="#263f4b"/><rect x="20" y="31" width="8" height="17" fill="#f0ead7"/><rect x="21" y="33" width="6" height="10" fill="#ad493d"/><rect x="1" y="43" width="10" height="9" fill="#9a713f"/><rect x="3" y="45" width="6" height="5" fill="#d1a759"/></svg></div><div>${phase ? `<span class="guide-phase">${escapeHTML(phase)}</span>` : ''}<span class="guide-name">JULIO CÉSAR STRASSERA · RECREACIÓN</span><p>${escapeHTML(text)}</p></div></aside>`;
 }
 function phaseForCard(card) { return STAGES.find(stage => stage.clues.includes(card.id))?.title || 'Cruce y contexto'; }
 function stageBoard() {
-  return `<section class="stage-board" aria-label="Revisión de las tres etapas"><h2>Revisión del caso</h2><p class="small">Cada estrella se gana al reunir evidencia pertinente, guardar una conclusión de la parada y registrar en la bitácora qué afirma la fuente y qué queda por revisar.</p><ol>${stageStatus().map((stage, index) => `<li class="${stage.complete ? 'stage-done' : ''}"><span aria-hidden="true">${stage.complete ? '★' : '☆'}</span><div><strong>Etapa ${index + 1} · ${escapeHTML(stage.title)}</strong><p>${escapeHTML(stage.prompt)}</p><span class="small">${stage.complete ? 'ETAPA REVISADA' : 'Pendiente: evidencia del eje + nota con afirmación y límite.'}</span></div></li>`).join('')}</ol></section>`;
+  return `<section class="stage-board" aria-label="Revisión del caso"><h2>Ejes del caso</h2><ol>${stageStatus().map((stage, index) => `<li class="${stage.complete ? 'stage-done' : ''}"><span aria-hidden="true">${stage.complete ? '★' : '☆'}</span><div><strong>${escapeHTML(stage.title)}</strong><span class="small">${stage.complete ? 'Revisado' : 'Pendiente'}</span></div></li>`).join('')}</ol></section>`;
 }
 function selectionFor(id) { return picked.has(id); }
 function activePenalty() { return INTERFERENCES.filter(ev => route.events.includes(ev.id) && ev.penalty && !ev.counter.some(id => isPinned(id))).reduce((sum, ev) => sum + ev.penalty, 0); }
@@ -272,95 +294,76 @@ function scoreCase() {
     state: stageStatus()[0].complete,
     clandestinity: stageStatus()[1].complete,
     system: stageStatus()[2].complete && testimonyCount >= 2 && hasConadep,
-    diversity: chosen.length >= 3 && types.size >= 2,
-    context: notes.some(note => Boolean(note.text?.trim()))
+    diversity: chosen.length >= 3 && types.size >= 2
   };
-  const evidencePoints = chosen.reduce((sum, card) => sum + (DIRECT_EVIDENCE.has(card.id) ? 4 : SUPPORT_EVIDENCE.has(card.id) ? 2 : 0), 0);
-  const coveragePoints = (checks.state ? 8 : 0) + (checks.clandestinity ? 8 : 0) + (checks.system ? 10 : 0) + (checks.diversity ? 8 : 0) + (checks.context ? 6 : 0);
-  const penalty = activePenalty();
-  const decisionPoints = Number(route.decisionPoints) || 0;
-  const score = Math.max(0, Math.min(100, evidencePoints + coveragePoints + decisionPoints - penalty));
-  const ready = score >= 75 && Object.values(checks).every(Boolean) && stageStatus().every(stage => stage.complete);
-  return { chosen, types, testimonyCount, hasConadep, checks, evidencePoints, coveragePoints, decisionPoints, penalty, score, ready };
+  const score = Math.round(Object.values(checks).filter(Boolean).length / Object.keys(checks).length * 100);
+  const ready = Object.values(checks).every(Boolean);
+  return { chosen, types, testimonyCount, hasConadep, checks, score, ready };
 }
 function saveRoute() { if (route.state === 'clues') route.step = current; saveStore(ROUTE_KEY, route); }
 function destinationById(id) { return DESTINATIONS.find(destination => destination.id === id); }
 function activeDestination() { return destinationById(route.activeDestination); }
 function activeCard() { const destination = activeDestination(); return destination ? trackById(destination.ids[current]) : null; }
-function start() { route.focusAxis = route.focusAxis || 'state'; current = -1; saveRoute(); drawProblem(); }
+function start() { route.focusAxis = route.focusAxis || 'state'; route.problemIndex = 0; route.completedProblems = []; current = -1; saveRoute(); drawProblem(); }
 
 const SVG_S = '<svg viewBox="0 0 48 56" shape-rendering="crispEdges"><rect x="15" y="3" width="20" height="5" fill="#c9d0cb"/><rect x="10" y="8" width="29" height="5" fill="#c9d0cb"/><rect x="8" y="13" width="33" height="16" fill="#e6c19a"/><rect x="11" y="18" width="5" height="3" fill="#10202a"/><rect x="31" y="18" width="5" height="3" fill="#10202a"/><rect x="18" y="24" width="13" height="3" fill="#7d3c38"/><rect x="4" y="31" width="40" height="22" fill="#263f4b"/><rect x="20" y="31" width="8" height="17" fill="#f0ead7"/><rect x="21" y="33" width="6" height="10" fill="#ad493d"/><rect x="1" y="43" width="10" height="9" fill="#9a713f"/><rect x="3" y="45" width="6" height="5" fill="#d1a759"/></svg>';
 const SVG_M = '<svg viewBox="0 0 48 56" shape-rendering="crispEdges"><rect x="13" y="3" width="22" height="6" fill="#2b2118"/><rect x="9" y="8" width="30" height="5" fill="#2b2118"/><rect x="8" y="13" width="32" height="16" fill="#e0b48a"/><rect x="8" y="13" width="4" height="9" fill="#2b2118"/><rect x="36" y="13" width="4" height="9" fill="#2b2118"/><rect x="12" y="18" width="5" height="3" fill="#10202a"/><rect x="31" y="18" width="5" height="3" fill="#10202a"/><rect x="18" y="25" width="12" height="2" fill="#7d3c38"/><rect x="4" y="31" width="40" height="22" fill="#4a4f5c"/><rect x="20" y="31" width="8" height="17" fill="#f0ead7"/><rect x="22" y="33" width="4" height="12" fill="#3a6ea5"/><rect x="38" y="40" width="9" height="11" fill="#d29b52"/></svg>';
 const SPEAKERS = { S:['JULIO CÉSAR STRASSERA · FISCAL', SVG_S], M:['LUIS MORENO OCAMPO · FISCAL ADJUNTO', SVG_M] };
 const TESTIMONY_INTERVIEWS = {
-  A1: { question:'¿Cómo fue el operativo en la vivienda?', answer:'El relato describe un operativo en Villa Rivera Indarte: participaron personas uniformadas y de civil, hubo un corte de luz, secuestros dentro de la familia y saqueo de la casa.' },
-  A2: { question:'¿Qué ocurrió con Juan de Dios Gómez después de la detención?', answer:'Según el legajo, Gómez fue detenido en su trabajo y llevado a su casa. Luego se lo llevaron otra vez y su familia no volvió a tener noticias de él.' },
-  A5: { question:'¿Cómo fue la detención en el lugar de trabajo?', answer:'El legajo relata que Marcelo Daniel Vilchez fue sacado de su trabajo en Rosario por personas vestidas de civil que dijeron ser policías. Después lo llevaron a la Jefatura.' },
-  B3: { question:'¿Qué pasó cuando llegaron otras fuerzas al lugar?', answer:'Según el testimonio, unas fuerzas llegaron durante un tiroteo, oyeron la expresión “zona liberada” y se retiraron. Luego se llevaron a Selma Ocampo e Inés Nocetti.' },
-  D2: { question:'¿Qué pasó con la madre y su hijo durante el secuestro?', answer:'El legajo cuenta que la madre fue secuestrada en su domicilio. Preguntó qué ocurriría con su hijo y le respondieron que se quedaría con ellos; no volvió a verlo.' }
+  A1: { question:'¿Qué recuerda del operativo en la vivienda?', answer:'El legajo registra que personas uniformadas y de civil llegaron a una casa de Villa Rivera Indarte. Antes hubo un corte de luz; durante el operativo secuestraron a integrantes de la familia y saquearon la vivienda.', source:'Nunca Más · p. 11 · legajo 3860' },
+  A2: { question:'¿Qué ocurrió con Juan de Dios Gómez después de la detención?', answer:'El legajo registra que lo detuvieron en su trabajo, lo llevaron a su casa y después se lo llevaron otra vez. Su familia no volvió a tener noticias de él.', source:'Nunca Más · p. 12 · legajo 5794' },
+  A5: { question:'¿Cómo se llevaron a Marcelo Daniel Vilchez de su trabajo?', answer:'El legajo cuenta que personas de civil que dijeron ser policías lo sacaron de Pavón S.A., en Rosario. Lo llevaron a la Jefatura y le cubrieron la cabeza durante el traslado.', source:'Nunca Más · p. 20 · legajo 7001' },
+  B3: { question:'¿Qué pasó cuando otras fuerzas llegaron durante el tiroteo?', answer:'El testigo relató que esas fuerzas oyeron la expresión “zona liberada” y se retiraron. Después, los secuestradores se llevaron a Selma Ocampo e Inés Nocetti.', source:'Nunca Más · p. 13 · legajo 1104' },
+  D2: { question:'¿Qué preguntó la madre sobre su hijo?', answer:'El legajo cuenta que, durante el secuestro, la madre preguntó qué ocurriría con su hijo. Le respondieron que se quedaría con ellos. Esa fue la última vez que lo vio.', source:'Nunca Más · p. 14 · legajo 7143' }
 };
 function shortenText(value, max=125) { const text = String(value || '').replace(/\s+/g,' ').trim(); if (text.length <= max) return text; return text.slice(0, max - 1).replace(/\s+\S*$/, '') + '…'; }
+function evidenceSummary(card) { return TESTIMONY_INTERVIEWS[card.id]?.answer || card.fragment; }
 function isPinned(id) { return Boolean(route.pins && route.pins[id]); }
 function pinnedCards() { return cards.filter(card => isPinned(card.id)); }
 function updateBoardButton() { const button = document.querySelector('#open-board'); if (button) button.textContent = `▣ PIZARRA · ${pinnedCards().length} PINCHADAS / ${picked.size} EN PILA`; }
 const INTRO_SCRIPT = [
-  {who:'S', text:'Estamos en pleno juicio a las Juntas. La Cámara Federal espera que le mostremos que lo ocurrido no fueron casos aislados, sino un plan.'},
-  {who:'M', text:'Y el material no para de crecer: testimonios, documentos, el informe de la CONADEP. Entre los dos no llegamos a revisar todo.'},
-  {who:'S', text:'Entonces necesitamos ayuda. Hay que convocar ayudantes que lean las fuentes con ojos nuevos.'},
-  {who:'M', text:'Hagamos un sorteo entre quienes se anotaron para colaborar.'},
+  {who:'S', text:'En 1985, la Cámara Federal juzga a los comandantes por los crímenes cometidos durante la dictadura.'},
+  {who:'M', text:'La fiscalía necesita ordenar testimonios y documentos, y comparar qué muestran.'},
+  {who:'S', text:'Nos falta alguien que nos ayude a revisar el expediente.'},
   {type:'draw'},
   {type:'name'},
-  {who:'M', text:'{nombre}… Me parece una buena opción, doctor.'},
-  {who:'S', text:'Estoy de acuerdo. Te damos la bienvenida al equipo, {nombre}. Te explico cómo vamos a trabajar.'},
-  {who:'S', text:'Vas a viajar por distintas ciudades siguiendo las pistas. En cada parada leés testimonios, partes del fallo, del alegato y de la CONADEP.'},
-  {who:'M', text:'Trabajamos de a un problema por vez: en cada uno hay dos o tres destinos. Cuando lo cerramos, pasamos al siguiente.'},
-  {who:'M', text:'Las pistas primero van a una pila. Después las pinchás en la pizarra bajo el eje que mejor expliquen. Solo así quedan conectadas al alegato. Al final de cada parada, cerrás con una conclusión.'},
-  {who:'S', text:'Algunas fuentes dan contexto y otras sostienen afirmaciones concretas. De vez en cuando, algún personaje ficticio se va a acercar a conversar: no son testimonios históricos, sino preguntas para ayudarte a pensar.'},
-  {who:'M', text:'Y ojo, van a aparecer presiones: llamadas, amenazas y argumentos de la defensa. Vas a tener que decidir cómo responder; después, las fuentes que conectes pueden fortalecer o debilitar tu respuesta.'},
-  {who:'S', text:'Anotá lo que descubrís en la bitácora. Las conclusiones las sacás vos. ¿Empezamos?'}
+  {who:'M', text:'{nombre}, quedás convocado como asistente de la fiscalía. Empecemos por los testimonios.'}
 ];
 const NAME_IDX = INTRO_SCRIPT.findIndex(entry => entry.type === 'name');
 function prevDialogueIndex(i) { const j = i - 1; return j >= 0 && INTRO_SCRIPT[j].who ? j : null; }
 function drawStart() {
   clearTimeout(travelTimer);
   route.state = 'intro';
-  if (!Number.isInteger(route.introStep) || route.introStep < 0 || route.introStep >= INTRO_SCRIPT.length) route.introStep = 0;
-  if (route.introStep > NAME_IDX && !route.playerName) route.introStep = NAME_IDX;
   saveRoute();
   current = -1;
   setProgress();
-  const entry = INTRO_SCRIPT[route.introStep];
-  if (entry.type === 'draw') return drawLottery();
-  if (entry.type === 'name') return drawNameEntry();
-  if (route.introStep === 0) {
-    // La primera pantalla contiene únicamente el popup «El caso».
-    route.introStep = 1;
-    saveRoute();
-    screen.innerHTML = '';
-    setControls('');
-    popup.className = 'popup';
-    popup.innerHTML = `<div class="tag">JUICIO A LAS JUNTAS · 1985</div><h2 id="popup-title">EL CASO</h2><p>La defensa busca presentar los crímenes como <strong>«excesos» individuales</strong>. La idea de los «dos demonios» encuadró la violencia como un enfrentamiento entre dos fuerzas.</p><p>La fiscalía debe conectar testimonios, el informe de la CONADEP y el fallo para probar responsabilidades de mando y procedimientos clandestinos.</p><p class="small">Tu tarea: investigar las fuentes y construir un argumento.</p><div class="note-actions"><button type="button" id="popup-ok" class="gold">VER A LOS FISCALES ▶</button></div>`;
-    popup.onclose = () => { popup.onclose = null; drawStart(); };
-    popup.showModal();
-    popup.querySelector('#popup-ok').addEventListener('click', () => popup.close());
-    popup.querySelector('#popup-ok').focus();
+  const step = Number.isInteger(route.introStep) ? route.introStep : -1;
+  if (step < 0) {
+    screen.innerHTML = `<div class="tag">ARGENTINA · 1976–1985</div><h1>Investigá las pistas</h1><p>Entre 1976 y 1983, la dictadura secuestró, torturó e hizo desaparecer personas. Hoy, en 1985, la Cámara Federal juzga a los comandantes.</p><p class="flow-hint">Vas a ayudar a la fiscalía a revisar el expediente.</p>`;
+    setControls('<button class="gold" data-action="intro-next">RECIBIR CONVOCATORIA ▶</button>');
+    focusScreen();
     return;
   }
-  const text = escapeHTML(entry.text).replace(/\{nombre\}/g, escapeHTML(route.playerName || 'ayudante'));
-  const last = route.introStep === INTRO_SCRIPT.length - 1;
-  screen.innerHTML = `<div class="tag">${route.introStep < NAME_IDX ? 'CONVOCATORIA · 1985' : 'TU MISIÓN'}</div><h1>${route.introStep < NAME_IDX ? 'La fiscalía necesita ayuda' : 'Así vamos a trabajar'}</h1>
-    <div class="duo">${['S','M'].map(key => `<figure class="duo-char ${entry.who === key ? 'on' : ''}"><div class="duo-avatar" aria-hidden="true">${SPEAKERS[key][1]}</div><figcaption>${SPEAKERS[key][0]}</figcaption></figure>`).join('')}</div>
-    <div class="bubble"><span class="guide-name">${SPEAKERS[entry.who][0]}</span><p>${text}</p></div>
-    <p class="guide-note">Diálogo recreado con fines pedagógicos; no son citas textuales.</p>
-    ${route.introStep === 1 ? '<p class="source">Diálogo recreado con fines pedagógicos; no son citas textuales.</p>' : ''}`;
-  setControls(`<button class="alt" data-action="intro-prev" ${prevDialogueIndex(route.introStep) === null ? 'disabled' : ''}>◀ ANTERIOR</button>${last ? '' : '<button class="alt" data-action="intro-skip">SALTAR ▶</button>'}${last ? '<button class="gold" data-action="start">EMPEZAR EL VIAJE ▶</button>' : '<button data-action="intro-next">SIGUIENTE ▶</button>'}`);
+  const entry = INTRO_SCRIPT[step];
+  if (!entry) {
+    screen.innerHTML = `<div class="tag">CONVOCATORIA · 1985</div><h1>Asistente de fiscalía</h1><p>Vas a revisar testimonios y documentos, y a comparar las pistas del expediente.</p>`;
+    setControls('<button class="gold" data-action="start">RECIBIR PRIMER ENCARGO ▶</button>');
+    focusScreen();
+    return;
+  }
+  if (entry.type === 'draw') return drawLottery();
+  if (entry.type === 'name') return drawNameEntry();
+  const [speaker, avatar] = SPEAKERS[entry.who];
+  const text = entry.text.replace('{nombre}', route.playerName || 'Asistente');
+  screen.innerHTML = `<div class="tag">CONVOCATORIA · 1985</div><section class="strassera-guide"><div class="strassera-avatar" aria-hidden="true">${avatar}</div><div><span class="guide-name">${speaker}</span><p>${escapeHTML(text)}</p><span class="guide-note">ESCENA RECREADA</span></div></section>`;
+  setControls(`<button class="alt" data-action="intro-prev">◀ ATRÁS</button><button class="gold" data-action="intro-next">CONTINUAR ▶</button>`);
   focusScreen();
 }
 function drawLottery() {
   setProgress();
   screen.innerHTML = `<div class="tag">EL SORTEO</div><h1>Sorteando ayudante…</h1><div class="lottery"><div class="urn" aria-hidden="true"><svg viewBox="0 0 64 64" shape-rendering="crispEdges"><rect x="12" y="20" width="40" height="34" fill="#486c68"/><rect x="8" y="16" width="48" height="6" fill="#8f997e"/><g class="tw"><rect x="20" y="28" width="8" height="8" fill="#ffc857"/><rect x="34" y="34" width="8" height="8" fill="#ad6454"/><rect x="26" y="42" width="8" height="8" fill="#f5edcf"/><rect x="40" y="26" width="6" height="6" fill="#56f0ad"/></g><rect x="28" y="54" width="8" height="6" fill="#d29b52"/></svg></div><p class="pixel blink">•  •  •</p></div>`;
   setControls('<button class="alt" data-action="intro-skip">SALTAR ▶</button>');
-  travelTimer = setTimeout(() => { route.introStep = NAME_IDX; drawStart(); }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 300 : 2000);
+  travelTimer = setTimeout(() => drawNameEntry(), matchMedia('(prefers-reduced-motion: reduce)').matches ? 300 : 2000);
   focusScreen();
 }
 function drawNameEntry() {
@@ -461,10 +464,10 @@ const INTERFERENCES = [
    ]}
 ];
 let finishStep = 0;
-function currentProblem() { const index = PROBLEMS.findIndex(problem => problem.stops.some(id => !route.visited.includes(id))); return index < 0 ? null : { ...PROBLEMS[index], index }; }
+function currentProblem() { const index = Number.isInteger(route.problemIndex) ? route.problemIndex : PROBLEMS.findIndex(problem => problem.stops.some(id => !route.visited.includes(id))); return index < 0 || index >= PROBLEMS.length ? null : { ...PROBLEMS[index], index }; }
 function currentList() {
   const pr = currentProblem();
-  if (!pr) return DESTINATIONS.slice();
+  if (!pr) return [];
   const list = pr.stops.filter(id => !route.visited.includes(id)).map(destinationById);
   return route.visited.length ? list : list.filter(destination => ['cordoba','tucuman'].includes(destination.id));
 }
@@ -474,17 +477,28 @@ function orderedRemaining() {
   return [...remaining.filter(recommended), ...remaining.filter(destination => !recommended(destination))];
 }
 function destinationCard(destination) {
-  return `<article class="destination-card single"><div class="postcard-art">${destinationArt(destination.scene)}</div><div class="destination-info"><span class="destination-kicker">${escapeHTML(destination.label)}</span><h2>${escapeHTML(destination.title)}</h2><p>${escapeHTML(destination.role)}</p></div></article>`;
+  return `<article class="destination-card single"><div class="postcard-art">${destinationArt(destination.scene)}</div><div class="destination-info"><span class="destination-kicker">${escapeHTML(destination.label)}</span><h2>${escapeHTML(destination.title)}</h2></div></article>`;
 }
 function drawProblem() {
-  const pr = currentProblem();
-  if (!pr) { finishStep = 0; return drawFinish(); }
+  const problem = currentProblem();
+  if (!problem) return drawDestinations();
   route.state = 'problem';
   saveRoute();
   setProgress();
-  const hi = route.playerName ? `${route.playerName}: ` : '';
-  screen.innerHTML = `<div class="tag">PROBLEMA ${pr.index + 1} DE ${PROBLEMS.length} · ${escapeHTML(pr.eje)}</div><h1>${escapeHTML(pr.title)}</h1>${strasseraGuide(hi + pr.intro, `Problema ${pr.index + 1}`)}<p class="small">Para resolverlo vamos a recorrer ${pr.stops.length} destinos.</p>`;
-  setControls('<button class="gold" data-action="destinations">ELEGIR DESTINO ▶</button>');
+  screen.innerHTML = `<div class="tag">ENCARGO ${problem.index + 1}/3 · ${escapeHTML(problem.eje)}</div><h1>${escapeHTML(problem.title)}</h1>${strasseraGuide(problem.guide, `RECREACIÓN · ENCARGO ${problem.index + 1}/3`)}<section class="rule"><h2>Encargo</h2><p>${escapeHTML(problem.task)}</p></section><p class="small">Vas a revisar las fuentes una por una y clasificar cada pista.</p>`;
+  setControls('<button class="gold" data-action="begin-assignment">REUNIR FUENTES ▶</button>');
+  focusScreen();
+}
+function drawAssignmentReview(problem) {
+  route.state = 'assignmentReview';
+  if (!Array.isArray(route.completedProblems)) route.completedProblems = [];
+  if (!route.completedProblems.includes(problem.id)) route.completedProblems.push(problem.id);
+  saveRoute();
+  setProgress();
+  const findings = PROBLEMS.slice(0, problem.index + 1).map((item,index) => `<li class="met"><strong>${index + 1}. ${escapeHTML(item.eje)}:</strong> ${escapeHTML(item.finding)}</li>`).join('');
+  const synthesis = problem.index === PROBLEMS.length - 1 ? '<p class="question">Hipótesis para el alegato: la convergencia de casos, el funcionamiento clandestino y las órdenes estatales permiten sostener que hubo terrorismo de Estado con un método sistemático.</p><p class="small">La hipótesis es el argumento de la Fiscalía; la Cámara debe resolver sobre las pruebas.</p>' : `<p class="flow-hint">${escapeHTML(problem.next)}</p>`;
+  screen.innerHTML = `<div class="tag">HALLAZGO ${problem.index + 1}/3</div><h1>${problem.index === 2 ? 'Las tres piezas del argumento' : '¿Qué encontramos?'}</h1>${strasseraGuide(problem.reviewGuide, `RECREACIÓN · BALANCE ${problem.index + 1}/3`)}<section class="stage-board"><h2>Interpretación en construcción</h2><ol>${findings}</ol></section>${synthesis}`;
+  setControls(problem.index < PROBLEMS.length - 1 ? '<button class="gold" data-action="next-assignment">SEGUIR CON EL ENCARGO ▶</button>' : '<button class="gold" data-action="finish-investigation">ORDENAR LA EVIDENCIA ▶</button>');
   focusScreen();
 }
 function drawDestinations() {
@@ -496,12 +510,19 @@ function drawDestinations() {
   if (browseIndex >= list.length) browseIndex = 0;
   if (browseIndex < 0) browseIndex = Math.max(0, list.length - 1);
   const destination = list[browseIndex];
-  const hi = route.playerName ? `${route.playerName}: ` : '';
-  const left = pr ? pr.stops.filter(id => !route.visited.includes(id)).length : 0;
-  const guideText = hi + (!pr ? 'Ya recorriste todas las paradas. Si querés mejorar el expediente, podés volver a revisar cualquier destino.' : !route.visited.length ? 'Empecemos por el principio: cómo ocurrieron los operativos. Tenemos testimonios de Córdoba y de Tucumán. ¿Por cuál querés empezar?' : `Seguimos con el problema «${pr.title}». ${left === 1 ? 'Nos queda 1 destino' : `Nos quedan ${left} destinos`}; elegí por cuál seguir.`);
-  screen.innerHTML = `<div class="tag">${pr ? `PROBLEMA ${pr.index + 1} DE ${PROBLEMS.length} · ${escapeHTML(pr.eje)}` : 'REVISIÓN DEL EXPEDIENTE'}</div><h1>¿A dónde viajamos?</h1>${strasseraGuide(guideText)}
-    ${destination ? `<p class="browse-count">OPCIÓN ${browseIndex + 1} DE ${list.length}</p>${destinationCard(destination)}
-    <div class="browse-nav"><button type="button" class="alt" data-browse="-1" aria-label="Destino anterior"${list.length > 1 ? '' : ' disabled'}>◀</button><button type="button" class="gold" data-destination="${escapeHTML(destination.id)}">${route.visited.includes(destination.id) ? 'REVISAR ESTA PARADA ▶' : 'VIAJAR A ESTA PARADA ▶'}</button><button type="button" class="alt" data-browse="1" aria-label="Destino siguiente"${list.length > 1 ? '' : ' disabled'}>▶</button></div>` : ''}`;
+  if (pr && !destination) return drawAssignmentReview(pr);
+  if (!pr && !destination) {
+    const boardReady = route.connections.length > 0;
+    progress.textContent = boardReady ? 'PASO 4/4 · ALEGATO' : 'PASO 3/4 · PIZARRA';
+    renderJourneyProgress(boardReady ? 4 : 3);
+    screen.innerHTML = `<div class="tag">PASO 2/4 · FUENTES COMPLETAS</div><h1>${boardReady ? 'Fuentes revisadas' : 'Ya revisaste todas las fuentes'}</h1><p class="flow-hint">${boardReady ? 'Ya conectaste pistas. Ahora escribí una frase con la conclusión que sostienen.' : 'Siguiente: abrí la pizarra y tendé al menos un hilo entre dos pistas relacionadas.'}</p><ul class="checklist"><li class="met">✓ Fuentes leídas y clasificadas</li><li class="${boardReady?'met':'missing'}">${boardReady?'✓ Hilo conectado':'2. Conectá dos pistas con un hilo'}</li><li class="${boardReady?'current':''}">3. Escribí tu conclusión</li></ul>`;
+    setControls(boardReady ? '<button class="alt" data-action="board">VOLVER A LA PIZARRA</button><button class="gold" data-action="finish">ARMAR ALEGATO ▶</button>' : '<button class="gold" data-action="board">IR A LA PIZARRA ▶</button>');
+    focusScreen();
+    return;
+  }
+  screen.innerHTML = `<div class="tag">PASO 2/4 · CASO ${pr.index + 1} DE ${PROBLEMS.length} · ${pr.stops.filter(id=>route.visited.includes(id)).length}/${pr.stops.length} PARADAS COMPLETADAS</div><h1>Elegí una parada</h1><p class="flow-hint"><strong>Encargo:</strong> ${escapeHTML(pr.task)}</p>
+    ${destination ? `<p class="browse-count">PARADA ${browseIndex + 1} DE ${list.length} EN ESTE CASO</p>${destinationCard(destination)}
+    <div class="browse-nav"><button type="button" class="alt" data-browse="-1" aria-label="Parada anterior"${list.length > 1 ? '' : ' disabled'}>◀</button><button type="button" class="gold" data-destination="${escapeHTML(destination.id)}">${route.visited.includes(destination.id) ? 'VOLVER A ESTA PARADA ▶' : 'EMPEZAR ESTA PARADA ▶'}</button><button type="button" class="alt" data-browse="1" aria-label="Parada siguiente"${list.length > 1 ? '' : ' disabled'}>▶</button></div>` : ''}`;
   screen.querySelectorAll('[data-destination]').forEach(button => button.addEventListener('click', () => chooseDestination(button.dataset.destination)));
   screen.querySelectorAll('[data-browse]').forEach(button => button.addEventListener('click', () => {
     const step = Number(button.dataset.browse);
@@ -510,9 +531,10 @@ function drawDestinations() {
     drawDestinations();
     screen.querySelector(`[data-browse="${step}"]`)?.focus({preventScroll:true});
   }));
-  setControls(`<button class="alt" data-action="debrief" ${route.visited.length ? '' : 'disabled'}>◀ VOLVER AL ÚLTIMO REPASO</button><button class="gold" data-action="finish">IR AL CIERRE ▶</button>`);
+  setControls('<button class="alt" data-action="board">VER PIZARRA</button>');
   focusScreen();
 }
+
 function chooseDestination(id) {
   const destination = destinationById(id);
   if (!destination) return;
@@ -535,8 +557,8 @@ function renderStopAnalysis(destination) {
   const a = stopAnalysisFor(destination.id);
   const axes = STAGES.filter(stage => destination.axes.includes(stage.id));
   const options = axes.map(stage => `<option value="${stage.id}" ${a.axis===stage.id?'selected':''}>${escapeHTML(stage.title)}</option>`).join('');
-  const feedback = a.checked && a.feedback ? `<div class="analysis-feedback ${a.feedback.complete?'':'needs-work'}" role="status"><p class="analysis-status">${a.feedback.complete?'CONCLUSIÓN GUARDADA · PARADA REVISADA':'CONCLUSIÓN GUARDADA · REVISÁ ESTOS PUNTOS'}</p><ul>${a.feedback.items.map(item=>`<li>${escapeHTML(item)}</li>`).join('')}</ul><p class="analysis-hint">Esta devolución revisa la estructura de la respuesta; no reemplaza la interpretación histórica ni la lectura de las fuentes.</p></div>` : '<p class="analysis-hint">La mesa aparece una sola vez al cerrar la parada. Usá las fuentes que consultaste para construir una conclusión propia.</p>';
-  return `<section class="analysis-lab" aria-labelledby="stop-analysis-title"><h2 id="stop-analysis-title">Mesa de análisis · Cierre de la parada</h2><p>Ya revisaste las pistas de este destino. Acá cerrás la parada: dejás asentado qué conclusión provisional sacás de las fuentes y qué límite reconocés.</p><div class="rule"><strong>¿Para qué sirve?</strong><br>Tu conclusión queda guardada en el expediente para recuperarla al final. También permite marcar esta etapa como revisada si vinculás la parada con el eje adecuado, mencionás una fuente y explicás un límite. No es una contraseña ni una frase mágica: la devolución solo revisa esos criterios básicos.</div><form id="stop-analysis-form"><label class="label" for="stop-axis">1. ¿Qué eje ayuda a comprender esta parada?</label><select id="stop-axis" required><option value="">Elegí el eje principal…</option>${options}<option value="context" ${a.axis==='context'?'selected':''}>Contexto / todavía no puedo concluir</option></select><label class="label" for="stop-conclusion">2. ¿Qué conclusión podés sostener a partir de las fuentes consultadas?</label><textarea id="stop-conclusion" required minlength="30" placeholder="Al comparar las fuentes de esta parada, puedo sostener que…">${escapeHTML(a.conclusion || '')}</textarea><label class="label" for="stop-limit">3. ¿Qué límite tiene esa conclusión o qué necesitarías cruzar para sostenerla mejor?</label><textarea id="stop-limit" required minlength="15" placeholder="Estas fuentes no alcanzan para afirmar… / Para comprobarlo, las cruzaría con…">${escapeHTML(a.limit || '')}</textarea><div class="note-actions"><button type="submit" class="gold">GUARDAR CONCLUSIÓN EN EL EXPEDIENTE ▶</button></div></form>${feedback}</section>`;
+  const feedback = a.checked && a.feedback ? `<div class="analysis-feedback ${a.feedback.complete?'':'needs-work'}" role="status"><p class="analysis-status">${a.feedback.complete?'CONCLUSIÓN GUARDADA':'REVISÁ LA CONCLUSIÓN'}</p><ul>${a.feedback.items.map(item=>`<li>${escapeHTML(item)}</li>`).join('')}</ul></div>` : '';
+  return `<section class="analysis-lab" aria-labelledby="stop-analysis-title"><h2 id="stop-analysis-title">Cerrá esta parada</h2><form id="stop-analysis-form"><label class="label" for="stop-axis">Eje</label><select id="stop-axis" required><option value="">Elegí uno…</option>${options}<option value="context" ${a.axis==='context'?'selected':''}>Contexto / duda</option></select><label class="label" for="stop-conclusion">¿Qué muestran las fuentes?</label><textarea id="stop-conclusion" required minlength="30" placeholder="Puedo sostener que…">${escapeHTML(a.conclusion || '')}</textarea><label class="label" for="stop-limit">¿Qué falta comprobar?</label><textarea id="stop-limit" required minlength="15" placeholder="Necesito cruzarlo con…">${escapeHTML(a.limit || '')}</textarea><div class="note-actions"><button type="submit" class="gold">GUARDAR CONCLUSIÓN ▶</button></div></form>${feedback}</section>`;
 }
 function drawDebrief() {
   const destination = activeDestination();
@@ -557,13 +579,9 @@ function drawDebrief() {
 function renderAnalysis(card) {
   const a = analysisFor(card.id);
   const axes = relevantAxes(card);
-  const roles = [
-    ['direct','Evidencia directa: respalda una afirmación concreta'],
-    ['support','Evidencia de apoyo: cruza o precisa otras fuentes'],
-    ['context','Contexto: orienta, pero no prueba por sí solo']
-  ];
-  const previous = a.checked && a.feedback ? `<div class="analysis-feedback ${a.feedback.complete?'':'needs-work'}" role="status"><p class="analysis-status">${a.feedback.points}/4 criterios de análisis resueltos</p><ul>${a.feedback.feedback.map(item=>`<li>${escapeHTML(item)}</li>`).join('')}</ul><p><strong>La ficha señala:</strong> ${escapeHTML(card.use || 'Conviene cruzar esta fuente con otras antes de generalizar.')}</p><p class="analysis-hint">Devolución orientativa: comprueba la estructura de tu análisis, no puede verificar automáticamente toda interpretación histórica.</p></div>` : '<p class="analysis-hint">No hay una única frase correcta. La devolución te ayuda a revisar cuatro aspectos; la calidad histórica de tu interpretación requiere leer la fuente y justificarla.</p>';
-  return `<section class="analysis-lab" aria-labelledby="analysis-title"><h2 id="analysis-title">Mesa de análisis · Tomá una decisión</h2><p>Antes de incorporar la pista al alegato, decidí qué función cumple, vinculala con un eje y explicá qué permite afirmar y qué límite tiene.</p><form id="analysis-form"><div class="analysis-grid"><div><label class="label" for="analysis-role">1. ¿Qué función cumple?</label><select id="analysis-role" required><option value="">Elegí una función…</option>${roles.map(([value,label])=>`<option value="${value}" ${a.role===value?'selected':''}>${label}</option>`).join('')}</select></div><div><label class="label" for="analysis-axis">2. ¿Con qué eje se relaciona?</label><select id="analysis-axis" required><option value="">Elegí un eje…</option>${axes.map(axis=>`<option value="${axis.id}" ${a.axis===axis.id?'selected':''}>${escapeHTML(axis.title)}</option>`).join('')}<option value="context" ${a.axis==='context'?'selected':''}>Contexto / duda general</option></select></div></div><label class="label" for="analysis-claim">3. ¿Qué te permite sostener esta fuente?</label><textarea id="analysis-claim" required minlength="20" placeholder="La fuente permite sostener que…">${escapeHTML(a.claim || '')}</textarea><label class="label" for="analysis-limit">4. ¿Qué no demuestra por sí sola o qué habría que cruzar?</label><textarea id="analysis-limit" required minlength="12" placeholder="Por sí sola no demuestra… / La cruzaría con…">${escapeHTML(a.limit || '')}</textarea><div class="note-actions"><button type="submit" class="gold">COMPROBAR MI ANÁLISIS ▶</button></div></form>${previous}</section>`;
+  const roles = [['direct','Directa'],['support','Apoyo'],['context','Contexto']];
+  const previous = a.checked && a.feedback ? `<div class="analysis-feedback ${a.feedback.complete?'':'needs-work'}" role="status"><p class="analysis-status">${a.feedback.points}/4 criterios</p><ul>${a.feedback.feedback.map(item=>`<li>${escapeHTML(item)}</li>`).join('')}</ul><p><strong>La ficha señala:</strong> ${escapeHTML(card.use || 'Cruzá esta fuente con otras.')}</p></div>` : '';
+  return `<section class="analysis-lab" aria-labelledby="analysis-title"><h2 id="analysis-title">Leé la fuente</h2><form id="analysis-form"><div class="analysis-grid"><div><label class="label" for="analysis-role">Función</label><select id="analysis-role" required><option value="">Elegí…</option>${roles.map(([value,label])=>`<option value="${value}" ${a.role===value?'selected':''}>${label}</option>`).join('')}</select></div><div><label class="label" for="analysis-axis">Eje</label><select id="analysis-axis" required><option value="">Elegí…</option>${axes.map(axis=>`<option value="${axis.id}" ${a.axis===axis.id?'selected':''}>${escapeHTML(axis.title)}</option>`).join('')}<option value="context" ${a.axis==='context'?'selected':''}>Contexto / duda</option></select></div></div><label class="label" for="analysis-claim">¿Qué sostiene?</label><textarea id="analysis-claim" required minlength="20" placeholder="La fuente permite sostener que…">${escapeHTML(a.claim || '')}</textarea><label class="label" for="analysis-limit">¿Qué falta cruzar?</label><textarea id="analysis-limit" required minlength="12" placeholder="Necesito compararla con…">${escapeHTML(a.limit || '')}</textarea><div class="note-actions"><button type="submit" class="gold">GUARDAR LECTURA ▶</button></div></form>${previous}</section>`;
 }
 function drawCard() {
   const card = activeCard();
@@ -572,30 +590,40 @@ function drawCard() {
   const last = current >= destination.ids.length - 1;
   const note = pickNote;
   pickNote = '';
-  const locked = !selectionFor(card.id) && !route.fichas.includes(card.id);
   const interview = card.type === 'Testimonio' ? TESTIMONY_INTERVIEWS[card.id] : null;
+  const locked = Boolean(interview && !route.fichas.includes(card.id));
   setProgress();
   const mainContent = interview
-    ? `<section class="interview"><div class="interviewer">Entrevistador · pregunta de trabajo</div><p><strong>${escapeHTML(interview.question)}</strong></p><div class="interviewer">Respuesta · paráfrasis del relato</div><p class="answer">${escapeHTML(interview.answer)}</p><p class="paraphrase-note">Resumen basado en el legajo citado; no es una cita textual ni una entrevista real.</p></section>`
-    : `<blockquote class="quote">“${escapeHTML(card.fragment)}”</blockquote><p class="compact-summary">${escapeHTML(shortenText(card.claim, 175))}</p>`;
-  screen.innerHTML = `<div class="destination-ribbon"><span>PARADA ${route.visited.length} · ${escapeHTML(destination.title)}</span><span>PISTA ${current + 1} DE ${destination.ids.length}</span></div>
+    ? `<section class="interview" aria-label="Entrevista reconstruida a partir del testimonio"><p class="interviewer">EQUIPO DE INVESTIGACIÓN</p><p class="question">${escapeHTML(interview.question)}</p><button type="button" class="alt" id="reveal-interview" aria-expanded="${route.fichas.includes(card.id) ? 'true' : 'false'}" ${route.fichas.includes(card.id) ? 'hidden' : ''}>ESCUCHAR RESPUESTA ▶</button><div id="interview-answer" ${route.fichas.includes(card.id) ? '' : 'hidden'}><p class="interviewer">TESTIMONIO · RECONSTRUCCIÓN</p><p class="answer">${escapeHTML(interview.answer)}</p><p class="paraphrase-note">${escapeHTML(interview.source)} · Relato reconstruido, no cita textual.</p></div></section>`
+    : `<blockquote class="quote">“${escapeHTML(card.fragment)}”</blockquote><p class="compact-summary">${escapeHTML(shortenText(card.claim, 90))}</p>`;
+  screen.innerHTML = `<div class="destination-ribbon"><span>FUENTES · PARADA ${route.visited.indexOf(destination.id) + 1} · ${escapeHTML(destination.title)}</span><span>PISTA ${current + 1} DE ${destination.ids.length}</span></div><div class="clue-steps"><span class="done">1 · LEÉ / ESCUCHÁ</span><span class="${route.pins?.[card.id]?'done':'current'}">2 · CLASIFICÁ</span><span class="${route.pins?.[card.id]?'current':''}">3 · AVANZÁ</span></div>
     <span class="source-type">${escapeHTML(card.type)}</span><h1>${escapeHTML(card.title)}</h1>
-    ${mainContent}<p class="small">${escapeHTML(card.source)}</p>
-    <p class="question">${escapeHTML(shortenText(card.prompt, 90))}</p>
-    <details class="context"><summary>ABRIR FICHA COMPLETA</summary><p><strong>Resumen del documento:</strong> ${escapeHTML(card.claim)}</p><p class="small"><strong>Tipo y atribución:</strong> ${escapeHTML(card.attribution || TYPES[card.type])}</p><p><strong>Qué permite sostener y qué límite tiene:</strong> ${escapeHTML(card.use || 'Cruzá esta fuente con otras antes de generalizar.')}</p>${card.status ? `<p class="small">${escapeHTML(card.status)}</p>` : ''}</details>
-    <div class="pick-panel"><button class="${selectionFor(card.id) ? 'gold' : ''}" data-action="pick" ${locked ? 'disabled' : ''}>${selectionFor(card.id) ? 'RETIRAR DE LA PILA' : 'AÑADIR A LA PILA DE EXPEDIENTES'}</button><p class="small">${locked ? 'Abrí la ficha para desbloquear esta pista.' : 'Guardada en la pila. En la pizarra podés conectarla con otras fuentes.'}</p><button type="button" class="alt" data-open-board>▣ ABRIR PIZARRA · ${pinnedCards().length} PINCHADAS</button>${note ? `<p class="small" role="status">${escapeHTML(note)}</p>` : ''}</div>`;
-  screen.querySelector('[data-action="pick"]').addEventListener('click', () => togglePick(card.id));
+    ${mainContent}
+    <details class="context"><summary>VER FUENTE</summary><p>${escapeHTML(card.claim)}</p><p class="small">${escapeHTML(card.source)} · ${escapeHTML(card.attribution || TYPES[card.type])}</p>${card.use ? `<p><strong>Alcance:</strong> ${escapeHTML(card.use)}</p>` : ''}${card.status ? `<p class="small">${escapeHTML(card.status)}</p>` : ''}</details>
+    <section class="quick-classify" aria-label="Clasificar pista"><p class="interviewer">¿QUÉ MUESTRA ESTA PISTA?</p><p class="small">Elegí una opción. La pista quedará marcada y aparecerá en la pizarra.</p><div class="quick-axis-buttons">${CLASSIFY_AXES.map(axis=>`<button type="button" class="${route.pins?.[card.id]===axis.id?'gold':'alt'}" data-classify="${axis.id}" aria-pressed="${route.pins?.[card.id]===axis.id}" ${locked?'disabled':''}><span>${axis.label}</span><small>${axis.help}</small></button>`).join('')}</div><p class="small" role="status">${note ? escapeHTML(note) : route.pins?.[card.id] ? `✓ Guardada en la pizarra: ${escapeHTML(CLASSIFY_AXES.find(axis=>axis.id===route.pins[card.id])?.label || 'clasificada')}.` : locked ? 'Escuchá la respuesta para poder clasificar esta pista.' : 'Todavía no clasificada.'}</p><button type="button" class="alt" data-open-board>ABRIR PIZARRA · ${pinnedCards().length} pistas</button></section>`;
   screen.querySelector('[data-open-board]').addEventListener('click', openBoard);
+  screen.querySelectorAll('[data-classify]').forEach(button => button.addEventListener('click', () => {
+    if (interview && !route.fichas.includes(card.id)) return;
+    const axis=button.dataset.classify, previousAxis=route.pins?.[card.id];
+    if (!route.pins || typeof route.pins !== 'object') route.pins={};
+    if (!route.boardPositions || typeof route.boardPositions !== 'object') route.boardPositions={};
+    picked.add(card.id); route.pins[card.id]=axis;
+    if (previousAxis && previousAxis!==axis) delete route.boardPositions[card.id];
+    saveStore(PICKS_KEY,[...picked]); pickNote=`${card.id} · ${CLASSIFY_AXES.find(item=>item.id===axis).short} · guardada en la pizarra.`;
+    saveRoute(); setProgress(); drawCard();
+  }));
+  screen.querySelector('#reveal-interview')?.addEventListener('click', () => {
+    if (!route.fichas.includes(card.id)) route.fichas.push(card.id);
+    saveRoute();
+    drawCard();
+  });
   const ficha = screen.querySelector('details.context');
   ficha.addEventListener('toggle', () => {
-    if (!ficha.open || route.fichas.includes(card.id)) return;
+    if (interview || !ficha.open || route.fichas.includes(card.id)) return;
     route.fichas.push(card.id); saveRoute();
-    const button = screen.querySelector('[data-action="pick"]');
-    if (button) button.disabled = false;
-    const helper = screen.querySelector('.pick-panel .small');
-    if (helper) helper.textContent = 'Ya podés guardar esta pista en la pila y conectarla en la pizarra.';
+    // Las pistas documentales se pueden clasificar desde la misma pantalla.
   });
-  setControls(`<button class="alt" data-action="prev" ${current === 0 ? 'disabled' : ''}>◀ ANTERIOR</button><button data-action="next">${last ? 'CERRAR ESTA PARADA ▶' : 'SIGUIENTE PISTA ▶'}</button>`);
+  setControls(`<button class="alt" data-action="prev" ${current === 0 ? 'disabled' : ''}>◀ PISTA ANTERIOR</button><button class="gold" data-action="next" ${route.pins?.[card.id] ? '' : 'disabled'}>${last ? 'TERMINAR PARADA ▶' : 'SIGUIENTE PISTA ▶'}</button>`);
   focusScreen();
 }
 function drawFinish() {
@@ -604,72 +632,37 @@ function drawFinish() {
   setProgress();
   const result = scoreCase();
   const checkLine = (passed, label) => `<li class="${passed ? 'met' : 'missing'}">${passed ? '●' : '○'} ${label}</li>`;
-  const scoreDetails = result.chosen.length ? result.chosen.map(card => {
-    const tier = DIRECT_EVIDENCE.has(card.id) ? 'directa' : SUPPORT_EVIDENCE.has(card.id) ? 'de apoyo' : 'contextual';
-    const explanation = card.id === 'F1' || card.id === 'F2' ? 'Aporta contexto sobre antecedentes; por sí sola no demuestra la aplicación generalizada posterior.' : card.id === 'G1' ? 'Aporta un límite sobre el alcance institucional de la CONADEP, no evidencia directa de la metodología represiva.' : tier === 'directa' ? 'Aporta evidencia directa para reconstruir al menos uno de los ejes.' : 'Aporta una precisión o contexto que conviene cruzar con evidencia directa.';
-    return `<li><strong>${escapeHTML(card.id)} · ${escapeHTML(plainTitle(card))}</strong><p>${explanation}</p><span class="small">${tier} · ${escapeHTML(card.source)}</span></li>`;
-  }).join('') : '<li>Todavía no pinchaste pistas en la pizarra.</li>';
-  const saved = notes.map(note => `<li><p><strong>${escapeHTML(({state:'Órdenes y participación estatal',clandestinity:'Clandestinidad y negación',system:'Sistematicidad',context:'Contexto / duda general'})[note.axis] || 'Nota')}</strong><br>${escapeHTML(note.text)}</p></li>`).join('');
-  const routeRecap = route.visited.length ? route.visited.map((id, index) => { const dest = destinationById(id); const savedConclusion = route.stopAnalysis?.[id]; return `<li><strong>Parada ${index + 1} · ${escapeHTML(dest?.title || id)}</strong><span>${escapeHTML(dest?.role || '')}</span>${savedConclusion?.checked ? `<blockquote><strong>Tu conclusión:</strong> ${escapeHTML(savedConclusion.conclusion)}<br><strong>Límite reconocido:</strong> ${escapeHTML(savedConclusion.limit)}<br><span class="small">Estado: ${savedConclusion.feedback?.complete ? 'parada revisada' : 'requiere revisión'}.</span></blockquote>` : '<span class="small">Todavía no guardaste una conclusión para esta parada.</span>'}</li>`; }).join('') : '<li>Todavía no elegiste destinos. Podés volver y recorrer las fuentes.</li>';
-  const pressures = route.events.length ? `<section class="rule"><h2>Presiones durante la investigación</h2><ul class="checklist">${INTERFERENCES.filter(ev => route.events.includes(ev.id)).map(ev => { const refuted = ev.counter.some(id => isPinned(id)); return checkLine(!ev.penalty || refuted, `${ev.title}: ${!ev.penalty ? 'denunciada, sin efecto en el porcentaje' : refuted ? 'refutada con tu alegato' : 'sin refutar'}.`); }).join('')}</ul></section>` : '';
-  const requisitos = `<section class="score-card" aria-labelledby="score-title"><h2 id="score-title">${result.score}% alcanzado</h2><p class="score-status ${result.ready ? 'ready' : 'not-ready'}">${result.ready ? 'EXPEDIENTE ALCANZADO · PODÉS ENTREGAR EL ALEGATO' : 'TODAVÍA NO ALCANZA · REVISÁ LAS EVIDENCIAS PENDIENTES'}</p><div class="score-track" role="meter" aria-label="Porcentaje alcanzado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${result.score}"><span style="width:${result.score}%"></span></div><p class="small">Umbral para presentar: 75% y todos los requisitos. El porcentaje reúne las fuentes conectadas en la pizarra, la cobertura de los tres ejes, la diversidad de fuentes y las decisiones tomadas durante el recorrido.</p></section>
-    ${stageBoard()}
-    <section class="rule"><h2>Requisitos del expediente</h2><ul class="checklist">${checkLine(result.checks.state, 'Órdenes y participación estatal: evidencia pertinente y una nota identificada con este eje.')}${checkLine(result.checks.clandestinity, 'Clandestinidad y negación: evidencia pertinente y una nota identificada con este eje.')}${checkLine(result.checks.system, `Sistematicidad: ${result.testimonyCount}/2 testimonios distintos, ${result.hasConadep ? 'sí' : 'no'} hay una síntesis de CONADEP y ${noteReflects('system') ? 'sí' : 'no'} hay una nota de este eje.`)}${checkLine(result.checks.diversity, `Tres pistas de al menos dos tipos: ${result.chosen.length} pistas conectadas, ${result.types.size} tipos de fuente.`)}${checkLine(result.checks.context, 'La bitácora tiene al menos una nota con tu lectura, una duda o un límite.')}</ul></section>
-    ${pressures}
-    <details class="score-review"><summary>Ver fuentes conectadas en la pizarra</summary><ul>${scoreDetails}</ul></details>`;
-  const redaccion = `${result.ready ? '<p class="rule">Tu expediente alcanzó el 75% con todos los requisitos. Cuando termines de redactar, pasá al último paso para completar y entregar el alegato.</p>' : '<p class="rule">Todavía no alcanzás el 75% con todos los requisitos: seguí investigando antes de entregar el alegato.</p>'}<p class="question">“Sostengo que se trató de terrorismo de Estado porque…”</p>
-    <div class="axes">
-      <label class="axis"><span class="label">Eje 1 · Órdenes y participación estatal</span><span class="prompt-help">¿Qué afirma la fuente sobre órdenes, mandos o intervención estatal? ¿Qué parte es inferencia tuya?</span><textarea data-finish="0" aria-label="Argumento sobre órdenes y participación estatal" placeholder="Nombrá la fuente y explicá qué evidencia aporta."></textarea></label>
-      <label class="axis"><span class="label">Eje 2 · Clandestinidad y negación</span><span class="prompt-help">¿Qué vínculo encontrás entre el ocultamiento de detenciones o centros y las respuestas oficiales?</span><textarea data-finish="1" aria-label="Argumento sobre clandestinidad y negación" placeholder="Relacioná fuentes y señalá sus voces por separado."></textarea></label>
-      <label class="axis"><span class="label">Eje 3 · Sistematicidad</span><span class="prompt-help">Compará dos testimonios de casos distintos y cruzalos con una síntesis de CONADEP. ¿Qué aporta cada voz?</span><textarea data-finish="2" aria-label="Argumento sobre sistematicidad" placeholder="Explicá la comparación y qué permite sostener."></textarea></label>
-    </div>
-    <details class="context"><summary>Preguntas para revisar el borrador</summary><ul><li>¿Qué frase o pasaje apoya cada idea y qué cambia al leer su contexto?</li><li>¿Se distingue qué dice cada testimonio, el fallo, el alegato y la síntesis de CONADEP?</li><li>¿Queda clara la conexión entre las evidencias y cuál es tu inferencia?</li><li>¿Qué límite, diferencia entre casos o pregunta queda abierta?</li></ul></details>
-    <details class="context"><summary>Mis notas de la bitácora</summary>${saved ? `<ul class="saved-notes">${saved}</ul>` : '<p>Todavía no hay notas. Escribilas en la bitácora.</p>'}</details>
-    <p class="small">“Terrorismo de Estado” es una conclusión que argumentás vos; no se atribuye a una fuente si el pasaje no lo dice. Este borrador se guarda en este navegador.</p>`;
-  const frasesBlock = `${!result.ready ? '<p class="rule">Todavía no alcanzás el 75% con todos los requisitos: seguí investigando antes de entregar el alegato.</p>' : ''}<p class="question">Completá el alegato: elegí la opción que coincide con lo que dicen las fuentes.</p>${FRASES.map((frase, i) => `<div class="frase" data-frase="${frase.id}"><span class="label">Eje ${i + 1} · ${escapeHTML(frase.eje)}</span><p>${escapeHTML(frase.before)} <strong class="blank">${route.frases[frase.id] ? escapeHTML(frase.options[frase.correct]) : '______'}</strong> ${escapeHTML(frase.after)}</p><div class="frase-options">${frase.options.map((option, j) => `<button type="button" class="alt" data-opt="${j}" ${route.frases[frase.id] ? 'disabled' : ''}>${escapeHTML(option)}</button>`).join('')}</div><p class="small frase-msg" role="status">${route.frases[frase.id] ? '✓ Correcto: coincide con la fuente.' : ''}</p></div>`).join('')}`;
-  const finishControls = () => `<button class="alt" data-action="${finishStep === 0 ? 'debrief' : 'fin-prev'}" ${finishStep === 0 && !route.visited.length ? 'disabled' : ''}>◀ ${finishStep === 0 ? 'VOLVER AL RECORRIDO' : 'ANTERIOR'}</button>${finishStep < 3 ? '<button data-action="fin-next">SIGUIENTE ▶</button>' : !result.ready ? '<button class="gold" data-action="destinations">SEGUIR INVESTIGANDO</button>' : `<button class="gold" data-action="deliver" ${FRASES.every(frase => route.frases[frase.id]) ? '' : 'disabled'}>ENTREGAR EL ALEGATO ▶</button>`}`;
-  finishStep = Math.max(0, Math.min(3, finishStep));
-  const parts = [`<section class="rule route-recap"><h2>Tu recorrido para construir el caso</h2><ol>${routeRecap}</ol></section>`, requisitos, redaccion, frasesBlock];
-  const titles = ['TU RECORRIDO', 'REQUISITOS DEL EXPEDIENTE', 'REDACCIÓN DEL ARGUMENTO', 'COMPLETÁ EL ALEGATO'];
-  const heads = ['¿Qué reunimos hasta ahora?', '¿Alcanza para presentar el juicio?', 'Armá tu argumento', 'Completá las frases del alegato'];
-  screen.innerHTML = `<div class="tag">CIERRE · PASO ${finishStep + 1} DE 4 · ${titles[finishStep]}</div><h1>${heads[finishStep]}</h1>${parts[finishStep]}`;
-  screen.querySelectorAll('[data-finish]').forEach(field => {
-    const index = Number(field.dataset.finish);
-    field.value = drafts.finish[index] || '';
-    field.addEventListener('input', () => { drafts.finish[index] = field.value; saveStore(DRAFT_KEY, drafts); });
-  });
-  screen.querySelectorAll('[data-frase]').forEach(box => {
-    const frase = FRASES.find(item => item.id === box.dataset.frase);
-    box.querySelectorAll('[data-opt]').forEach(button => button.addEventListener('click', () => {
-      if (Number(button.dataset.opt) === frase.correct) {
-        route.frases[frase.id] = true;
-        saveRoute();
-        box.querySelector('.blank').textContent = frase.options[frase.correct];
-        box.querySelector('.frase-msg').textContent = '✓ Correcto: coincide con la fuente.';
-        box.querySelectorAll('[data-opt]').forEach(b => { b.disabled = true; });
-        setControls(finishControls());
-      } else {
-        box.querySelector('.frase-msg').textContent = `Esa opción no coincide con la fuente. ${frase.hint}`;
-      }
-    }));
-  });
-  setControls(finishControls());
+  const testimonyCount = result.testimonyCount;
+  const requisitos = `<section class="score-card" aria-labelledby="score-title"><h2 id="score-title">${result.ready ? 'Expediente listo' : 'Seguí reuniendo evidencia'}</h2><p class="score-status ${result.ready ? 'ready' : 'not-ready'}">${result.chosen.length} pistas clasificadas · ${result.types.size} tipos de fuente</p></section>
+    <section class="rule"><h2>Lo que falta</h2><ul class="checklist">${checkLine(result.checks.state, 'Evidencia sobre participación estatal')}${checkLine(result.checks.clandestinity, 'Evidencia sobre clandestinidad')}${checkLine(result.checks.system, `Patrón: ${testimonyCount}/2 testimonios y ${result.hasConadep ? 'sí' : 'no'} síntesis de CONADEP`)}${checkLine(result.checks.diversity, 'Tres pistas de al menos dos tipos de fuente')}</ul></section>`;
+  const savedArgument = route.finalArgument || '';
+  screen.innerHTML = `<div class="tag">CIERRE · ALEGATO</div><h1>¿Qué muestran las pistas?</h1>${requisitos}<section class="analysis-lab"><label class="label" for="final-argument">Completá en una frase: “Sostengo que fue terrorismo de Estado porque…”</label><textarea id="final-argument" minlength="15" placeholder="Nombrá una o dos pistas que sostengan tu conclusión.">${escapeHTML(savedArgument)}</textarea><p class="small" id="argument-status" role="status">${savedArgument.trim().length >= 15 ? 'Argumento guardado.' : 'Una frase alcanza; se guarda automáticamente.'}</p></section><details class="context"><summary>Fuentes clasificadas · ${result.chosen.length}</summary><ul>${result.chosen.map(card => `<li><strong>${escapeHTML(card.id)} · ${escapeHTML(plainTitle(card))}</strong><p>${escapeHTML(shortenText(evidenceSummary(card),100))}</p></li>`).join('') || '<li>Todavía no hay pistas clasificadas.</li>'}</ul></details>`;
+  const field = screen.querySelector('#final-argument');
+  field.addEventListener('input', () => { route.finalArgument = field.value; saveRoute(); const status=screen.querySelector('#argument-status'); status.textContent=field.value.trim().length >= 15 ? 'Argumento guardado.' : 'Escribí al menos una frase breve.'; });
+  setControls(`<button class="alt" data-action="destinations">◀ SEGUIR INVESTIGANDO</button><button class="gold" data-action="deliver" ${result.ready && savedArgument.trim().length >= 15 ? '' : 'disabled'}>PRESENTAR ALEGATO ▶</button>`);
+  field.addEventListener('input', () => { const submit=controls.querySelector('[data-action="deliver"]'); if(submit) submit.disabled=!(scoreCase().ready && field.value.trim().length >= 15); });
   focusScreen();
 }
 
 function drawEnding() {
   const result = scoreCase();
-  if (!result.ready || !FRASES.every(frase => route.frases[frase.id])) { finishStep = result.ready ? 3 : 1; return drawFinish(); }
+  if (!result.ready || (route.finalArgument || '').trim().length < 15) { finishStep = 0; return drawFinish(); }
   route.state = 'ending';
   saveRoute();
   setProgress();
-  screen.innerHTML = `<div class="tag">FIN DEL PROCESO · SENTENCIA</div>
-    <h1>Alegato entregado: caso resuelto</h1>
-    <div class="postcard-art">${destinationArt('court')}</div>
-    ${strasseraGuide((route.playerName ? route.playerName + ': ' : '') + 'Reuniste las pruebas, distinguiste las voces de cada fuente y mostraste que no fueron hechos aislados. Con ese alegato, la Cámara puede dictar sentencia.', 'Cierre del juicio')}
-    <section class="score-card"><h2>Los responsables, tras las rejas</h2><p class="score-status ready">Tu alegato logró que los responsables de los crímenes del terrorismo de Estado fueran juzgados y condenados: Videla, Massera y Agosti quedan tras las rejas.</p><p class="small">Expediente alcanzado: ${result.score}%, con ${result.chosen.length} pistas en el alegato.</p></section>
-    <section class="rule"><h2>Sentencia del 9 de diciembre de 1985</h2><ul><li>Jorge Rafael Videla: reclusión perpetua.</li><li>Emilio Eduardo Massera: reclusión perpetua.</li><li>Orlando Ramón Agosti: 4 años y 6 meses de prisión.</li></ul></section>
-    <details class="context"><summary>Qué pasó en la realidad</summary><p>La Cámara Federal también condenó a Viola y a Lambruschini, y absolvió a Graffigna, Galtieri, Anaya y Lami Dozo. En 1985 los hechos se juzgaron como delitos del Código Penal; la justicia argentina los califica hoy como crímenes de lesa humanidad.</p><p>En 1986 y 1987 las leyes de Punto Final y Obediencia Debida frenaron nuevos juicios; entre 1989 y 1990 los indultos liberaron a los condenados; desde 2003 esas leyes se anularon y los juicios se reabrieron.</p></details>`;
+  const prisoners = [
+    {name:'Jorge Rafael Videla',sentence:'Reclusión perpetua',art:'<svg viewBox="0 0 48 64" shape-rendering="crispEdges" aria-hidden="true"><rect x="13" y="3" width="22" height="5" fill="#c5c4b6"/><rect x="9" y="8" width="30" height="7" fill="#b7b7aa"/><rect x="10" y="12" width="28" height="23" fill="#dab58f"/><rect x="7" y="16" width="5" height="10" fill="#c5c4b6"/><rect x="36" y="16" width="5" height="10" fill="#c5c4b6"/><rect x="15" y="20" width="5" height="3" fill="#1b2425"/><rect x="29" y="20" width="5" height="3" fill="#1b2425"/><rect x="20" y="28" width="9" height="2" fill="#725044"/><rect x="4" y="36" width="40" height="23" fill="#405443"/><rect x="4" y="39" width="40" height="4" fill="#6a765d"/><rect x="19" y="37" width="10" height="21" fill="#d9d5c3"/><rect x="8" y="46" width="5" height="4" fill="#d5b64d"/><rect x="35" y="46" width="5" height="4" fill="#d5b64d"/><rect x="10" y="59" width="10" height="4" fill="#222b31"/><rect x="28" y="59" width="10" height="4" fill="#222b31"/></svg>'},
+    {name:'Emilio Eduardo Massera',sentence:'Reclusión perpetua',art:'<svg viewBox="0 0 48 64" shape-rendering="crispEdges" aria-hidden="true"><rect x="13" y="3" width="22" height="7" fill="#211d19"/><rect x="8" y="9" width="32" height="7" fill="#211d19"/><rect x="10" y="13" width="28" height="22" fill="#d5a77f"/><rect x="8" y="16" width="5" height="12" fill="#211d19"/><rect x="35" y="16" width="5" height="12" fill="#211d19"/><rect x="14" y="20" width="6" height="3" fill="#1b2425"/><rect x="29" y="20" width="6" height="3" fill="#1b2425"/><rect x="18" y="27" width="13" height="4" fill="#33231e"/><rect x="4" y="36" width="40" height="23" fill="#3e4b54"/><rect x="4" y="39" width="40" height="4" fill="#6c7372"/><rect x="19" y="37" width="10" height="21" fill="#ddd9ca"/><rect x="22" y="40" width="4" height="13" fill="#354d68"/><rect x="8" y="46" width="5" height="4" fill="#cfb34b"/><rect x="35" y="46" width="5" height="4" fill="#cfb34b"/><rect x="10" y="59" width="10" height="4" fill="#222b31"/><rect x="28" y="59" width="10" height="4" fill="#222b31"/></svg>'},
+    {name:'Orlando Ramón Agosti',sentence:'4 años y 6 meses de prisión',art:'<svg viewBox="0 0 48 64" shape-rendering="crispEdges" aria-hidden="true"><rect x="13" y="3" width="22" height="6" fill="#66513b"/><rect x="9" y="9" width="30" height="6" fill="#66513b"/><rect x="10" y="13" width="28" height="22" fill="#d9ad87"/><rect x="8" y="16" width="5" height="10" fill="#66513b"/><rect x="35" y="16" width="5" height="10" fill="#66513b"/><rect x="14" y="20" width="6" height="3" fill="#1b2425"/><rect x="29" y="20" width="6" height="3" fill="#1b2425"/><rect x="18" y="28" width="13" height="3" fill="#554039"/><rect x="4" y="36" width="40" height="23" fill="#42566c"/><rect x="4" y="39" width="40" height="4" fill="#73859a"/><rect x="19" y="37" width="10" height="21" fill="#ded9ca"/><rect x="22" y="40" width="4" height="13" fill="#a43f36"/><rect x="8" y="46" width="5" height="4" fill="#d6c15b"/><rect x="35" y="46" width="5" height="4" fill="#d6c15b"/><rect x="10" y="59" width="10" height="4" fill="#222b31"/><rect x="28" y="59" width="10" height="4" fill="#222b31"/></svg>'}
+  ];
+  screen.innerHTML = `<div class="tag">JUICIO A LAS JUNTAS · 1985</div>
+    <h1>¡Los tres comandantes, tras las rejas!</h1>
+    <p class="compact-summary">Tu expediente quedó listo para el juicio. El 9 de diciembre de 1985, la Cámara Federal dictó sentencia.</p>
+    <div class="verdict-scene close-bars" role="group" aria-label="Representación en pixel art de los tres condenados tras las rejas">${prisoners.map(person=>`<figure class="verdict-prisoner" role="img" aria-label="${escapeHTML(person.name)}"><span class="sr-only">${escapeHTML(person.name)}</span>${person.art}</figure>`).join('')}<div class="bar-gate left" aria-hidden="true"></div><div class="bar-gate right" aria-hidden="true"></div></div>
+    <div class="verdict-names">${prisoners.map(person=>`<div><strong>${escapeHTML(person.name)}</strong><span>${escapeHTML(person.sentence)}</span></div>`).join('')}</div>
+    <p class="small">Sentencia del 9 de diciembre de 1985 · Cámara Federal</p>
+    <p class="small">Tu expediente: ${result.chosen.length} pistas clasificadas</p>
+    <details class="context"><summary>Más sobre la sentencia</summary><p>La Cámara también condenó a Viola y Lambruschini, y absolvió a Graffigna, Galtieri, Anaya y Lami Dozo. Los condenados fueron indultados entre 1989 y 1990; los juicios se reabrieron tras la nulidad de las leyes de Punto Final y Obediencia Debida.</p></details>`;
   setControls('<button class="alt" data-action="fin-back">◀ VOLVER AL EXPEDIENTE</button><button type="button" id="show-plaque" class="alt">VER LA PLACA</button><button type="button" id="reset-game" class="gold">JUGAR DE NUEVO</button>');
   controls.querySelector('#show-plaque').addEventListener('click', showPlaque);
   const reset = controls.querySelector('#reset-game');
@@ -680,12 +673,11 @@ function drawEnding() {
     location.reload();
   });
   focusScreen();
-  showPlaque();
 }
 const NPC_ENCOUNTERS = [
-  {id:'archivo', correct:1, name:'Auxiliar del archivo', role:'PERSONAJE FICTICIO · APOYO A LA INVESTIGACIÓN', sprite:'<svg viewBox="0 0 32 40" shape-rendering="crispEdges"><rect x="9" y="2" width="14" height="4" fill="#33251d"/><rect x="6" y="6" width="20" height="4" fill="#33251d"/><rect x="6" y="10" width="20" height="12" fill="#e7bd92"/><rect x="9" y="13" width="4" height="2" fill="#10202a"/><rect x="19" y="13" width="4" height="2" fill="#10202a"/><rect x="12" y="18" width="8" height="2" fill="#7d3c38"/><rect x="3" y="22" width="26" height="13" fill="#416a63"/><rect x="12" y="22" width="8" height="11" fill="#f5edcf"/><rect x="4" y="35" width="9" height="4" fill="#26323b"/><rect x="19" y="35" width="9" height="4" fill="#26323b"/></svg>', line:'Encontré dos fichas que se parecen en algunos detalles. ¿Eso alcanza para afirmar que todos los casos fueron iguales?', choices:['Sí, dos casos alcanzan','No necesariamente: compararía más fuentes y también sus diferencias'], feedback:['La semejanza es una pista, pero una conclusión general necesita más evidencia y debe atender a las diferencias.','Exacto: comparar permite buscar patrones sin borrar diferencias ni generalizar más de lo que las fuentes permiten.']},
-  {id:'mensajero', correct:1, name:'Mensajero de la fiscalía', role:'PERSONAJE FICTICIO · APOYO A LA INVESTIGACIÓN', sprite:'<svg viewBox="0 0 32 40" shape-rendering="crispEdges"><rect x="8" y="2" width="16" height="5" fill="#5b3b24"/><rect x="5" y="7" width="22" height="4" fill="#5b3b24"/><rect x="6" y="11" width="20" height="11" fill="#c99268"/><rect x="9" y="14" width="4" height="2" fill="#10202a"/><rect x="19" y="14" width="4" height="2" fill="#10202a"/><rect x="12" y="19" width="8" height="1" fill="#7d3c38"/><rect x="3" y="22" width="26" height="13" fill="#9a6746"/><rect x="10" y="24" width="12" height="8" fill="#e9d9b1"/><rect x="4" y="35" width="9" height="4" fill="#26323b"/><rect x="19" y="35" width="9" height="4" fill="#26323b"/></svg>', line:'Estoy armando un resumen para alguien que no leyó las fuentes. ¿Qué conviene escribir primero: la conclusión o de dónde sale?', choices:['Primero la conclusión, sin explicar','La afirmación y la fuente que la sostiene'], feedback:['Si la conclusión aparece sin respaldo, quien lee no puede evaluar cómo llegaste a ella.','Bien: una afirmación defendible tiene que mostrar qué fuente la sostiene y qué inferencia estás haciendo.']},
-  {id:'estudiante', correct:0, name:'Estudiante colaborador', role:'PERSONAJE FICTICIO · APOYO A LA INVESTIGACIÓN', sprite:'<svg viewBox="0 0 32 40" shape-rendering="crispEdges"><rect x="7" y="2" width="18" height="4" fill="#30261f"/><rect x="5" y="6" width="22" height="4" fill="#30261f"/><rect x="6" y="10" width="20" height="12" fill="#e1ad83"/><rect x="9" y="13" width="4" height="2" fill="#10202a"/><rect x="19" y="13" width="4" height="2" fill="#10202a"/><rect x="12" y="18" width="8" height="2" fill="#7d3c38"/><rect x="3" y="22" width="26" height="13" fill="#3d6792"/><rect x="11" y="23" width="10" height="9" fill="#f5edcf"/><rect x="4" y="35" width="9" height="4" fill="#26323b"/><rect x="19" y="35" width="9" height="4" fill="#26323b"/></svg>', line:'Una fuente dice algo importante, pero no responde toda la pregunta. ¿La descartamos o la usamos con cuidado?', choices:['La uso aclarando qué aporta y qué no demuestra','La descarto porque no responde todo'], feedback:['Esa es la idea: una fuente puede ser valiosa aunque tenga límites, siempre que no le atribuyamos más de lo que dice.','No hace falta descartarla: podés usarla para una afirmación acotada y cruzarla con otras.']}
+  {id:'archivo', correct:0, name:'La explicación de los excesos', role:'ARGUMENTO A CONTRASTAR', sprite:'<svg viewBox="0 0 32 40" shape-rendering="crispEdges"><rect x="9" y="2" width="14" height="4" fill="#33251d"/><rect x="6" y="6" width="20" height="4" fill="#33251d"/><rect x="6" y="10" width="20" height="12" fill="#e7bd92"/><rect x="9" y="13" width="4" height="2" fill="#10202a"/><rect x="19" y="13" width="4" height="2" fill="#10202a"/><rect x="12" y="18" width="8" height="2" fill="#7d3c38"/><rect x="3" y="22" width="26" height="13" fill="#416a63"/><rect x="12" y="22" width="8" height="11" fill="#f5edcf"/><rect x="4" y="35" width="9" height="4" fill="#26323b"/><rect x="19" y="35" width="9" height="4" fill="#26323b"/></svg>', line:'La defensa intenta explicar los crímenes como excesos aislados. ¿Cómo contrastás esa versión?', choices:['Comparo testimonios de distintos casos con la síntesis de la CONADEP','Acepto que fueron hechos aislados'], feedback:['Bien: la comparación permite evaluar si los relatos muestran un patrón.','Un solo caso no alcanza para aceptar esa explicación; contrastá testimonios y síntesis.']},
+  {id:'mensajero', correct:1, name:'La lectura de los dos bandos', role:'ARGUMENTO A CONTRASTAR', sprite:'<svg viewBox="0 0 32 40" shape-rendering="crispEdges"><rect x="8" y="2" width="16" height="5" fill="#5b3b24"/><rect x="5" y="7" width="22" height="4" fill="#5b3b24"/><rect x="6" y="11" width="20" height="11" fill="#c99268"/><rect x="9" y="14" width="4" height="2" fill="#10202a"/><rect x="19" y="14" width="4" height="2" fill="#10202a"/><rect x="12" y="19" width="8" height="1" fill="#7d3c38"/><rect x="3" y="22" width="26" height="13" fill="#9a6746"/><rect x="10" y="24" width="12" height="8" fill="#e9d9b1"/><rect x="4" y="35" width="9" height="4" fill="#26323b"/><rect x="19" y="35" width="9" height="4" fill="#26323b"/></svg>', line:'Se presenta lo ocurrido como una guerra entre dos bandos. ¿Esa explicación alcanza para justificar secuestros y desapariciones clandestinas?', choices:['Sí, porque había organizaciones armadas','No: la existencia de organizaciones armadas no justifica crímenes estatales'], feedback:['La existencia de organizaciones armadas no vuelve legales los secuestros, torturas ni desapariciones.','Exacto: analizá por separado la violencia de las organizaciones y la responsabilidad del Estado.']},
+  {id:'estudiante', correct:1, name:'La justificación de la represión', role:'ARGUMENTO A CONTRASTAR', sprite:'<svg viewBox="0 0 32 40" shape-rendering="crispEdges"><rect x="7" y="2" width="18" height="4" fill="#30261f"/><rect x="5" y="6" width="22" height="4" fill="#30261f"/><rect x="6" y="10" width="20" height="12" fill="#e1ad83"/><rect x="9" y="13" width="4" height="2" fill="#10202a"/><rect x="19" y="13" width="4" height="2" fill="#10202a"/><rect x="12" y="18" width="8" height="2" fill="#7d3c38"/><rect x="3" y="22" width="26" height="13" fill="#3d6792"/><rect x="11" y="23" width="10" height="9" fill="#f5edcf"/><rect x="4" y="35" width="9" height="4" fill="#26323b"/><rect x="19" y="35" width="9" height="4" fill="#26323b"/></svg>', line:'Si hubo organizaciones armadas, ¿el Estado podía secuestrar, torturar y hacer desaparecer personas fuera de la ley?', choices:['Sí, en una guerra todo estaba permitido','No: el Estado debía actuar dentro de la ley'], feedback:['La represión podía realizarse dentro de la ley; los crímenes clandestinos no quedan justificados por la existencia de grupos armados.','Eso: las fuentes permiten discutir la justificación y examinar por separado los hechos y la responsabilidad estatal.']}
 ];
 function maybeNpcEncounter(done) {
   const card = activeCard();
@@ -701,7 +693,7 @@ function maybeNpcEncounter(done) {
   route.npcEncounterCount = count + 1;
   saveRoute();
   popup.className = 'popup npc-dialog';
-  popup.innerHTML = `<div class="tag">ENCUENTRO IMPREVISTO · ${escapeHTML(dest.title)}</div><div class="npc-scene"><div class="sr-only" id="popup-title">Encuentro con un personaje ficticio</div><div class="npc-sprite" aria-hidden="true">${npc.sprite}</div><div><span class="guide-name">${escapeHTML(npc.name)}</span><p class="small">${escapeHTML(npc.role)}</p><p>${escapeHTML(npc.line)}</p></div></div><p class="small">Este personaje y su diálogo son ficticios: sirven para practicar el razonamiento y no constituyen un testimonio histórico. Elegí una respuesta; vas a recibir una devolución inmediata y podés seguir jugando en cualquier caso.</p><div class="npc-choices">${npc.choices.map((choice,index)=>`<button type="button" class="alt" data-npc-choice="${index}">${escapeHTML(choice)}</button>`).join('')}</div><div class="npc-feedback" id="npc-feedback" hidden role="status"></div><div class="note-actions"><button type="button" id="popup-ok" class="gold" disabled>SEGUIR INVESTIGANDO ▶</button></div>`;
+  popup.innerHTML = `<div class="tag">ENCUENTRO IMPREVISTO · ${escapeHTML(dest.title)}</div><div class="npc-scene"><div class="sr-only" id="popup-title">Argumento a contrastar</div><div class="npc-sprite" aria-hidden="true">${npc.sprite}</div><div><span class="guide-name">${escapeHTML(npc.name)}</span><p class="small">${escapeHTML(npc.role)}</p><p>${escapeHTML(npc.line)}</p></div></div><div class="npc-choices">${npc.choices.map((choice,index)=>`<button type="button" class="alt" data-npc-choice="${index}">${escapeHTML(choice)}</button>`).join('')}</div><div class="npc-feedback" id="npc-feedback" hidden role="status"></div><div class="note-actions"><button type="button" id="popup-ok" class="gold" disabled>SEGUIR INVESTIGANDO ▶</button></div>`;
   popup.onclose = () => { popup.onclose = null; done(); };
   popup.querySelectorAll('[data-npc-choice]').forEach(button => button.addEventListener('click', () => {
     const index = Number(button.dataset.npcChoice);
@@ -773,50 +765,86 @@ function showPlaque() {
 }
 function boardAxisName(id) { return ({state:'Órdenes y participación estatal',clandestinity:'Clandestinidad y negación',system:'Sistematicidad',context:'Contexto / pregunta abierta'})[id] || id; }
 function renderBoard() {
+  if (boardDialog._boardResizeObserver) { boardDialog._boardResizeObserver.disconnect(); boardDialog._boardResizeObserver = null; }
   if (!route.pins || typeof route.pins !== 'object') route.pins = {};
   if (!Array.isArray(route.connections)) route.connections = [];
+  if (!route.boardPositions || typeof route.boardPositions !== 'object') route.boardPositions = {};
   const axisIds = ['state','clandestinity','system','context'];
-  const axisOptions = axisIds.map(id => `<option value="${id}">${escapeHTML(boardAxisName(id))}</option>`).join('');
-  const pile = cards.filter(card => picked.has(card.id));
-  const columns = axisIds.map(axis => {
-    const cardsInAxis = pinnedCards().filter(card => route.pins[card.id] === axis);
-    return `<section class="board-column"><h3>${escapeHTML(boardAxisName(axis))}</h3>${cardsInAxis.length ? cardsInAxis.map(card => `<article class="board-pin pinned"><strong>${escapeHTML(card.id)} · ${escapeHTML(plainTitle(card))}</strong><span class="small">${escapeHTML(card.type)}</span><p class="small">${escapeHTML(shortenText(card.claim,105))}</p><button type="button" class="alt" data-unpin="${card.id}">SACAR DE LA PIZARRA</button></article>`).join('') : '<p class="small">Todavía no hay pistas conectadas acá.</p>'}</section>`;
-  }).join('');
-  const pileMarkup = pile.length ? pile.filter(card => !isPinned(card.id)).map(card => `<article class="board-pin"><strong>${escapeHTML(card.id)} · ${escapeHTML(plainTitle(card))}</strong><span class="small">${escapeHTML(card.type)} · ${escapeHTML(card.source)}</span><p class="small">${escapeHTML(shortenText(card.claim,125))}</p><label class="label" for="pin-${card.id}">¿A qué eje la conectás?</label><select id="pin-${card.id}" data-pin-axis="${card.id}"><option value="">Elegí el eje…</option>${axisOptions}</select><button type="button" data-pin="${card.id}">PINCHAR EN LA PIZARRA</button></article>`).join('') : '<p class="small">La pila está vacía. Volvé a las fuentes y elegí cuáles querés guardar.</p>';
+  const axisShort = {state:'Intervención estatal',clandestinity:'Detención clandestina',system:'Hecho que se repite',context:'Contexto / duda'};
+  const axisOptions = axisIds.map(id => `<option value="${id}">${escapeHTML(axisShort[id])}</option>`).join('');
   const pinned = pinnedCards();
-  const sourceOptions = pinned.map(card => `<option value="${card.id}">${escapeHTML(card.id)} · ${escapeHTML(plainTitle(card))}</option>`).join('');
-  const relationLabels = {corroborates:'Corroboración: una fuente refuerza o precisa a la otra',similar:'Semejanza: muestran rasgos comparables',context:'Contexto: una ayuda a interpretar la otra',contradicts:'Tensión o contradicción entre fuentes',limits:'Límite: una fuente obliga a matizar la otra'};
-  const connectionMarkup = route.connections.length ? route.connections.map((c,i)=>{const a=trackById(c.a),b=trackById(c.b);return `<article class="connection-note"><strong>${escapeHTML(c.a)} ↔ ${escapeHTML(c.b)}</strong><span>${escapeHTML(relationLabels[c.kind]||c.kind)}</span><p>${escapeHTML(c.reason)}</p><button type="button" class="alt" data-remove-connection="${i}">QUITAR CONEXIÓN</button></article>`}).join('') : '<p class="small">Todavía no justificaste conexiones entre expedientes.</p>';
-  boardDialog.innerHTML = `<div class="note-head"><div><div class="tag">MAPA DE EVIDENCIAS</div><h2 id="board-title">Pizarra de investigación</h2></div><button type="button" id="close-board" class="alt">CERRAR ✕</button></div><p class="board-intro">Las pistas que guardás quedan en la pila. Para incorporarlas al alegato, pinchalas bajo un eje. Después conectá dos expedientes y elegí qué relación encontrás: el hilo rojo representa una relación que vos tenés que justificar.</p><div class="board-columns">${columns}</div><section class="board-pile"><h3>EXPEDIENTES EN LA PILA · ${pile.length}</h3><p class="small">Elegí un eje para cada pista que todavía no esté en la pizarra.</p>${pileMarkup}</section><section class="connection-lab"><h3>🧵 TENDER UN HILO ROJO</h3><p class="small">Elegí dos expedientes ya pinchados y explicá qué relación encontrás entre ellos. No alcanza con unirlos: tenés que justificar el vínculo.</p><form id="connection-form"><label class="label" for="connection-a">Primer expediente</label><select id="connection-a" required ${pinned.length<2?'disabled':''}><option value="">Elegí una pista…</option>${sourceOptions}</select><label class="label" for="connection-b">Segundo expediente</label><select id="connection-b" required ${pinned.length<2?'disabled':''}><option value="">Elegí otra pista…</option>${sourceOptions}</select><label class="label" for="connection-kind">¿Qué relación encontrás?</label><select id="connection-kind" required ${pinned.length<2?'disabled':''}><option value="">Elegí el tipo de relación…</option>${Object.entries(relationLabels).map(([k,v])=>`<option value="${k}">${escapeHTML(v)}</option>`).join('')}</select><label class="label" for="connection-reason">Justificá el vínculo en una frase</label><textarea id="connection-reason" required minlength="18" placeholder="Estas fuentes se relacionan porque…" ${pinned.length<2?'disabled':''}></textarea><button type="submit" ${pinned.length<2?'disabled title="Necesitás pinchar al menos dos expedientes"':''}>JUSTIFICAR CONEXIÓN</button>${pinned.length<2?'<p class="small">Primero pinchá al menos dos expedientes en la pizarra.</p>':''}</form><div class="connection-list"><h4>HILOS JUSTIFICADOS · ${route.connections.length}</h4>${connectionMarkup}</div><div id="connection-feedback" class="interference-feedback" aria-live="polite" hidden></div></section>`;
-  boardDialog.querySelector('#close-board').addEventListener('click', () => boardDialog.close());
+  const pile = cards.filter(card => picked.has(card.id) && !isPinned(card.id));
+  const mobile = window.matchMedia('(max-width: 700px)').matches;
+  const cols = mobile ? 1 : 3;
+  const axisOrder = ['state','clandestinity','system','context'];
+  const ordered = [...pinned].sort((a,b) => axisOrder.indexOf(route.pins[a.id]) - axisOrder.indexOf(route.pins[b.id]));
+  const rowCounts = axisOrder.map(axis => ordered.filter(card => route.pins[card.id] === axis).length);
+  const rows = mobile ? ordered.length : Math.max(1, ...rowCounts);
+  const wallHeight = Math.max(420, rows * (mobile ? 165 : 205) + 30);
+  const relationLabels = {corroborates:'Se refuerzan',similar:'Se parecen',context:'Da contexto',contradicts:'Hay tensión',limits:'Pone un límite'};
+  const axisLabels = Object.fromEntries(CLASSIFY_AXES.map(axis=>[axis.id,axis.short])); axisLabels.context='CONTEXTO';
+  const notesMarkup = ordered.map((card,index) => {
+    const saved = route.boardPositions[card.id];
+    const sameLayout = saved?.cols === cols;
+    const axis = axisOrder.indexOf(route.pins[card.id]);
+    const row = mobile ? index : ordered.slice(0,index).filter(item => route.pins[item.id] === route.pins[card.id]).length;
+    const left = sameLayout && Number.isFinite(saved?.left) ? saved.left : (mobile ? 1 : axis * (100 / 3) + 1);
+    const top = sameLayout && Number.isFinite(saved?.top) ? saved.top : row * (mobile ? 165 : 205) + 24;
+    const tilt = [-1.4,1.2,-.6,1.7,-1][index % 5];
+    return `<article class="case-note" data-note="${card.id}" style="left:${left}%;top:${top}px;--tilt:${tilt}deg"><button type="button" class="case-pin" data-move="${card.id}" aria-label="Mantener y arrastrar la nota ${escapeHTML(card.id)}" title="Mantené y arrastrá para mover"></button><div class="note-top"><span class="note-id">${card.id}</span><span class="note-type">${escapeHTML(axisLabels[route.pins[card.id]] || 'PISTA')}</span><button type="button" class="note-menu-toggle" data-note-menu-toggle="${card.id}" aria-label="Acciones de la nota ${escapeHTML(card.id)}" aria-expanded="false">⋯</button></div><h3 class="note-title">${escapeHTML(plainTitle(card))}</h3><p class="note-quote">${escapeHTML(shortenText(evidenceSummary(card),60))}</p><div class="note-menu"><button type="button" class="thread-start" data-thread="${card.id}" aria-pressed="false">HILAR</button><button type="button" data-unpin="${card.id}" aria-label="Retirar ${escapeHTML(card.id)}">RETIRAR ×</button></div></article>`;
+  }).join('');
+  const pileMarkup = pile.length ? pile.map(card => `<article class="pile-note"><strong>${escapeHTML(card.id)} · ${escapeHTML(plainTitle(card))}</strong><p>${escapeHTML(shortenText(evidenceSummary(card),68))}</p><select data-pin-axis="${card.id}" aria-label="Eje de ${escapeHTML(card.id)}"><option value="">Eje…</option>${axisOptions}</select><button type="button" data-pin="${card.id}">CLAVAR EN LA PARED</button></article>`).join('') : '<p class="small">Guardá una pista desde sus fuentes para sumarla.</p>';
+  const linkChips = route.connections.map((link,index) => `<span class="board-link-chip">${escapeHTML(link.a)} ↔ ${escapeHTML(link.b)} · ${escapeHTML(relationLabels[link.kind] || link.kind)} <button type="button" data-remove-connection="${index}" aria-label="Quitar hilo entre ${escapeHTML(link.a)} y ${escapeHTML(link.b)}">×</button></span>`).join('');
+  boardDialog.innerHTML = `<header class="board-head"><div><div class="tag">ARCHIVO DE LA FISCALÍA · 1985</div><h2 id="board-title">Pizarra de investigación</h2></div><button type="button" id="close-board" class="alt">CERRAR ✕</button></header><p class="flow-hint">PASO 3/4 · Agrupá las pistas. Tocá ⋯ y elegí HILAR en dos postits; mantené la chinche para moverlos.</p><div class="board-tools"><label for="thread-kind">Tipo de hilo:</label><select id="thread-kind" aria-label="Tipo de relación"><option value="corroborates">Se refuerzan</option><option value="similar">Se parecen</option><option value="context">Da contexto</option><option value="contradicts">Hay tensión</option><option value="limits">Pone un límite</option></select><span class="thread-status" id="thread-status" aria-live="polite">${escapeHTML(boardDialog.dataset.threadNotice || 'Elegí HILAR en dos notas.')}</span></div><section class="pinboard" id="pinboard" aria-label="Pared de corcho con pistas conectadas" style="height:${wallHeight}px"><svg class="thread-layer" id="thread-layer" aria-hidden="true"></svg>${notesMarkup || '<p class="small" style="padding:16px;color:#211c16">La pared está vacía. Investigá y clavá las primeras pistas.</p>'}</section><section class="evidence-pile"><h3>PISTAS GUARDADAS · ${pile.length}</h3><div class="pile-cards">${pileMarkup}</div></section><div class="board-links" aria-label="Hilos tendidos">${linkChips}</div>`;
+  boardDialog.querySelector('#close-board').addEventListener('click', () => { if(boardDialog._boardResizeObserver) boardDialog._boardResizeObserver.disconnect(); boardDialog._boardResizeObserver=null; boardDialog.close(); if (!currentProblem()) drawDestinations(); else setProgress(); });
+  boardDialog.querySelectorAll('[data-note-menu-toggle]').forEach(button => button.addEventListener('click', () => { const note=button.closest('[data-note]'), open=note.classList.toggle('menu-open'); button.setAttribute('aria-expanded',String(open)); }));
   boardDialog.querySelectorAll('[data-pin]').forEach(button => button.addEventListener('click', () => {
-    const id = button.dataset.pin; const select = boardDialog.querySelector(`[data-pin-axis="${id}"]`); const axis = select?.value;
-    if (!axis) { announce('Elegí primero el eje al que querés conectar esta pista.'); select?.focus(); return; }
-    route.pins[id] = axis; saveRoute(); renderBoard(); setProgress(); announce(`${id} pinchada en la pizarra: ${boardAxisName(axis)}.`);
+    const id=button.dataset.pin, axis=boardDialog.querySelector(`[data-pin-axis="${id}"]`)?.value;
+    if (!axis) { boardDialog.dataset.threadNotice='Elegí un eje para clavar la pista.'; boardDialog.querySelector(`[data-pin-axis="${id}"]`)?.focus(); return; }
+    route.pins[id]=axis; boardDialog.dataset.threadNotice=`${id} quedó en la pared.`; saveRoute(); setProgress(); renderBoard();
   }));
   boardDialog.querySelectorAll('[data-unpin]').forEach(button => button.addEventListener('click', () => {
-    const id = button.dataset.unpin; delete route.pins[id]; route.connections = route.connections.filter(c=>c.a!==id && c.b!==id); saveRoute(); renderBoard(); setProgress(); announce(`${id} volvió a la pila de expedientes. Las conexiones que dependían de ella se quitaron también.`);
+    const id=button.dataset.unpin; delete route.pins[id]; route.connections=route.connections.filter(link=>link.a!==id && link.b!==id); boardDialog.dataset.threadNotice=`${id} volvió a la pila.`; saveRoute(); setProgress(); renderBoard();
   }));
-  boardDialog.querySelector('#connection-form')?.addEventListener('submit', event => {
-    event.preventDefault(); const a=boardDialog.querySelector('#connection-a').value, b=boardDialog.querySelector('#connection-b').value, kind=boardDialog.querySelector('#connection-kind').value, reason=boardDialog.querySelector('#connection-reason').value.trim();
-    const feedback=boardDialog.querySelector('#connection-feedback'); feedback.hidden=false;
-    if (!a || !b || a===b || !kind || reason.length<18) { feedback.textContent='Elegí dos expedientes distintos y explicá la relación con una frase más precisa.'; return; }
-    if (route.connections.some(c=>(c.a===a&&c.b===b)||(c.a===b&&c.b===a))) { feedback.textContent='Ya existe un hilo entre estos expedientes. Podés quitarlo y volver a formularlo si querés revisar tu interpretación.'; return; }
-    route.connections.push({a,b,kind,reason,createdAt:Date.now()}); saveRoute();
-    const cardA=trackById(a), cardB=trackById(b); const sameAxis=route.pins[a]===route.pins[b];
-    let msg='Conexión registrada. La explicación queda en la pizarra para que puedas recuperarla al construir el alegato.';
-    if(kind==='similar') msg='Conexión registrada. Al comparar semejanzas, revisá también si hay diferencias importantes entre los dos casos.';
-    if(kind==='corroborates') msg='Conexión registrada. La corroboración es más sólida cuando podés señalar qué detalle concreto aporta cada fuente.';
-    if(kind==='context') msg='Conexión registrada. Recordá que el contexto ayuda a interpretar, pero no necesariamente prueba por sí solo el hecho particular.';
-    if(kind==='contradicts') msg='Conexión registrada. Una tensión entre fuentes no se resuelve automáticamente: anotá qué parte entra en conflicto y qué habría que comprobar.';
-    if(kind==='limits') msg='Conexión registrada. Reconocer límites permite formular una conclusión más precisa, no descartar automáticamente una fuente.';
-    if(sameAxis) msg+=' Las dos pistas están en el mismo eje; explicá qué agrega cada una.';
-    feedback.textContent=msg; announce(msg); renderBoard();
-  });
-  boardDialog.querySelectorAll('[data-remove-connection]').forEach(button=>button.addEventListener('click',()=>{route.connections.splice(Number(button.dataset.removeConnection),1);saveRoute();renderBoard();}));
+  boardDialog.querySelectorAll('[data-thread]').forEach(button => button.addEventListener('click', () => {
+    const id=button.dataset.thread, from=boardDialog.dataset.threadFrom;
+    if (!from) { boardDialog.dataset.threadFrom=id; boardDialog.querySelector('#thread-status').textContent=`${id} elegido · tocá HILAR en otra nota.`; button.setAttribute('aria-pressed','true'); return; }
+    if (from===id) { delete boardDialog.dataset.threadFrom; boardDialog.querySelector('#thread-status').textContent='Elegí HILAR en dos notas.'; button.setAttribute('aria-pressed','false'); return; }
+    const exists=route.connections.some(link=>(link.a===from&&link.b===id)||(link.a===id&&link.b===from));
+    if (!exists) route.connections.push({a:from,b:id,kind:boardDialog.querySelector('#thread-kind').value,reason:'',createdAt:Date.now()});
+    delete boardDialog.dataset.threadFrom; boardDialog.dataset.threadNotice=exists?'Ese hilo ya está tendido.':`Hilo tendido: ${from} ↔ ${id}`; saveRoute(); setProgress(); renderBoard();
+  }));
+  boardDialog.querySelectorAll('[data-remove-connection]').forEach(button=>button.addEventListener('click',()=>{route.connections.splice(Number(button.dataset.removeConnection),1);saveRoute();setProgress();renderBoard();}));
+  const pinboard=boardDialog.querySelector('#pinboard');
+  if (pinboard) {
+    const drawThreads=()=>{
+      const svg=pinboard.querySelector('#thread-layer'), rect=pinboard.getBoundingClientRect(), w=pinboard.clientWidth, h=pinboard.clientHeight;
+      svg.setAttribute('viewBox',`0 0 ${w} ${h}`); svg.innerHTML='';
+      route.connections.forEach(link=>{
+        const a=pinboard.querySelector(`[data-note="${link.a}"]`), b=pinboard.querySelector(`[data-note="${link.b}"]`);
+        if(!a||!b)return;
+        const ap=a.querySelector('.case-pin').getBoundingClientRect(), bp=b.querySelector('.case-pin').getBoundingClientRect(), x1=ap.left-rect.left+ap.width/2, y1=ap.top-rect.top+6, x2=bp.left-rect.left+bp.width/2, y2=bp.top-rect.top+6;
+        const bend=Math.max(20,Math.abs(x2-x1)*.22), label=relationLabels[link.kind]||link.kind;
+        svg.insertAdjacentHTML('beforeend',`<path class="thread-path" d="M ${x1} ${y1} C ${x1+bend} ${y1-24}, ${x2-bend} ${y2-24}, ${x2} ${y2}"><title>${escapeHTML(link.a)} con ${escapeHTML(link.b)}: ${escapeHTML(label)}</title></path><circle class="thread-knot" cx="${x1}" cy="${y1}" r="5"/><circle class="thread-knot" cx="${x2}" cy="${y2}" r="5"/>`);
+      });
+    };
+    requestAnimationFrame(()=>{
+      const maxLeft=(pinboard.clientWidth- pinboard.querySelector('.case-note')?.offsetWidth || pinboard.clientWidth)/pinboard.clientWidth*100;
+      boardDialog.querySelectorAll('[data-note]').forEach((note,index)=>{const left=Math.min(maxLeft,Math.max(0,parseFloat(note.style.left)||0));note.style.left=`${left}%`;route.boardPositions[note.dataset.note]={left,top:parseFloat(note.style.top)||0,cols};}); saveRoute(); drawThreads();
+    });
+    let resizeObserver;
+    if (window.ResizeObserver) { resizeObserver=new ResizeObserver(drawThreads); resizeObserver.observe(pinboard); boardDialog._boardResizeObserver=resizeObserver; }
+    boardDialog.querySelectorAll('[data-move]').forEach(handle=>{
+      const note=handle.closest('[data-note]');
+      handle.addEventListener('pointerdown',event=>{event.preventDefault();const nr=note.getBoundingClientRect();handle._dragOffsetX=event.clientX-nr.left;handle._dragOffsetY=event.clientY-nr.top;handle.setPointerCapture(event.pointerId);note.classList.add('dragging');});
+      handle.addEventListener('pointermove',event=>{if(!handle.hasPointerCapture(event.pointerId))return;const r=pinboard.getBoundingClientRect(), x=Math.max(0,Math.min(r.width-note.offsetWidth,event.clientX-r.left-handle._dragOffsetX)), y=Math.max(0,Math.min(r.height-note.offsetHeight,event.clientY-r.top-handle._dragOffsetY));note.style.left=`${x/r.width*100}%`;note.style.top=`${y}px`;drawThreads();});
+      const finishMove=event=>{if(!handle.hasPointerCapture(event.pointerId))return;handle.releasePointerCapture(event.pointerId);note.classList.remove('dragging');route.boardPositions[note.dataset.note]={left:parseFloat(note.style.left),top:parseFloat(note.style.top),cols};saveRoute();drawThreads();};
+      handle.addEventListener('pointerup',finishMove);handle.addEventListener('pointercancel',finishMove);
+    });
+  }
   updateBoardButton();
 }
-function openBoard() { renderBoard(); boardDialog.showModal(); boardDialog.querySelector('#close-board')?.focus(); }
+function openBoard() { renderBoard(); boardDialog.showModal(); renderJourneyProgress(3); boardDialog.querySelector('#close-board')?.focus(); }
 function trackById(id) { return cards.find(card => card.id === id); }
 let editingIndex = null;
 function renderNotes() {
@@ -854,11 +882,15 @@ function resetNoteForm() {
 function act(action) {
   if (action === 'start') start();
   if (action === 'destinations') drawDestinations();
+  if (action === 'board') openBoard();
+  if (action === 'begin-assignment') drawDestinations();
+  if (action === 'next-assignment') { route.problemIndex = (route.problemIndex || 0) + 1; saveRoute(); drawProblem(); }
+  if (action === 'finish-investigation') { route.problemIndex = PROBLEMS.length; saveRoute(); drawDestinations(); }
   if (action === 'finish') { finishStep = 0; drawFinish(); }
   if (action === 'fin-prev') { finishStep--; drawFinish(); }
   if (action === 'call') drawCall();
   if (action === 'intro') drawStart();
-  if (action === 'next-problem') drawProblem();
+  if (action === 'next-problem') drawDestinations();
   if (action === 'intro-next') { route.introStep++; drawStart(); }
   if (action === 'intro-prev') { route.introStep = prevDialogueIndex(route.introStep) ?? route.introStep; drawStart(); }
   if (action === 'intro-skip') { clearTimeout(travelTimer); if (route.playerName) start(); else { route.introStep = NAME_IDX; drawStart(); } }
@@ -873,7 +905,7 @@ function act(action) {
   if (action === 'next' && route.state === 'clues' && current < activeDestination().ids.length - 1) {
     maybeNpcEncounter(() => { current++; saveRoute(); drawCard(); });
   }
-  else if (action === 'next' && route.state === 'clues') maybeNpcEncounter(() => maybeInterfere(drawDebrief));
+  else if (action === 'next' && route.state === 'clues') maybeNpcEncounter(() => maybeInterfere(drawDestinations));
 }
 
 noteForm.addEventListener('submit', event => {
@@ -921,7 +953,11 @@ async function init() {
     route.fichas = Array.isArray(route.fichas) ? route.fichas : [];
     route.frases = route.frases && typeof route.frases === 'object' ? route.frases : {};
     route.events = Array.isArray(route.events) ? route.events.filter(id => INTERFERENCES.some(ev => ev.id === id)) : [];
-    route.state = ['intro','call','problem','destinations','clues','debrief','finish','ending'].includes(route.state) ? route.state : 'intro';
+    route.state = ['intro','call','problem','assignmentReview','destinations','clues','debrief','finish','ending'].includes(route.state) ? route.state : 'intro';
+    const activeProblemIndex = activeDestination() ? PROBLEMS.findIndex(problem => problem.stops.includes(route.activeDestination)) : -1;
+    route.problemIndex = Number.isInteger(route.problemIndex) && route.problemIndex >= 0 && route.problemIndex <= PROBLEMS.length ? route.problemIndex : activeProblemIndex >= 0 ? activeProblemIndex : Math.max(0, PROBLEMS.findIndex(problem => problem.stops.some(id => !route.visited.includes(id))));
+    if (!Array.isArray(route.completedProblems)) route.completedProblems = PROBLEMS.filter((problem,index) => index < route.problemIndex && problem.stops.every(id => route.visited.includes(id))).map(problem => problem.id);
+    if (route.state === 'debrief') route.state = 'destinations';
     route.activeDestination = route.visited.includes(route.activeDestination) ? route.activeDestination : route.visited.at(-1) || null;
     route.focusAxis = STAGES.some(stage => stage.id === route.focusAxis) ? route.focusAxis : 'state';
     current = route.state === 'clues' && activeDestination() ? Math.max(0, Math.min(activeDestination().ids.length - 1, Number(route.step) || 0)) : -1;
@@ -937,7 +973,7 @@ async function init() {
     else if (route.state === 'ending') drawEnding();
     else if (route.state === 'finish') drawFinish();
     else drawStart();
-    if (route.pendingEvent && !route.events.includes(route.pendingEvent)) setTimeout(() => maybeInterfere(() => { if (route.state === 'clues') drawDebrief(); }), 0);
+    if (route.pendingEvent && !route.events.includes(route.pendingEvent)) setTimeout(() => maybeInterfere(() => { if (route.state === 'clues') drawDestinations(); }), 0);
   } catch (error) {
     screen.innerHTML = `<h1>No se pudo abrir el expediente</h1><p>${escapeHTML(error.message)}</p><p>Volvé a cargar la página.</p>`;
     setControls('');
