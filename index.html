@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08121b">
+  <title>Causa 13 · Archivo de investigación — pizarra de evidencias</title>
+  <style>
+:root{color-scheme:dark;--bg:#08121b;--panel:#111f2c;--line:#56f0ad;--cream:#f5edcf;--gold:#ffc857;--muted:#c4d1ce;--focus:#fff;--ink:#07140f}
+*{box-sizing:border-box}
+html{min-width:320px;scrollbar-gutter:stable}
+body{margin:0;min-height:100vh;background:linear-gradient(180deg,#09131d,#0c1722);color:var(--cream);font:18px/1.65 "Courier New",monospace;display:grid;place-items:center;padding:20px}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.025) 3px 4px)}
+.shell{width:min(980px,100%);border:3px solid var(--line);box-shadow:8px 8px 0 #02070a,0 0 28px #39d78c30;background:var(--panel);padding:clamp(18px,4vw,36px);position:relative}
+.top{display:flex;justify-content:space-between;gap:14px;align-items:center;border-bottom:2px dashed #48615e;padding-bottom:16px;color:var(--line);font-size:14px;line-height:1.5}
+.brand{color:inherit;text-decoration:none;font-weight:bold}.meter{color:var(--gold);text-align:right;white-space:nowrap}
+.tag{margin:22px 0 10px;color:var(--gold);font-size:14px;letter-spacing:1px;text-transform:uppercase}
+.stage-progress{display:flex;justify-content:flex-end;gap:7px;margin-top:3px;color:#b8c3bf;font-size:20px;line-height:1}.stage-star.earned{color:var(--gold);text-shadow:0 0 8px #ffc85780}
+.strassera-guide{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:center;gap:16px;border:0;background:transparent;padding:0;margin:18px 0;box-shadow:none}.strassera-avatar{width:88px;height:96px;display:grid;place-items:center;background:transparent;border:0;image-rendering:pixelated}.strassera-avatar svg{width:78px;height:92px;image-rendering:pixelated}.guide-name{display:block;color:var(--gold);font-weight:bold;font-size:13px;letter-spacing:.04em}.strassera-guide p{margin:4px 0;color:var(--cream);line-height:1.5}.guide-note{color:var(--muted);font-size:12px;line-height:1.4}.guide-phase{display:block;color:var(--line);font-size:12px;text-transform:uppercase;letter-spacing:.04em;font-weight:bold;margin-bottom:3px}
+.stage-board{border:2px solid var(--line);background:#10231f;padding:14px 16px;margin:18px 0}.stage-board h2{font-size:1.15rem}.stage-board>p{margin:4px 0 12px}.stage-board ol{list-style:none;padding:0;margin:0;display:grid;gap:8px}.stage-board li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;border-top:1px dashed #48615e;padding:10px 2px}.stage-board li>span{font-size:22px;color:#bdc6be;line-height:1.3}.stage-board li.stage-done>span{color:var(--gold)}.stage-board li.stage-done strong{color:var(--line)}.stage-board li p{margin:2px 0 4px;color:var(--cream)}.stage-board li .small{font-size:.8rem}
+.destination-ribbon{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:1px dashed #48615e;padding:6px 0;color:var(--line);font-size:12px;font-weight:bold;letter-spacing:.04em}.route-focus,.visited-stops{border-left:4px solid var(--gold);padding:8px 12px;background:#0d1b23}.destination-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}.destination-card{min-width:0;display:grid;grid-template-columns:minmax(110px,.75fr) minmax(0,1.4fr);gap:12px;padding:12px;border:2px solid #405558;background:#0d1b23;box-shadow:4px 4px 0 #040a0d}.destination-card.recommended{border-color:var(--gold);box-shadow:4px 4px 0 #63471e}.postcard-art{min-width:0;align-self:start;border:2px solid #8f997e;background:#18313d;line-height:0;image-rendering:pixelated}.postcard-art svg{display:block;width:100%;height:auto;image-rendering:pixelated}.destination-info{min-width:0}.destination-kicker{display:block;color:var(--line);font-size:11px;line-height:1.4;font-weight:bold;letter-spacing:.04em}.destination-info h2{font-size:1rem;line-height:1.3;margin:4px 0;color:var(--cream)}.destination-info p{font-size:.85rem;line-height:1.4;margin:5px 0 8px;color:var(--muted)}.destination-info .destination-clues{font-size:.78rem;color:#e3d9bc}.destination-info button{width:100%;margin-top:8px;padding:9px 7px;font-size:12px}.recommendation{display:inline-block;color:var(--ink);background:var(--gold);font-size:10px;line-height:1.3;font-weight:bold;padding:4px 6px;margin-top:2px}.debrief-card{border:2px dashed #64736d;background:#0d1b23;padding:14px 16px;margin:18px 0}.debrief-card>strong{color:var(--gold);text-transform:uppercase;font-size:13px}.debrief-card p{margin:5px 0 10px}.debrief-card ol{padding-left:22px;margin:0}.debrief-card li{margin:8px 0}.debrief-card li span{display:block;color:var(--muted);font-size:.85rem}.axis-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}.axis-choice{height:100%;background:#20363e;color:var(--cream);box-shadow:3px 3px 0 #101d24}.axis-choice.selected{border-color:var(--gold);color:var(--gold)}.route-recap ol{padding-left:24px}.route-recap li{margin:8px 0}.route-recap li span{display:block;color:var(--muted);font-size:.85rem}
+h1{font-size:clamp(1.35rem,3vw,1.8rem);line-height:1.35;color:var(--cream);margin:0 0 18px}
+h2{font-size:1.35rem;line-height:1.35;margin:0 0 8px;color:var(--line)}h3{font-size:1rem;line-height:1.4;margin:0 0 8px;color:var(--line)}
+p{margin:10px 0 16px}.pixel{color:var(--line);font-weight:bold}
+.quote{border-left:5px solid var(--gold);background:#09151c;padding:18px 20px;font-size:clamp(1.15rem,3vw,1.5rem);line-height:1.5;color:#fff8df;box-shadow:inset 0 0 0 2px #24383c;margin:12px 0 18px}
+.label{display:block;color:var(--line);font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin:18px 0 6px}
+.question{font-size:1.15rem;line-height:1.55;margin:4px 0 12px}
+.source,.small,.prompt-help{color:var(--muted);font-size:.9rem;line-height:1.5}
+.source{border-top:1px dotted #49615e;padding-top:12px;margin-top:18px}
+.source-type{display:inline-block;color:var(--ink);background:var(--line);font-weight:bold;padding:2px 8px;margin:3px 0;border-radius:2px}
+.context,.rule{background:#172e2b;border:2px solid var(--line);padding:14px 16px;line-height:1.6;margin:14px 0}
+.context{border-color:#49615e}.context summary{cursor:pointer;color:var(--gold);font-weight:bold}.context[open] summary{margin-bottom:10px}
+.rule{border-color:#334a4d;color:var(--muted)}
+.controls{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+button,.button-link{border:2px solid transparent;background:var(--line);color:var(--ink);padding:12px 16px;font:700 14px/1.4 "Courier New",monospace;cursor:pointer;box-shadow:4px 4px 0 #23694e;text-decoration:none}
+button:hover,.button-link:hover{filter:brightness(1.1)}button:disabled{opacity:.55;cursor:not-allowed}
+button.alt{background:#233b45;color:var(--cream);box-shadow:4px 4px 0 #101d24}button.gold{background:var(--gold);box-shadow:4px 4px 0 #8c6022}
+button:focus-visible,.button-link:focus-visible,a:focus-visible,summary:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+.footer{margin-top:22px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;border-top:1px dashed #48615e;padding-top:12px}
+textarea,select{display:block;width:100%;background:#09151c;color:var(--cream);border:2px solid #63807b;border-radius:0;padding:12px;font:16px/1.5 "Courier New",monospace}textarea{min-height:100px;resize:vertical}select option{padding:6px}
+.axes{display:grid;gap:12px}.axis{border:1px solid #49615e;padding:12px}.axis textarea{margin-top:8px}.prompt-help{display:block}
+.journal-launch{margin:4px 0 8px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.journal{width:min(1120px,calc(100vw - 24px));max-width:none;max-height:min(92vh,960px);padding:clamp(14px,3vw,28px);color:var(--cream);background:#101e29;border:3px solid var(--line);box-shadow:8px 8px 0 #02070a;font:16px/1.55 "Courier New",monospace}
+.journal::backdrop{background:rgba(0,0,0,.82)}.journal-header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;border-bottom:2px dashed #48615e;padding-bottom:14px}.journal-header .tag{margin:0 0 6px}.journal-header p{margin:4px 0 0;color:var(--muted)}
+.journal-layout{display:grid;grid-template-columns:minmax(190px, .75fr) minmax(0,1.7fr);gap:20px;margin-top:18px}.journal-sidebar{min-width:0}.track-list{max-height:60vh;overflow:auto;border:1px solid #49615e}.track-choice{display:block;width:100%;padding:9px;text-align:left;background:#132731;color:var(--cream);border:0;border-bottom:1px solid #49615e;box-shadow:none;font-size:13px}.track-choice span{display:block;color:var(--muted);font-weight:400}.track-choice.selected{background:#225541;color:white;outline:2px solid var(--line);outline-offset:-2px}.journal-editor{min-width:0;max-height:66vh;overflow:auto;padding:2px 8px 10px 2px}.journal-source .quote{font-size:1.05rem;padding:12px;margin:10px 0}.journal-source .source{font-size:.82rem}.existing-notes{border-top:1px dashed #49615e;margin:16px 0;padding-top:8px}.note-entry{border-left:3px solid var(--gold);padding:2px 12px;margin:12px 0;background:#14262e}.note-entry p{margin:8px 0}.note-actions{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}.note-actions button{padding:9px 12px}.journal form label{display:block;color:var(--line);font-weight:bold;margin:14px 0 6px}.journal form textarea{min-height:72px}.journal form .small{margin:5px 0 12px}
+.saved-notes{padding-left:24px}.saved-notes li{margin:16px 0}.saved-notes blockquote{margin:6px 0;padding-left:12px;border-left:3px solid var(--gold)}
+.pick-panel{border:2px solid #536c67;padding:12px 14px;margin:18px 0;background:#0d1b23}.pick-panel .label{margin-top:0}.pick-panel p{margin:6px 0 12px}.pick-panel button{width:100%}
+.score-card{border:3px solid var(--gold);padding:clamp(14px,3vw,24px);margin:18px 0;background:#0b1820;box-shadow:6px 6px 0 #63471e}.score-card h2{font-size:clamp(2rem,6vw,3.4rem);margin:0;color:var(--gold)}.score-status{font-weight:bold;letter-spacing:.04em}.score-status.ready{color:var(--line)}.score-status.not-ready{color:var(--gold)}.score-track{height:20px;border:2px solid #81908b;background:#09131b;margin:12px 0}.score-track span{height:100%;display:block;background:var(--line)}
+.checklist{list-style:none;padding:0}.checklist li{margin:10px 0}.checklist .met{color:var(--line)}.checklist .missing{color:var(--gold)}.score-review{border:2px solid #536c67;padding:12px 14px;margin:18px 0}.score-review summary{cursor:pointer;color:var(--gold);font-weight:bold}.score-review li{margin:14px 0}.score-tier{color:var(--line);font-size:.9em;font-weight:bold}
+@media(max-width:650px){.board-columns{grid-template-columns:1fr}.board-column h3{min-height:0}.board-panel{padding:12px}.board-jump{left:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));font-size:11px;padding:9px 8px}.journal-jump{right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));font-size:11px;padding:9px 8px}body{padding:8px;font-size:16px}.shell{padding:16px}.top{font-size:12px}.quote{padding:14px}.controls{justify-content:center}.controls button{flex:1 1 42%}.footer{font-size:11px;flex-wrap:wrap}.journal{width:calc(100vw - 12px);max-height:96vh;padding:12px}.journal-header{gap:8px}.journal-header>button{padding:10px 8px;font-size:12px}.journal-layout{grid-template-columns:1fr;gap:12px}.journal-sidebar h3{margin-bottom:6px}.track-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:22vh}.track-choice{border-right:1px solid #49615e}.journal-editor{max-height:55vh;padding-right:3px}}
+@media(max-width:650px){.strassera-guide{grid-template-columns:72px minmax(0,1fr);gap:10px}.strassera-avatar{width:70px;height:82px}.strassera-avatar svg{width:64px;height:76px}.guide-name{font-size:11px}.guide-note{font-size:11px}.stage-board{padding:12px}}
+@media(max-width:760px){.destination-grid{grid-template-columns:1fr}.destination-card{grid-template-columns:minmax(100px,.6fr) minmax(0,1.4fr)}}
+@media(max-width:460px){.destination-card{grid-template-columns:1fr}.postcard-art{max-width:210px}.axis-choices{grid-template-columns:1fr}.destination-info button{font-size:11px}.debrief-card{padding:12px}}
+@media(max-width:380px){.track-list{grid-template-columns:1fr;max-height:20vh}.footer{display:block}.footer span{display:block}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+body{padding-top:calc(20px + env(safe-area-inset-top,0px));padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+
+.destination-card.single{grid-template-columns:minmax(200px,1fr) minmax(0,1.1fr);gap:18px;padding:18px}.destination-card.single .destination-info h2{font-size:1.35rem}.destination-card.single .destination-info p{font-size:1rem}.destination-card.single .destination-clues{font-size:.9rem}.browse-count{margin:18px 0 6px;color:var(--gold);font-weight:bold;font-size:13px;letter-spacing:.06em}.browse-nav{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 18px}.browse-nav button{flex:0 0 52px}.browse-nav .gold{flex:2 1 220px}.axis-filter .label{margin-top:14px}
+@media(max-width:600px){.destination-card.single{grid-template-columns:1fr}.destination-card.single .postcard-art{max-width:320px}}
+.layout{width:min(980px,100%)}.layout .shell{width:100%}
+.journal-panel{width:min(560px,calc(100vw - 24px));max-width:none;max-height:90vh;overflow:auto;border:3px solid var(--gold);background:#101e29;color:var(--cream);box-shadow:8px 8px 0 #02070a;padding:16px;font:16px/1.55 "Courier New",monospace}.journal-panel::backdrop{background:rgba(0,0,0,.82)}.note-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.journal-panel .tag{margin-top:0}.journal-panel h2{color:var(--gold);font-size:1.1rem}.journal-panel label{display:block;color:var(--line);font-weight:bold;margin:10px 0 6px}.journal-panel textarea{min-height:110px}.note-item{border-left:3px solid var(--gold);background:#14262e;padding:6px 10px;margin:10px 0}.note-item p{margin:4px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.journal-jump{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));background:var(--gold);color:var(--ink);box-shadow:4px 4px 0 #8c6022;z-index:5}.board-jump{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));background:var(--line);color:var(--ink);box-shadow:4px 4px 0 #23694e;z-index:5}
+.travel{display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:22px;align-items:center;margin:14px 0}.map-box,.mini-map{border:2px solid #8f997e;line-height:0}.argmap{width:100%;height:auto;max-height:60vh;image-rendering:pixelated}.mini-map{max-width:64px;margin-top:10px}
+.destination-art svg,.postcard-art svg{image-rendering:pixelated}
+@media(prefers-reduced-motion:no-preference){.tw{animation:tw 3s steps(2) infinite}.bl{animation:bl 4s steps(1) infinite}.fl{animation:fl 2s steps(2) infinite}.pin{animation:pin 1s steps(2) infinite}.blink{animation:pin 1s steps(2) infinite}@keyframes tw{50%{opacity:.25}}@keyframes bl{50%{opacity:.3}}@keyframes fl{50%{opacity:.6}}@keyframes pin{50%{opacity:.25}}}
+@media(max-width:600px){.travel{grid-template-columns:100px minmax(0,1fr);gap:12px}}
+.quick-recap{list-style:none;padding:0;margin:16px 0}.quick-recap li{border-bottom:1px dashed #48615e;padding:9px 0}.quick-recap li span{display:block;color:var(--muted);font-size:.85rem}
+[hidden]{display:none!important}.steps{padding-left:24px}.steps li{margin:10px 0}.pick-panel{padding:10px}.destination-card.single .destination-info p{color:var(--cream)}
+.board-panel{width:min(900px,calc(100vw - 24px));max-width:none;max-height:90vh;overflow:auto;border:3px solid var(--line);background:#101e29;color:var(--cream);box-shadow:8px 8px 0 #02070a;padding:20px;font:16px/1.5 "Courier New",monospace}.board-panel::backdrop{background:rgba(0,0,0,.82)}.board-intro{color:var(--muted);font-size:.9rem}.board-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}.board-column{border:2px dashed #49615e;padding:10px;min-width:0;background:#0b1820}.board-column h3{font-size:.9rem;min-height:2.5em}.board-pin{border:1px solid #536c67;background:#14232c;padding:9px;margin:8px 0;overflow-wrap:anywhere}.board-pin.pinned{border-color:var(--gold);background:#202b2b;position:relative;padding-top:14px}.board-pin.pinned:before{content:"";position:absolute;top:4px;left:8px;width:7px;height:7px;background:#ad6454;border:1px solid #f5edcf;border-radius:50%;box-shadow:1px 1px 0 #000}.board-pin strong{display:block;font-size:.85rem;line-height:1.35}.board-pin .small{font-size:.75rem}.board-pin select{font-size:14px;margin:7px 0;padding:8px}.board-pile{border-top:2px dashed #49615e;margin-top:18px;padding-top:12px}.connection-lab{margin-top:18px;padding:16px;border:3px solid #8a6245;background:repeating-linear-gradient(0deg,#8a62451c 0 2px,#b98a5b12 2px 5px),#1b2528;box-shadow:inset 0 0 0 3px #3e3028}.connection-lab h3{color:#e6bd72;margin:0 0 6px}.connection-lab form{display:grid;gap:8px}.connection-lab select,.connection-lab textarea{width:100%;box-sizing:border-box;background:#101e29;color:var(--cream);border:1px solid #8a6245;padding:10px;font:inherit}.connection-lab textarea{min-height:72px}.connection-list{margin-top:14px;border-top:1px dashed #a15b4c;padding-top:10px}.connection-note{position:relative;margin:10px 0;padding:12px 12px 12px 18px;border:1px solid #9b6656;background:#19262b}.connection-note:before{content:"";position:absolute;left:5px;top:8px;width:8px;height:8px;background:#bb4b3e;border:1px solid #f3d7b2;border-radius:50%;box-shadow:1px 1px 0 #000}.connection-note span{display:block;color:#e6bd72;font-size:.82rem;margin-top:4px}.connection-note p{margin:6px 0}.connection-lab button:disabled,.connection-lab select:disabled,.connection-lab textarea:disabled{opacity:.5;cursor:not-allowed}.interference-choices{display:grid;gap:9px;margin:16px 0}.interference-choices button{text-align:left}.interference-feedback{border-left:4px solid var(--gold);background:#14232c;padding:12px;margin:12px 0}.interview{border:2px solid #536c67;background:#0d1b23;padding:12px 14px;margin:12px 0}.interview .interviewer{color:var(--gold);font-size:11px;font-weight:bold;letter-spacing:.06em;text-transform:uppercase}.interview .answer{margin:7px 0 0}.interview .paraphrase-note{font-size:.75rem;color:var(--muted);margin:7px 0 0}.case-brief{border:2px solid var(--gold);background:#16242b;padding:12px 14px;margin:14px 0;font-size:.88rem;line-height:1.5}.case-brief h2{font-size:1rem;margin-bottom:6px}.case-brief p{margin:6px 0}.case-brief ul{padding-left:20px;margin:7px 0}.compact-summary{font-size:.95rem;line-height:1.45;margin:8px 0}.popup{width:min(520px,calc(100vw - 24px));border:3px solid var(--gold);background:#101e29;color:var(--cream);box-shadow:8px 8px 0 #02070a;padding:20px;font:16px/1.55 "Courier New",monospace;text-align:center}.popup::backdrop{background:rgba(0,0,0,.85)}.popup h2{color:var(--gold);font-size:1.2rem;margin:0 0 8px}.popup.alert{border-color:#ad6454}.popup.alert h2,.popup.alert .tag{color:#ff9d8a}.popup .note-actions{justify-content:center}.plaque-box{border:4px double var(--gold);padding:22px 12px;background:#0b1820}.popup h2.plaque-text{font-size:clamp(2.2rem,9vw,3.6rem);letter-spacing:.12em;margin:12px 0;text-shadow:0 0 10px #ffc85760}.popup .tag{margin:0 0 8px}
+.mini-meter{display:block;height:6px;border:1px solid #81908b;background:#09131b;margin-top:4px}.mini-meter span{display:block;height:100%;background:var(--line)}
+input[type=text]{display:block;width:100%;background:#09151c;color:var(--cream);border:2px solid #63807b;border-radius:0;padding:12px;font:16px/1.5 "Courier New",monospace}input[type=text]:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.duo-char{margin:0;text-align:center;opacity:.45}.duo-char.on{opacity:1}.duo-avatar svg{width:110px;height:128px;image-rendering:pixelated}.duo-char figcaption{font-size:11px;color:var(--gold);font-weight:bold;letter-spacing:.04em}.bubble{border:3px solid var(--line);background:#0b1820;padding:14px 16px;margin:6px 0 10px;min-height:96px}.bubble p{margin:6px 0 0;font-size:1.05rem}.lottery{text-align:center;margin:18px 0}.urn svg{width:120px;height:120px;image-rendering:pixelated}
+@media(prefers-reduced-motion:no-preference){.duo-char.on .duo-avatar{animation:talk .6s steps(2) infinite}@keyframes talk{50%{transform:translateY(-3px)}}}
+@media(max-width:600px){.duo-avatar svg{width:80px;height:94px}.duo-char figcaption{font-size:10px}}
+.voice{border:2px solid #536c67;padding:10px;margin:12px 0;text-align:left;background:#0d1b23}.voice .note-actions{justify-content:flex-start}.voice-result{margin:6px 0 0}.popup.voices{width:min(640px,calc(100vw - 24px));max-height:90vh;overflow:auto}
+.frase{border:2px solid #536c67;padding:12px;margin:14px 0;background:#0d1b23}.frase p{margin:6px 0}.frase-options{display:grid;gap:8px;margin:10px 0}.frase-options button{text-align:left}.blank{color:var(--gold);border-bottom:2px dashed var(--gold)}
+
+.player-badge{display:flex;align-items:center;gap:12px;margin:14px 0 18px;padding:8px 12px;border:1px dashed #49615e;background:#0d1b23;color:var(--muted);font-size:12px;letter-spacing:.04em}
+.player-badge .player-sprite{width:42px;height:48px;flex:0 0 42px;image-rendering:pixelated}
+.player-badge strong{display:block;color:var(--gold);font-size:13px}.player-badge span{display:block}
+.npc-dialog{width:min(600px,calc(100vw - 24px));max-width:none;max-height:90vh;overflow:auto;border:3px solid var(--line);background:#101e29;color:var(--cream);box-shadow:8px 8px 0 #02070a;padding:18px;font:16px/1.55 "Courier New",monospace}
+.npc-dialog::backdrop{background:rgba(0,0,0,.78)}.npc-scene{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:center;text-align:left}.npc-sprite{width:96px;height:112px;image-rendering:pixelated}.npc-dialog h2{color:var(--gold);font-size:1.12rem}.npc-dialog .npc-choices{display:grid;gap:8px;margin:14px 0}.npc-dialog .npc-choices button{text-align:left}.npc-dialog .npc-feedback{border-left:4px solid var(--line);background:#142b2b;padding:10px 12px;margin:10px 0}.npc-dialog .npc-feedback[hidden]{display:none}.npc-dialog .npc-feedback strong{display:block;color:var(--line);margin-bottom:5px}.npc-dialog .npc-feedback:has(strong){line-height:1.5}
+@media(max-width:440px){.npc-scene{grid-template-columns:72px minmax(0,1fr);gap:10px}.npc-sprite{width:68px;height:80px}}
+
+</style>
+</head>
+<body>
+  <div class="layout">
+<main class="shell" aria-describedby="notice">
+    <header class="top">
+      <a class="brand" href="#inicio" aria-label="Causa 13, ir al inicio">ARCHIVO FEDERAL<br>CAUSA 13 · MODO INVESTIGACIÓN</a>
+      <div class="meter" aria-live="polite"><span id="progress">INICIO</span><div id="stage-progress" class="stage-progress" aria-label="Avance de las etapas"></div></div>
+    </header>
+    <p id="notice" class="sr-only">Actividad individual y local. Podés pausar o dejar la actividad en cualquier momento.</p>
+    <aside id="player-badge" class="player-badge" aria-label="Personaje jugador" hidden>
+      <svg class="player-sprite" viewBox="0 0 24 28" shape-rendering="crispEdges" aria-hidden="true"><rect x="7" y="1" width="10" height="3" fill="#3a241b"/><rect x="5" y="4" width="14" height="3" fill="#3a241b"/><rect x="5" y="7" width="14" height="8" fill="#e6bd95"/><rect x="7" y="9" width="3" height="2" fill="#10202a"/><rect x="14" y="9" width="3" height="2" fill="#10202a"/><rect x="9" y="13" width="6" height="1" fill="#7d3c38"/><rect x="3" y="15" width="18" height="9" fill="#3b7392"/><rect x="9" y="15" width="6" height="8" fill="#f5edcf"/><rect x="10" y="16" width="4" height="5" fill="#ad493d"/><rect x="4" y="24" width="6" height="3" fill="#25303a"/><rect x="14" y="24" width="6" height="3" fill="#25303a"/></svg>
+      <div><strong id="player-badge-name">AYUDANTE DE FISCALÍA</strong><span>Tu personaje · Archivo de investigación</span></div>
+    </aside>
+    <section id="screen" tabindex="-1" aria-live="polite" aria-atomic="true"></section>
+    <nav class="controls" id="controls" aria-label="Navegación del expediente"></nav>
+    <footer class="footer"><span id="points-status">PISTAS EN ALEGATO: 0 · EXPEDIENTE: 0% · DECISIONES: 0</span><span>CASO ABIERTO · 1985</span></footer>
+  </main>
+<dialog id="journal" class="journal-panel" aria-labelledby="jp-title"><div class="note-head"><div><div class="tag">CUADERNO DE INVESTIGACIÓN</div><h2 id="jp-title">Bitácora · <span id="note-count">0 notas</span></h2></div><button id="close-journal" type="button" class="alt">CERRAR ✕</button></div><p class="small">Anotá lo que vas descubriendo: qué dice una fuente, qué relaciones ves, qué dudas te quedan. Es solo tuyo y se guarda en este navegador.</p><form id="note-form"><label for="note-axis">Eje de investigación</label><select id="note-axis"><option value="state">Órdenes y participación estatal</option><option value="clandestinity">Clandestinidad y negación</option><option value="system">Sistematicidad</option><option value="context">Contexto / duda general</option></select><label for="note-text">Nueva nota</label><textarea id="note-text" rows="4" required placeholder="¿Qué afirma la fuente? ¿Qué permite sostener? ¿Qué falta comprobar?"></textarea><div class="note-actions"><button id="save-note" type="submit">GUARDAR NOTA</button><button id="cancel-edit" type="button" class="alt" hidden>CANCELAR</button></div></form><div id="note-list"></div></dialog>
+<dialog id="board" class="board-panel" aria-labelledby="board-title"></dialog>
+<dialog id="popup" class="popup" aria-labelledby="popup-title"></dialog>
+<button id="open-board" type="button" class="board-jump">▣ PIZARRA · 0</button><button id="open-journal" type="button" class="journal-jump">✎ BITÁCORA</button>
+</div>
+  <p id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+  
+<script>
+const PISTAS_DATA = [{"title": "A1 · Un operativo en Córdoba", "fragment": "penetraron por la fuerza en nuestro domicilio", "context": "El legajo 3860 relata un operativo en Villa Rivera Indarte, Córdoba, el 24 de marzo de 1976. El testimonio describe personas uniformadas y de civil, un apagón previo, el secuestro de integrantes de una familia y el saqueo de la vivienda. La ficha evita reproducir detalles gráficos.", "prompt": "¿Qué detalles de este relato habría que comparar con otros casos antes de hablar de un método común?", "use": "Es un caso individual que puede cruzarse con otros. Por sí solo no demuestra que el procedimiento se repitiera en todo el país.", "source": "Nunca Más, PDF p. 11, legajo 3860.", "status": "La cita fue cotejada visualmente con la página del PDF.", "context_available": false, "id": "A1", "type": "Testimonio", "attribution": "Testimonio transcripto en Nunca Más · legajo 3860", "claim": "El legajo 3860 relata un operativo en Villa Rivera Indarte, Córdoba, el 24 de marzo de 1976. El testimonio describe personas uniformadas y de civil, un apagón previo, el secuestro de integrantes de una familia y el saqueo de la vivienda. La ficha evita reproducir detalles gráficos.", "use_label": "Pista para pensar"}, {"title": "A2 · Una detención en Tucumán", "fragment": "Después se fueron con mi hijo y no tuvimos más noticias de él", "context": "El legajo 5794 relata que Juan de Dios Gómez fue detenido en su lugar de trabajo, llevado a su casa y luego se lo llevaron nuevamente. El relato ubica el caso en Ingenio Santa Lucía, Tucumán.", "prompt": "¿Qué semejanzas y diferencias aparecen al comparar este caso con A1?", "use": "Un segundo relato, en otra provincia y en otra situación de secuestro, permite iniciar una comparación. No convierte automáticamente ambos testimonios en una sola prueba.", "source": "Nunca Más, PDF p. 12, legajo 5794.", "status": "La cita fue cotejada visualmente con la página del PDF.", "context_available": false, "id": "A2", "type": "Testimonio", "attribution": "Testimonio transcripto en Nunca Más · legajo 5794", "claim": "El legajo 5794 relata que Juan de Dios Gómez fue detenido en su lugar de trabajo, llevado a su casa y luego se lo llevaron nuevamente. El relato ubica el caso en Ingenio Santa Lucía, Tucumán.", "use_label": "Pista para pensar"}, {"title": "A3 · Características que se repiten", "fragment": "los operativos se realizaban a altas horas de la noche o de la madrugada", "context": "La CONADEP describe características presentes en numerosos testimonios sobre secuestros en domicilios: horarios, grupos numerosos, armas y, en algunos casos, cortes de luz.", "prompt": "¿Qué partes de A1 y A2 se pueden relacionar con esta descripción general?", "use": "Es una síntesis institucional de patrones observados en testimonios; permite comparar casos sin reemplazar su lectura.", "source": "Nunca Más, PDF p. 10.", "status": null, "context_available": false, "id": "A3", "type": "Síntesis de CONADEP", "attribution": "Síntesis de CONADEP", "claim": "La CONADEP describe características presentes en numerosos testimonios sobre secuestros en domicilios: horarios, grupos numerosos, armas y, en algunos casos, cortes de luz.", "use_label": "Pista para pensar"}, {"title": "A4 · La convergencia de testimonios", "fragment": "es su pluralidad pródiga en referencias semejantes y convergentes", "context": "La CONADEP explica que los relatos incluidos son una pequeña muestra de muchos legajos y que su semejanza y convergencia fundamentan su conclusión sobre una metodología represiva.", "prompt": "¿Por qué la CONADEP considera más fuerte la convergencia de muchos relatos que un caso aislado?", "use": "La propia fuente formula el vínculo entre testimonios individuales y una interpretación general.", "source": "Nunca Más, PDF p. 8.", "status": null, "context_available": false, "id": "A4", "type": "Síntesis de CONADEP", "attribution": "Síntesis de CONADEP", "claim": "La CONADEP explica que los relatos incluidos son una pequeña muestra de muchos legajos y que su semejanza y convergencia fundamentan su conclusión sobre una metodología represiva.", "use_label": "Pista para pensar"}, {"title": "A5 · Un secuestro en el lugar de trabajo", "fragment": "Estaba yo trabajando en la empresa Pavón S.A. de Rosario", "context": "El legajo 7001 relata que Marcelo Daniel Vilchez fue sacado de su trabajo en Rosario por personas vestidas de civil que dijeron ser policías. Lo llevaron a la Jefatura; durante el traslado le cubrieron la cabeza.", "prompt": "¿Qué elementos se parecen a los relatos de Córdoba y Tucumán? ¿Qué información agrega este caso?", "use": "Aporta otro lugar y otro ámbito de secuestro. El legajo permite ampliar la comparación territorial y de circunstancias.", "source": "Nunca Más, PDF p. 20, legajo 7001.", "status": "No se incorpora fecha del caso porque no hace falta para esta inferencia y debe cotejarse si se utiliza.", "context_available": false, "id": "A5", "type": "Testimonio", "attribution": "Testimonio transcripto en Nunca Más · legajo 7001", "claim": "El legajo 7001 relata que Marcelo Daniel Vilchez fue sacado de su trabajo en Rosario por personas vestidas de civil que dijeron ser policías. Lo llevaron a la Jefatura; durante el traslado le cubrieron la cabeza.", "use_label": "Pista para pensar"}, {"title": "B1 · Procedimientos clandestinos e ilegales", "fragment": "optaron por la puesta en marcha de procedimientos clandestinos e ilegales sobre la base de órdenes", "context": "En la introducción al fallo, la Cámara afirma que los comandantes contaban con instrumentos legales para realizar la represión dentro de la ley, pero optaron por procedimientos clandestinos e ilegales basados en órdenes impartidas en sus respectivos comandos.", "prompt": "¿Qué relación establece la Cámara entre las órdenes, los comandantes y los procedimientos clandestinos?", "use": "Es una conclusión judicial sobre órdenes y responsabilidad. El fragmento se lee junto con el resto de la oración para identificar quién impartió las órdenes.", "source": "Fallo Causa 13/84, PDF p. 1.", "status": null, "context_available": false, "id": "B1", "type": "Fallo judicial", "attribution": "Cámara Federal · fallo", "claim": "En la introducción al fallo, la Cámara afirma que los comandantes contaban con instrumentos legales para realizar la represión dentro de la ley, pero optaron por procedimientos clandestinos e ilegales basados en órdenes impartidas en sus respectivos comandos.", "use_label": "Pista para pensar"}, {"title": "B2 · Órdenes y encubrimiento", "fragment": "las órdenes fueron verbales; que los operativos y las detenciones eran encubiertos", "context": "El fallo resume declaraciones de altos jefes militares: las órdenes eran verbales, las demás fuerzas legales no debían interferir, los detenidos no se ponían a disposición de la justicia salvo casos contados y no se debía informar siquiera a los jueces.", "prompt": "¿Cómo se relacionan esos elementos con la posibilidad de ocultar las detenciones?", "use": "Describe judicialmente elementos del funcionamiento clandestino. En la pantalla puede ofrecerse el párrafo completo bajo “Ver contexto”.", "source": "Fallo Causa 13/84, PDF p. 2.", "status": null, "context_available": false, "id": "B2", "type": "Fallo judicial", "attribution": "Cámara Federal · fallo que resume declaraciones", "claim": "El fallo resume declaraciones de altos jefes militares: las órdenes eran verbales, las demás fuerzas legales no debían interferir, los detenidos no se ponían a disposición de la justicia salvo casos contados y no se debía informar siquiera a los jueces.", "use_label": "Pista para pensar"}, {"title": "B3 · “Zona liberada”", "fragment": "TENEMOS ZONA LIBERADA", "context": "En el legajo 1104, un testigo relata que fuerzas que llegaron durante un tiroteo se retiraron luego de oír esa frase; los secuestradores se llevaron a Selma Ocampo e Inés Nocetti. La CONADEP ubica el caso en el apartado sobre “luz verde” o “área liberada”.", "prompt": "¿Qué muestra el relato sobre la posible intervención o inacción de otras fuerzas durante el operativo?", "use": "Es un testimonio que se analiza junto con la explicación general del informe. No debe presentarse como prueba autónoma de que todos los operativos funcionaban de igual modo.", "source": "Nunca Más, PDF p. 13, legajo 1104.", "status": null, "context_available": false, "id": "B3", "type": "Testimonio", "attribution": "Testimonio transcripto en Nunca Más · legajo 1104", "claim": "En el legajo 1104, un testigo relata que fuerzas que llegaron durante un tiroteo se retiraron luego de oír esa frase; los secuestradores se llevaron a Selma Ocampo e Inés Nocetti. La CONADEP ubica el caso en el apartado sobre “luz verde” o “área liberada”.", "use_label": "Pista para pensar"}, {"title": "C1 · Una metodología clandestina", "fragment": "la total clandestinidad en la que se obraba", "context": "La CONADEP describe la metodología como detención seguida de desaparición, clandestinidad y negativa oficial a reconocer la responsabilidad de los organismos intervinientes.", "prompt": "¿Qué relación establece la fuente entre secuestrar, hacer desaparecer y negar información?", "use": "Una síntesis de la CONADEP conecta varios elementos del método. Conviene relacionarla con B2 y C2.", "source": "Nunca Más, PDF p. 9.", "status": null, "context_available": false, "id": "C1", "type": "Síntesis de CONADEP", "attribution": "Síntesis de CONADEP", "claim": "La CONADEP describe la metodología como detención seguida de desaparición, clandestinidad y negativa oficial a reconocer la responsabilidad de los organismos intervinientes.", "use_label": "Pista para pensar"}, {"title": "C2 · Personas desaparecidas y pedidos de información", "fragment": "allí estaban cuando las autoridades respondían negativamente a los pedidos de informes", "context": "El informe señala que las personas desaparecidas estaban en centros clandestinos mientras las autoridades respondían negativamente a pedidos de información. También refiere respuestas públicas que decían que algunas estaban en el exterior o habían sido víctimas de ajustes de cuentas.", "prompt": "¿Por qué la existencia de centros y las respuestas oficiales deben analizarse juntas?", "use": "Relaciona el ocultamiento de las personas con la negación oficial.", "source": "Nunca Más, PDF p. 59.", "status": null, "context_available": false, "id": "C2", "type": "Síntesis de CONADEP", "attribution": "Síntesis de CONADEP", "claim": "El informe señala que las personas desaparecidas estaban en centros clandestinos mientras las autoridades respondían negativamente a pedidos de información. También refiere respuestas públicas que decían que algunas estaban en el exterior o habían sido víctimas de ajustes de cuentas.", "use_label": "Pista para pensar"}, {"title": "D1 · Personas vinculadas y no vinculadas a organizaciones", "fragment": "personas, tanto pertenecientes a organizaciones subversivas como ajenas por completo a ellas", "context": "La Cámara afirma que los hechos afectaron a personas pertenecientes a organizaciones y también a personas ajenas a ellas.", "prompt": "¿Qué conclusión permite sostener esta frase sobre quiénes fueron víctimas?", "use": "Es una afirmación del fallo; no reduce el universo de víctimas a integrantes de organizaciones armadas.", "source": "Fallo Causa 13/84, PDF p. 1.", "status": null, "context_available": false, "id": "D1", "type": "Fallo judicial", "attribution": "Cámara Federal · fallo", "claim": "La Cámara afirma que los hechos afectaron a personas pertenecientes a organizaciones y también a personas ajenas a ellas.", "use_label": "Pista para pensar"}, {"title": "D2 · Un niño secuestrado junto con su madre", "fragment": "esta guerra no es contra los niños", "context": "En el legajo 7143, la madre de Simón Antonio Riquelo relata que fue secuestrada en su domicilio por personas de civil que se identificaron como integrantes de los ejércitos argentino y uruguayo. Preguntó qué ocurriría con su hijo; le respondieron que se quedaría con ellos. El informe registra que fue la última vez que lo vio.", "prompt": "¿Qué muestra este testimonio sobre el impacto de los operativos en niñas, niños y familias?", "use": "Aporta un relato concreto sobre una víctima infantil y su familia. La frase citada es parte de la respuesta de los captores, no una afirmación de la CONADEP.", "source": "Nunca Más, PDF p. 14, legajo 7143.", "status": "La frase fue cotejada visualmente con la página del PDF.", "context_available": false, "id": "D2", "type": "Testimonio", "attribution": "Testimonio transcripto en Nunca Más · legajo 7143", "claim": "En el legajo 7143, la madre de Simón Antonio Riquelo relata que fue secuestrada en su domicilio por personas de civil que se identificaron como integrantes de los ejércitos argentino y uruguayo. Preguntó qué ocurriría con su hijo; le respondieron que se quedaría con ellos. El informe registra que fue la última vez que lo vio.", "use_label": "Pista para pensar"}, {"title": "E1 · El argumento de Strassera sobre la continuidad", "fragment": "Se ha probado durante este juicio la existencia de un plan criminal que no concluyó", "context": "En su alegato, Strassera sostiene que el plan no concluyó cuando fueron reemplazados Galtieri, Anaya y Lami Dozo, y que la derrota en Malvinas no produjo cambios en las directivas.", "prompt": "¿Qué sostiene el fiscal sobre la continuidad del plan? ¿Qué tipo de fuente es un alegato?", "use": "Expone el argumento de la Fiscalía; no debe presentarse como una conclusión independiente de la sentencia.", "source": "Alegato final de Strassera, PDF IX_04, p. 2.", "status": null, "context_available": false, "id": "E1", "type": "Alegato fiscal", "attribution": "Alegato fiscal · Julio César Strassera", "claim": "En su alegato, Strassera sostiene que el plan no concluyó cuando fueron reemplazados Galtieri, Anaya y Lami Dozo, y que la derrota en Malvinas no produjo cambios en las directivas.", "use_label": "Pista para pensar"}, {"title": "E2 · Alcance territorial y duración", "fragment": "Su período de aplicación es prolongado, abarca a toda la Nación", "context": "La CONADEP afirma que la metodología tuvo un período prolongado y que no se limitó a los grandes centros urbanos.", "prompt": "¿Qué parte de esta afirmación requiere comparar casos de distintas zonas?", "use": "Es la interpretación general de la CONADEP; las pistas de casos permiten examinar cómo se sostiene.", "source": "Nunca Más, PDF p. 9.", "status": null, "context_available": false, "id": "E2", "type": "Síntesis de CONADEP", "attribution": "Síntesis de CONADEP", "claim": "La CONADEP afirma que la metodología tuvo un período prolongado y que no se limitó a los grandes centros urbanos.", "use_label": "Pista para pensar"}, {"title": "F1 · Secuestros anteriores al golpe", "fragment": "aproximadamente 600 secuestros que se habrían producido antes del golpe militar del 24 de marzo de 1976", "context": "En el mismo pasaje, la CONADEP distingue esos antecedentes de lo sucedido a partir del golpe: afirma que desde entonces decenas de miles de personas fueron privadas ilegítimamente de libertad en todo el país. También señala antecedentes de la metodología antes de la asunción del gobierno militar.", "prompt": "¿Qué diferencia marca el informe entre antecedentes y generalización posterior?", "use": "Impide concluir que, como hubo antecedentes, nada cambió después. También evita afirmar que el método apareció sin antecedentes.", "source": "Nunca Más, PDF p. 9.", "status": null, "context_available": true, "id": "F1", "type": "Síntesis de CONADEP", "attribution": "Síntesis de CONADEP", "claim": "En el mismo pasaje, la CONADEP distingue esos antecedentes de lo sucedido a partir del golpe: afirma que desde entonces decenas de miles de personas fueron privadas ilegítimamente de libertad en todo el país. También señala antecedentes de la metodología antes de la asunción del gobierno militar.", "use_label": "Pista para pensar"}, {"title": "F2 · Un antecedente del método", "fragment": "La metodología empleada fue ensayada desde antes de asumir el gobierno militar", "context": "La CONADEP menciona el Operativo Independencia en Tucumán y luego describe la extensión nacional y el carácter prolongado de la metodología.", "prompt": "¿Un antecedente demuestra por sí solo que el método se aplicó después de manera generalizada?", "use": "Obliga a distinguir antecedente y extensión posterior. Se interpreta junto con E2 y los testimonios de distintas zonas.", "source": "Nunca Más, PDF p. 9.", "status": null, "context_available": true, "id": "F2", "type": "Síntesis de CONADEP", "attribution": "Síntesis de CONADEP", "claim": "La CONADEP menciona el Operativo Independencia en Tucumán y luego describe la extensión nacional y el carácter prolongado de la metodología.", "use_label": "Pista para pensar"}, {"title": "F3 · El sentido de “excesos”", "fragment": "actos aislados, particularmente aberrantes", "context": "La CONADEP explica que no considera esos hechos como excesos aislados: caracteriza al sistema y a la metodología en su conjunto como el exceso.", "prompt": "¿Qué cambia al leer la definición que da el informe de “excesos”?", "use": "La fuente responde directamente a la explicación de que se trató de episodios aislados.", "source": "Nunca Más, PDF p. 8.", "status": null, "context_available": true, "id": "F3", "type": "Síntesis de CONADEP", "attribution": "Síntesis de CONADEP", "claim": "La CONADEP explica que no considera esos hechos como excesos aislados: caracteriza al sistema y a la metodología en su conjunto como el exceso.", "use_label": "Pista para pensar"}, {"title": "F4 · La respuesta de la Cámara a las justificaciones", "fragment": "no se ha encontrado ni una sola regla que justifique", "context": "El fallo dice que examinó distintas justificaciones y marcos legales, pero no encontró una regla que justificara o disculpara los hechos juzgados. También afirma que existían instrumentos legales para reprimir dentro del marco de la ley.", "prompt": "¿Qué diferencia establece el fallo entre combatir a organizaciones armadas y justificar los hechos juzgados?", "use": "Una respuesta judicial a las justificaciones de las defensas. Debe leerse la oración completa y el párrafo siguiente.", "source": "Fallo Causa 13/84, PDF pp. 1–2.", "status": null, "context_available": true, "id": "F4", "type": "Fallo judicial", "attribution": "Cámara Federal · fallo", "claim": "El fallo dice que examinó distintas justificaciones y marcos legales, pero no encontró una regla que justificara o disculpara los hechos juzgados. También afirma que existían instrumentos legales para reprimir dentro del marco de la ley.", "use_label": "Pista para pensar"}, {"title": "G1 · Qué puede afirmar la CONADEP", "fragment": "esta Comisión no les asigna la responsabilidad", "context": "En la advertencia inicial, la CONADEP aclara que no tiene facultades judiciales para asignar responsabilidad a las personas nombradas por sus funciones o mencionadas en testimonios.", "prompt": "¿Qué puede aportar este informe y qué decisión corresponde al Poder Judicial?", "use": "Enseña a diferenciar investigación, testimonio y atribución judicial de responsabilidad.", "source": "Nunca Más, PDF p. 6.", "status": null, "context_available": false, "id": "G1", "type": "Síntesis de CONADEP", "attribution": "Síntesis de CONADEP · alcance de la Comisión", "claim": "En la advertencia inicial, la CONADEP aclara que no tiene facultades judiciales para asignar responsabilidad a las personas nombradas por sus funciones o mencionadas en testimonios.", "use_label": "Pista para pensar"}, {"title": "G2 · No hubo comando conjunto", "fragment": "se ha acreditado así que no hubo comando conjunto", "context": "El fallo sostiene que no hubo un comando conjunto y que cada comandante impartió órdenes en su ámbito. También describe diferencias en la extensión de los hechos entre las fuerzas.", "prompt": "¿La ausencia de un comando conjunto significa que no hubo órdenes ni un método sistemático? Justificá la respuesta con otras pistas.", "use": "Introduce una precisión necesaria: no presentar una estructura de mando conjunto si el fallo afirma lo contrario. Se analiza junto con B1 y B2.", "source": "Fallo Causa 13/84, PDF p. 1.", "status": null, "context_available": false, "id": "G2", "type": "Fallo judicial", "attribution": "Cámara Federal · fallo", "claim": "El fallo sostiene que no hubo un comando conjunto y que cada comandante impartió órdenes en su ámbito. También describe diferencias en la extensión de los hechos entre las fuerzas.", "use_label": "Pista para pensar"}];
+const screen = document.querySelector('#screen');
+const controls = document.querySelector('#controls');
+const progress = document.querySelector('#progress');
+const noteForm = document.querySelector('#note-form');
+const noteText = document.querySelector('#note-text');
+const noteAxis = document.querySelector('#note-axis');
+const noteList = document.querySelector('#note-list');
+const dialog = document.querySelector('#journal');
+const boardDialog = document.querySelector('#board');
+const popup = document.querySelector('#popup');
+const TYPES = {
+  'Testimonio': 'Relato testimonial transcripto en Nunca Más',
+  'Fallo judicial': 'Fallo de la Cámara Federal · Causa 13/84',
+  'Alegato fiscal': 'Alegato fiscal · Julio César Strassera',
+  'Síntesis de CONADEP': 'Informe de la CONADEP · Nunca Más'
+};
+const NOTES_KEY = 'causa13-bitacora-v2';
+const DRAFT_KEY = 'causa13-borrador-v1';
+const PICKS_KEY = 'causa13-seleccion-alegato-v1';
+const ROUTE_KEY = 'causa13-ruta-v1';
+const DIRECT_EVIDENCE = new Set(['A1','A2','A3','A4','A5','B1','B2','B3','C1','C2','E2','F3','G2']);
+const SUPPORT_EVIDENCE = new Set(['D1','D2','E1','F4']);
+const TESTIMONIES = new Set(['A1','A2','A5','B3','D2']);
+const CONADEP_SYNTHESIS = new Set(['A3','A4','C1','C2','E2','F1','F2','F3','G1']);
+const STATE_EVIDENCE = new Set(['B1','B2','B3','G2']);
+const CLANDESTINITY_EVIDENCE = new Set(['B1','B2','B3','C1','C2']);
+const STAGES = [
+  { id:'state', title:'Órdenes y participación estatal', clues:['B1','B2','B3','G2'], prompt:'¿Qué fuentes ayudan a reconstruir quiénes participaron y cómo se vinculan las órdenes con la intervención estatal?', guide:'Para sostener este eje, volvamos a las fuentes: ¿qué permite afirmar cada una sobre órdenes, mandos o participación estatal?' },
+  { id:'clandestinity', title:'Clandestinidad y negación', clues:['C1','C2','F4'], prompt:'¿Qué indicios permiten analizar el funcionamiento clandestino y las respuestas frente a los pedidos de información?', guide:'Miremos qué muestran las fuentes sobre el ocultamiento y la negación. ¿Qué relación proponés y qué evidencia la sostiene?' },
+  { id:'system', title:'Sistematicidad', clues:['A1','A2','A5','A3','A4'], prompt:'¿Qué semejanzas y diferencias aparecen al comparar dos testimonios y cruzarlos con una síntesis de CONADEP?', guide:'Comparemos dos testimonios y crucémoslos con CONADEP. ¿Qué patrón puede sostenerse y qué matices conviene conservar?' }
+];
+const DESTINATIONS = [
+  {id:'cordoba',title:'Córdoba',label:'TESTIMONIO · NUNCA MÁS',ids:['A1'],scene:'city',axes:['system'],role:'Leer un testimonio de un operativo y anotar qué detalles habría que comparar con otros casos.',question:'¿Qué detalles de este relato habría que comparar con otros casos antes de hablar de un método común?'},
+  {id:'tucuman',title:'Tucumán',label:'TESTIMONIO · ANTECEDENTE',ids:['A2','F2'],scene:'route',axes:['system','context'],role:'Comparar con Córdoba y revisar qué dice la CONADEP sobre un antecedente del método.',question:'¿Qué semejanzas y diferencias hay con Córdoba? ¿Un antecedente demuestra por sí solo que el método se aplicó después de manera generalizada?'},
+  {id:'rosario',title:'Rosario',label:'TESTIMONIO · LUGAR DE TRABAJO',ids:['A5'],scene:'testimony',axes:['system'],role:'Sumar un tercer caso y ver qué elementos se repiten.',question:'¿Qué elementos se parecen a los relatos de Córdoba y Tucumán? ¿Qué información agrega este caso?'},
+  {id:'ba-nunca-mas',title:'Buenos Aires · Informe Nunca Más',label:'CONADEP · SÍNTESIS',ids:['A3','A4','F3','F1'],scene:'files',axes:['system','context'],role:'Cruzar los testimonios con lo que sintetiza la CONADEP.',question:'¿Qué patrón formula la CONADEP y cómo se sostiene al compararlo con los testimonios individuales? ¿Qué cambia al leer cómo define los “excesos”?'},
+  {id:'ba-clandestinidad',title:'Buenos Aires · Clandestinidad y alcance',label:'CONADEP · SÍNTESIS',ids:['C1','C2','E2','G1'],scene:'dossier',axes:['clandestinity','system','context'],role:'Seguir lo que la CONADEP dice sobre clandestinidad, respuestas oficiales y alcance.',question:'¿Cómo relacionás la detención clandestina con la negación oficial? ¿Qué límites reconoce la CONADEP sobre su propio alcance?'},
+  {id:'ba-testimonios',title:'Buenos Aires · Testimonios en Nunca Más',label:'TESTIMONIOS',ids:['B3','D2'],scene:'testimony',axes:['state','system'],role:'Leer dos testimonios sobre la intervención de fuerzas y el impacto en las familias.',question:'¿Qué muestra cada testimonio por separado? ¿Qué necesitarías cruzar para sostener una afirmación sobre la participación estatal?'},
+  {id:'ba-camara',title:'Buenos Aires · Cámara Federal',label:'FALLO · CAUSA 13/84',ids:['B1','B2','G2','D1','F4'],scene:'court',axes:['state','clandestinity'],role:'Buscar qué afirma el fallo sobre órdenes, procedimientos, comando y justificaciones.',question:'¿Qué afirma el fallo sobre las órdenes y el comando? ¿Qué parte de tu explicación sigue siendo una inferencia que necesita otra fuente?'},
+  {id:'ba-fiscalia',title:'Buenos Aires · Fiscalía',label:'ALEGATO · STRASSERA',ids:['E1'],scene:'desk',axes:['state','system'],role:'Leer el argumento de la fiscalía sobre la continuidad del plan.',question:'¿Qué sostiene Strassera en su alegato y cómo se diferencia de lo que concluye el fallo? Mantené las atribuciones separadas.'}
+];
+const PROBLEMS = [
+  {id:'sistematicidad', title:'¿Fueron casos aislados o hay un patrón?', eje:'Sistematicidad', stops:['cordoba','tucuman','rosario'], intro:'Primero tenemos que ver si los hechos se repiten. Vamos a leer testimonios de lugares distintos y a comparar qué coincide y qué cambia.'},
+  {id:'cruce', title:'¿Qué dice la CONADEP al cruzar los casos?', eje:'Sistematicidad · Clandestinidad y negación', stops:['ba-nunca-mas','ba-clandestinidad'], intro:'Ahora cruzamos esos relatos con la síntesis de la CONADEP: ¿qué patrón formula y cómo se relaciona con la clandestinidad y la negación oficial?'},
+  {id:'ordenes', title:'¿Hubo órdenes y participación estatal?', eje:'Órdenes y participación estatal', stops:['ba-camara','ba-testimonios','ba-fiscalia'], intro:'Por último: ¿quién daba las órdenes y cómo participó el Estado? Vamos a ver qué dice el fallo, otros testimonios y el argumento de la fiscalía.'}
+];
+const STAGE_GUIDES = {
+  A1:'Empecemos por este testimonio: ¿qué experiencia relata y con qué otro caso podrías compararla?', A2:'Ubicá lo que cuenta este testimonio. ¿Qué coincide o cambia frente a otro caso?', A3:'¿Qué elementos reúne esta síntesis? ¿Cómo dialogan con los testimonios concretos?', A4:'¿Qué aporta esta síntesis al comparar relatos, y qué voces individuales siguen siendo necesarias?', A5:'¿Qué aporta este relato al comparar casos? Separá el testimonio de tu inferencia.',
+  B1:'¿Qué afirma el fallo sobre los procedimientos y qué permite inferir sobre la participación estatal?', B2:'¿Qué relación establece el fallo entre órdenes y encubrimiento? Volvé al pasaje.', B3:'¿Qué aporta este testimonio al eje estatal? ¿Qué necesitarías cruzar para sostenerlo?', G2:'¿Qué límite plantea esta fuente sobre la coordinación? ¿Cómo cambia o precisa tu argumento?',
+  C1:'¿Qué rasgos de la metodología presenta esta síntesis? Buscá coincidencias en otras fuentes.', C2:'¿Qué muestran los pedidos de información y las respuestas? Distinguí fuente e inferencia.', F4:'¿Cómo responde la Cámara a las justificaciones? Volvé al argumento y a sus límites.'
+};
+let cards = [];
+let current = -1;
+let route = readStore(ROUTE_KEY, { visited:[], state:'intro', activeDestination:null, focusAxis:'state', step:0, connections:[] });
+if (!route || typeof route !== 'object' || Array.isArray(route)) route = { visited:[], state:'intro', activeDestination:null, focusAxis:'state', step:0, connections:[] };
+if (!Array.isArray(route.connections)) route.connections = [];
+let notes = readStore(NOTES_KEY, []);
+if (!Array.isArray(notes)) notes = [];
+notes = notes.filter(note => note && typeof note.text === 'string').map(note => ({ ...note, axis: ['state','clandestinity','system','context'].includes(note.axis) ? note.axis : 'context' }));
+let drafts = readStore(DRAFT_KEY, { inferences: {}, finish: ['', '', ''] });
+if (!drafts || typeof drafts !== 'object') drafts = { inferences: {}, finish: ['', '', ''] };
+drafts.finish = Array.isArray(drafts.finish) ? [0,1,2].map(i => typeof drafts.finish[i] === 'string' ? drafts.finish[i] : '') : ['', '', ''];
+let storedPicks = readStore(PICKS_KEY, []);
+if (!Array.isArray(storedPicks)) storedPicks = [];
+let picked = new Set(storedPicks.filter(id => typeof id === 'string'));
+let selectedTrack = null;
+let editingNote = null;
+let returnFocus = null;
+
+function readStore(key, fallback) {
+  try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch { return fallback; }
+}
+function saveStore(key, value) {
+  try { localStorage.setItem(key, JSON.stringify(value)); }
+  catch { announce('No se pudo guardar en este navegador. Revisá el espacio disponible.'); }
+}
+const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const plainTitle = card => card.title.replace(/^[A-Z]\d+\s*·\s*/, '');
+const announce = message => { const live = document.querySelector('#announcer'); live.textContent = ''; requestAnimationFrame(() => { live.textContent = message; }); };
+function setControls(markup) { controls.innerHTML = markup; bindControls(); }
+function bindControls() {
+  controls.querySelectorAll('[data-action]').forEach(button => button.addEventListener('click', () => act(button.dataset.action)));
+}
+function focusScreen() { screen.focus({preventScroll:true}); }
+function setProgress() {
+  const badge = document.querySelector('#player-badge');
+  const badgeName = document.querySelector('#player-badge-name');
+  if (badge) badge.hidden = ['intro','call'].includes(route.state);
+  if (badgeName) badgeName.textContent = route.playerName ? `${route.playerName.toUpperCase()} · AYUDANTE` : 'AYUDANTE DE FISCALÍA';
+  const cp = currentProblem();
+  const pn = cp ? cp.index + 1 : PROBLEMS.length;
+  const ad = activeDestination();
+  const apn = ad ? PROBLEMS.findIndex(problem => problem.stops.includes(ad.id)) + 1 : pn;
+  if (route.state === 'intro') progress.textContent = 'INICIO';
+  else if (route.state === 'problem') progress.textContent = `PROBLEMA ${pn}/${PROBLEMS.length}`;
+  else if (route.state === 'destinations') progress.textContent = cp ? `PROBLEMA ${pn}/${PROBLEMS.length} · DESTINOS ${route.visited.length}/${DESTINATIONS.length}` : 'REVISIÓN';
+  else if (route.state === 'clues') progress.textContent = `PROBLEMA ${apn}/${PROBLEMS.length} · PISTA ${current + 1}/${ad?.ids.length || 2}`;
+  else if (route.state === 'debrief') progress.textContent = `PROBLEMA ${apn}/${PROBLEMS.length} · REPASO`;
+  else if (route.state === 'call') progress.textContent = 'CONVOCATORIA';
+  else if (route.state === 'ending') progress.textContent = 'SENTENCIA';
+  else progress.textContent = 'CIERRE';
+  const selected = [...picked].filter(id => cards.some(card => card.id === id));
+  const pointsLabel = document.querySelector('#points-status');
+  if (pointsLabel) { const r = scoreCase(); pointsLabel.innerHTML = `EXPEDIENTE: ${r.score}% · EN PILA: ${selected.length} · EN PIZARRA: ${pinnedCards().length}<span class="mini-meter" aria-hidden="true"><span style="width:${r.score}%"></span></span>`; }
+  updateBoardButton();
+  renderStageProgress();
+  const showScore = route.state === 'finish';
+  document.querySelector('#points-status').hidden = ['intro','call','ending'].includes(route.state);
+  document.querySelector('#stage-progress').hidden = !showScore;
+}
+function noteReflects(stageId) { return notes.some(note => note.axis === stageId && Boolean(note.text?.trim())); }
+function stageStatus() {
+  return STAGES.map(stage => {
+    const hasReflection = noteReflects(stage.id);
+    const hasEvidence = pinnedCards().some(card => stage.clues.includes(card.id) && route.pins[card.id] === stage.id);
+    const hasConnection = (route.connections || []).some(link => {
+      const a = trackById(link.a), b = trackById(link.b);
+      return a && b && stage.clues.includes(a.id) && stage.clues.includes(b.id);
+    });
+    return { ...stage, complete: Boolean(hasEvidence && (hasReflection || hasConnection)) };
+  });
+}
+function renderStageProgress() {
+  const host = document.querySelector('#stage-progress');
+  if (!host) return;
+  host.innerHTML = stageStatus().map((stage, index) => `<span class="stage-star ${stage.complete ? 'earned' : ''}" aria-label="Etapa ${index + 1}: ${escapeHTML(stage.title)}${stage.complete ? ', revisada' : ', pendiente'}" title="${escapeHTML(stage.title)}">${stage.complete ? '★' : '☆'}</span>`).join('');
+}
+function strasseraGuide(text, phase = '') {
+  return `<aside class="strassera-guide" aria-label="Orientación de Julio César Strassera, recreación pedagógica"><div class="strassera-avatar" aria-hidden="true"><svg viewBox="0 0 48 56" shape-rendering="crispEdges"><rect x="15" y="3" width="20" height="5" fill="#c9d0cb"/><rect x="10" y="8" width="29" height="5" fill="#c9d0cb"/><rect x="8" y="13" width="33" height="16" fill="#e6c19a"/><rect x="11" y="18" width="5" height="3" fill="#10202a"/><rect x="31" y="18" width="5" height="3" fill="#10202a"/><rect x="18" y="24" width="13" height="3" fill="#7d3c38"/><rect x="4" y="31" width="40" height="22" fill="#263f4b"/><rect x="20" y="31" width="8" height="17" fill="#f0ead7"/><rect x="21" y="33" width="6" height="10" fill="#ad493d"/><rect x="1" y="43" width="10" height="9" fill="#9a713f"/><rect x="3" y="45" width="6" height="5" fill="#d1a759"/></svg></div><div>${phase ? `<span class="guide-phase">${escapeHTML(phase)}</span>` : ''}<span class="guide-name">JULIO CÉSAR STRASSERA · FISCAL</span><p>${escapeHTML(text)}</p><span class="guide-note">Orientación pedagógica recreada; no es una cita textual.</span></div></aside>`;
+}
+function phaseForCard(card) { return STAGES.find(stage => stage.clues.includes(card.id))?.title || 'Cruce y contexto'; }
+function stageBoard() {
+  return `<section class="stage-board" aria-label="Revisión de las tres etapas"><h2>Revisión del caso</h2><p class="small">Cada estrella se gana al reunir evidencia pertinente, guardar una conclusión de la parada y registrar en la bitácora qué afirma la fuente y qué queda por revisar.</p><ol>${stageStatus().map((stage, index) => `<li class="${stage.complete ? 'stage-done' : ''}"><span aria-hidden="true">${stage.complete ? '★' : '☆'}</span><div><strong>Etapa ${index + 1} · ${escapeHTML(stage.title)}</strong><p>${escapeHTML(stage.prompt)}</p><span class="small">${stage.complete ? 'ETAPA REVISADA' : 'Pendiente: evidencia del eje + nota con afirmación y límite.'}</span></div></li>`).join('')}</ol></section>`;
+}
+function selectionFor(id) { return picked.has(id); }
+function activePenalty() { return INTERFERENCES.filter(ev => route.events.includes(ev.id) && ev.penalty && !ev.counter.some(id => isPinned(id))).reduce((sum, ev) => sum + ev.penalty, 0); }
+function togglePick(id) {
+  const card = trackById(id);
+  if (!card) return;
+  if (picked.has(id)) {
+    picked.delete(id);
+    if (route.pins) delete route.pins[id];
+    pickNote = 'La pista salió de la pila y de la pizarra. Podés volver a incorporarla cuando la necesites.';
+  } else {
+    picked.add(id);
+    pickNote = 'PISTA GUARDADA EN LA PILA. Abrí la pizarra para conectarla con el eje que corresponda; solo las pistas pinchadas forman parte del alegato.';
+  }
+  saveStore(PICKS_KEY, [...picked]);
+  saveRoute();
+  announce(pickNote);
+  drawCard();
+  updateBoardButton();
+}
+function scoreCase() {
+  const chosen = pinnedCards();
+  const types = new Set(chosen.map(card => card.type));
+  const testimonyCount = chosen.filter(card => TESTIMONIES.has(card.id)).length;
+  const hasConadep = chosen.some(card => CONADEP_SYNTHESIS.has(card.id));
+  const checks = {
+    state: stageStatus()[0].complete,
+    clandestinity: stageStatus()[1].complete,
+    system: stageStatus()[2].complete && testimonyCount >= 2 && hasConadep,
+    diversity: chosen.length >= 3 && types.size >= 2,
+    context: notes.some(note => Boolean(note.text?.trim()))
+  };
+  const evidencePoints = chosen.reduce((sum, card) => sum + (DIRECT_EVIDENCE.has(card.id) ? 4 : SUPPORT_EVIDENCE.has(card.id) ? 2 : 0), 0);
+  const coveragePoints = (checks.state ? 8 : 0) + (checks.clandestinity ? 8 : 0) + (checks.system ? 10 : 0) + (checks.diversity ? 8 : 0) + (checks.context ? 6 : 0);
+  const penalty = activePenalty();
+  const decisionPoints = Number(route.decisionPoints) || 0;
+  const score = Math.max(0, Math.min(100, evidencePoints + coveragePoints + decisionPoints - penalty));
+  const ready = score >= 75 && Object.values(checks).every(Boolean) && stageStatus().every(stage => stage.complete);
+  return { chosen, types, testimonyCount, hasConadep, checks, evidencePoints, coveragePoints, decisionPoints, penalty, score, ready };
+}
+function saveRoute() { if (route.state === 'clues') route.step = current; saveStore(ROUTE_KEY, route); }
+function destinationById(id) { return DESTINATIONS.find(destination => destination.id === id); }
+function activeDestination() { return destinationById(route.activeDestination); }
+function activeCard() { const destination = activeDestination(); return destination ? trackById(destination.ids[current]) : null; }
+function start() { route.focusAxis = route.focusAxis || 'state'; current = -1; saveRoute(); drawProblem(); }
+
+const SVG_S = '<svg viewBox="0 0 48 56" shape-rendering="crispEdges"><rect x="15" y="3" width="20" height="5" fill="#c9d0cb"/><rect x="10" y="8" width="29" height="5" fill="#c9d0cb"/><rect x="8" y="13" width="33" height="16" fill="#e6c19a"/><rect x="11" y="18" width="5" height="3" fill="#10202a"/><rect x="31" y="18" width="5" height="3" fill="#10202a"/><rect x="18" y="24" width="13" height="3" fill="#7d3c38"/><rect x="4" y="31" width="40" height="22" fill="#263f4b"/><rect x="20" y="31" width="8" height="17" fill="#f0ead7"/><rect x="21" y="33" width="6" height="10" fill="#ad493d"/><rect x="1" y="43" width="10" height="9" fill="#9a713f"/><rect x="3" y="45" width="6" height="5" fill="#d1a759"/></svg>';
+const SVG_M = '<svg viewBox="0 0 48 56" shape-rendering="crispEdges"><rect x="13" y="3" width="22" height="6" fill="#2b2118"/><rect x="9" y="8" width="30" height="5" fill="#2b2118"/><rect x="8" y="13" width="32" height="16" fill="#e0b48a"/><rect x="8" y="13" width="4" height="9" fill="#2b2118"/><rect x="36" y="13" width="4" height="9" fill="#2b2118"/><rect x="12" y="18" width="5" height="3" fill="#10202a"/><rect x="31" y="18" width="5" height="3" fill="#10202a"/><rect x="18" y="25" width="12" height="2" fill="#7d3c38"/><rect x="4" y="31" width="40" height="22" fill="#4a4f5c"/><rect x="20" y="31" width="8" height="17" fill="#f0ead7"/><rect x="22" y="33" width="4" height="12" fill="#3a6ea5"/><rect x="38" y="40" width="9" height="11" fill="#d29b52"/></svg>';
+const SPEAKERS = { S:['JULIO CÉSAR STRASSERA · FISCAL', SVG_S], M:['LUIS MORENO OCAMPO · FISCAL ADJUNTO', SVG_M] };
+const TESTIMONY_INTERVIEWS = {
+  A1: { question:'¿Cómo fue el operativo en la vivienda?', answer:'El relato describe un operativo en Villa Rivera Indarte: participaron personas uniformadas y de civil, hubo un corte de luz, secuestros dentro de la familia y saqueo de la casa.' },
+  A2: { question:'¿Qué ocurrió con Juan de Dios Gómez después de la detención?', answer:'Según el legajo, Gómez fue detenido en su trabajo y llevado a su casa. Luego se lo llevaron otra vez y su familia no volvió a tener noticias de él.' },
+  A5: { question:'¿Cómo fue la detención en el lugar de trabajo?', answer:'El legajo relata que Marcelo Daniel Vilchez fue sacado de su trabajo en Rosario por personas vestidas de civil que dijeron ser policías. Después lo llevaron a la Jefatura.' },
+  B3: { question:'¿Qué pasó cuando llegaron otras fuerzas al lugar?', answer:'Según el testimonio, unas fuerzas llegaron durante un tiroteo, oyeron la expresión “zona liberada” y se retiraron. Luego se llevaron a Selma Ocampo e Inés Nocetti.' },
+  D2: { question:'¿Qué pasó con la madre y su hijo durante el secuestro?', answer:'El legajo cuenta que la madre fue secuestrada en su domicilio. Preguntó qué ocurriría con su hijo y le respondieron que se quedaría con ellos; no volvió a verlo.' }
+};
+function shortenText(value, max=125) { const text = String(value || '').replace(/\s+/g,' ').trim(); if (text.length <= max) return text; return text.slice(0, max - 1).replace(/\s+\S*$/, '') + '…'; }
+function isPinned(id) { return Boolean(route.pins && route.pins[id]); }
+function pinnedCards() { return cards.filter(card => isPinned(card.id)); }
+function updateBoardButton() { const button = document.querySelector('#open-board'); if (button) button.textContent = `▣ PIZARRA · ${pinnedCards().length} PINCHADAS / ${picked.size} EN PILA`; }
+const INTRO_SCRIPT = [
+  {who:'S', text:'Estamos en pleno juicio a las Juntas. La Cámara Federal espera que le mostremos que lo ocurrido no fueron casos aislados, sino un plan.'},
+  {who:'M', text:'Y el material no para de crecer: testimonios, documentos, el informe de la CONADEP. Entre los dos no llegamos a revisar todo.'},
+  {who:'S', text:'Entonces necesitamos ayuda. Hay que convocar ayudantes que lean las fuentes con ojos nuevos.'},
+  {who:'M', text:'Hagamos un sorteo entre quienes se anotaron para colaborar.'},
+  {type:'draw'},
+  {type:'name'},
+  {who:'M', text:'{nombre}… Me parece una buena opción, doctor.'},
+  {who:'S', text:'Estoy de acuerdo. Te damos la bienvenida al equipo, {nombre}. Te explico cómo vamos a trabajar.'},
+  {who:'S', text:'Vas a viajar por distintas ciudades siguiendo las pistas. En cada parada leés testimonios, partes del fallo, del alegato y de la CONADEP.'},
+  {who:'M', text:'Trabajamos de a un problema por vez: en cada uno hay dos o tres destinos. Cuando lo cerramos, pasamos al siguiente.'},
+  {who:'M', text:'Las pistas primero van a una pila. Después las pinchás en la pizarra bajo el eje que mejor expliquen. Solo así quedan conectadas al alegato. Al final de cada parada, cerrás con una conclusión.'},
+  {who:'S', text:'Algunas fuentes dan contexto y otras sostienen afirmaciones concretas. De vez en cuando, algún personaje ficticio se va a acercar a conversar: no son testimonios históricos, sino preguntas para ayudarte a pensar.'},
+  {who:'M', text:'Y ojo, van a aparecer presiones: llamadas, amenazas y argumentos de la defensa. Vas a tener que decidir cómo responder; después, las fuentes que conectes pueden fortalecer o debilitar tu respuesta.'},
+  {who:'S', text:'Anotá lo que descubrís en la bitácora. Las conclusiones las sacás vos. ¿Empezamos?'}
+];
+const NAME_IDX = INTRO_SCRIPT.findIndex(entry => entry.type === 'name');
+function prevDialogueIndex(i) { const j = i - 1; return j >= 0 && INTRO_SCRIPT[j].who ? j : null; }
+function drawStart() {
+  clearTimeout(travelTimer);
+  route.state = 'intro';
+  if (!Number.isInteger(route.introStep) || route.introStep < 0 || route.introStep >= INTRO_SCRIPT.length) route.introStep = 0;
+  if (route.introStep > NAME_IDX && !route.playerName) route.introStep = NAME_IDX;
+  saveRoute();
+  current = -1;
+  setProgress();
+  const entry = INTRO_SCRIPT[route.introStep];
+  if (entry.type === 'draw') return drawLottery();
+  if (entry.type === 'name') return drawNameEntry();
+  if (route.introStep === 0) {
+    // La primera pantalla contiene únicamente el popup «El caso».
+    route.introStep = 1;
+    saveRoute();
+    screen.innerHTML = '';
+    setControls('');
+    popup.className = 'popup';
+    popup.innerHTML = `<div class="tag">JUICIO A LAS JUNTAS · 1985</div><h2 id="popup-title">EL CASO</h2><p>La defensa busca presentar los crímenes como <strong>«excesos» individuales</strong>. La idea de los «dos demonios» encuadró la violencia como un enfrentamiento entre dos fuerzas.</p><p>La fiscalía debe conectar testimonios, el informe de la CONADEP y el fallo para probar responsabilidades de mando y procedimientos clandestinos.</p><p class="small">Tu tarea: investigar las fuentes y construir un argumento.</p><div class="note-actions"><button type="button" id="popup-ok" class="gold">VER A LOS FISCALES ▶</button></div>`;
+    popup.onclose = () => { popup.onclose = null; drawStart(); };
+    popup.showModal();
+    popup.querySelector('#popup-ok').addEventListener('click', () => popup.close());
+    popup.querySelector('#popup-ok').focus();
+    return;
+  }
+  const text = escapeHTML(entry.text).replace(/\{nombre\}/g, escapeHTML(route.playerName || 'ayudante'));
+  const last = route.introStep === INTRO_SCRIPT.length - 1;
+  screen.innerHTML = `<div class="tag">${route.introStep < NAME_IDX ? 'CONVOCATORIA · 1985' : 'TU MISIÓN'}</div><h1>${route.introStep < NAME_IDX ? 'La fiscalía necesita ayuda' : 'Así vamos a trabajar'}</h1>
+    <div class="duo">${['S','M'].map(key => `<figure class="duo-char ${entry.who === key ? 'on' : ''}"><div class="duo-avatar" aria-hidden="true">${SPEAKERS[key][1]}</div><figcaption>${SPEAKERS[key][0]}</figcaption></figure>`).join('')}</div>
+    <div class="bubble"><span class="guide-name">${SPEAKERS[entry.who][0]}</span><p>${text}</p></div>
+    <p class="guide-note">Diálogo recreado con fines pedagógicos; no son citas textuales.</p>
+    ${route.introStep === 1 ? '<p class="source">Diálogo recreado con fines pedagógicos; no son citas textuales.</p>' : ''}`;
+  setControls(`<button class="alt" data-action="intro-prev" ${prevDialogueIndex(route.introStep) === null ? 'disabled' : ''}>◀ ANTERIOR</button>${last ? '' : '<button class="alt" data-action="intro-skip">SALTAR ▶</button>'}${last ? '<button class="gold" data-action="start">EMPEZAR EL VIAJE ▶</button>' : '<button data-action="intro-next">SIGUIENTE ▶</button>'}`);
+  focusScreen();
+}
+function drawLottery() {
+  setProgress();
+  screen.innerHTML = `<div class="tag">EL SORTEO</div><h1>Sorteando ayudante…</h1><div class="lottery"><div class="urn" aria-hidden="true"><svg viewBox="0 0 64 64" shape-rendering="crispEdges"><rect x="12" y="20" width="40" height="34" fill="#486c68"/><rect x="8" y="16" width="48" height="6" fill="#8f997e"/><g class="tw"><rect x="20" y="28" width="8" height="8" fill="#ffc857"/><rect x="34" y="34" width="8" height="8" fill="#ad6454"/><rect x="26" y="42" width="8" height="8" fill="#f5edcf"/><rect x="40" y="26" width="6" height="6" fill="#56f0ad"/></g><rect x="28" y="54" width="8" height="6" fill="#d29b52"/></svg></div><p class="pixel blink">•  •  •</p></div>`;
+  setControls('<button class="alt" data-action="intro-skip">SALTAR ▶</button>');
+  travelTimer = setTimeout(() => { route.introStep = NAME_IDX; drawStart(); }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 300 : 2000);
+  focusScreen();
+}
+function drawNameEntry() {
+  route.state = 'intro';
+  route.introStep = NAME_IDX;
+  saveRoute();
+  setProgress();
+  screen.innerHTML = `<div class="tag">EL SORTEO</div><h1>¡Saliste sorteado!</h1><p>Entre todos los que se anotaron, el sorteo eligió a un nuevo ayudante de la fiscalía: <strong>vos</strong>.</p>
+    <form id="name-form"><label for="player-name" class="label">Escribí tu nombre</label><input id="player-name" type="text" maxlength="30" required autocomplete="off" placeholder="Tu nombre"><div class="note-actions"><button type="submit">CONFIRMAR ▶</button></div></form><p class="small">Se guarda solo en este navegador.</p>`;
+  const input = screen.querySelector('#player-name');
+  input.value = route.playerName || '';
+  screen.querySelector('#name-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const name = input.value.trim().slice(0, 30);
+    if (!name) return;
+    route.playerName = name;
+    route.introStep = NAME_IDX + 1;
+    saveRoute();
+    drawStart();
+  });
+  setControls('');
+  input.focus();
+}
+function drawCall() { drawStart(); }
+
+const PLACES = { ba:['Buenos Aires',-58.4,-34.6], cba:['Córdoba',-64.2,-31.4], tuc:['Tucumán',-65.2,-26.8], ros:['Rosario',-60.7,-32.9], pais:['todo el país',-65,-38] };
+const PLACE_OF_OLD = { provincias:'cba', camara:'ba', conadep:'ba', centros:'ba', testimonios:'ros', audiencia:'ba', fiscalia:'ba', alcances:'ba', territorio:'pais', 'archivo-final':'tuc' };
+const PLACE_OF = { cordoba:'cba', tucuman:'tuc', rosario:'ros', 'ba-nunca-mas':'ba', 'ba-clandestinidad':'ba', 'ba-testimonios':'ba', 'ba-camara':'ba', 'ba-fiscalia':'ba' };
+const ARG_PATH = 'M11 1h7v1h-7zM11 2h7v1h-7zM10 3h9v1h-9zM9 4h12v1h-12zM9 5h14v1h-14zM9 6h15v1h-15zM8 7h18v1h-18zM8 8h19v1h-19zM8 9h19v1h-19zM30 9h2v1h-2zM8 10h20v1h-20zM29 10h3v1h-3zM8 11h20v1h-20zM29 11h3v1h-3zM8 12h22v1h-22zM7 13h22v1h-22zM7 14h21v1h-21zM6 15h21v1h-21zM6 16h20v1h-20zM6 17h20v1h-20zM5 18h21v1h-21zM5 19h20v1h-20zM5 20h20v1h-20zM6 21h19v1h-19zM6 22h19v1h-19zM6 23h19v1h-19zM6 24h19v1h-19zM6 25h19v1h-19zM6 26h19v1h-19zM6 27h20v1h-20zM6 28h20v1h-20zM5 29h22v1h-22zM5 30h22v1h-22zM5 31h22v1h-22zM5 32h21v1h-21zM5 33h21v1h-21zM4 34h20v1h-20zM4 35h15v1h-15zM4 36h14v1h-14zM3 37h15v1h-15zM3 38h15v1h-15zM3 39h11v1h-11zM3 40h11v1h-11zM3 41h11v1h-11zM3 42h12v1h-12zM3 43h11v1h-11zM3 44h11v1h-11zM3 45h10v1h-10zM3 46h10v1h-10zM3 47h10v1h-10zM3 48h9v1h-9zM3 49h7v1h-7zM3 50h7v1h-7zM3 51h8v1h-8zM2 52h10v1h-10zM2 53h11v1h-11zM2 54h11v1h-11zM1 55h12v1h-12zM1 56h9v1h-9zM2 57h7v1h-7zM2 58h7v1h-7zM2 59h6v1h-6zM3 60h5v1h-5zM4 61h4v1h-4zM7 62h1v1h-1zM8 64h2v1h-2zM8 65h3v1h-3zM8 66h5v1h-5zM9 67h5v1h-5z';
+let travelTimer = null;
+function mapSVG(to, from, travel) {
+  const pt = k => [(PLACES[k][1] + 73.6) / .6176, (-21.6 - PLACES[k][2]) / .491];
+  const [x, y] = pt(to);
+  let extra = '';
+  if (travel && from) {
+    const [a, b] = pt(from);
+    extra = `<path d="M${a} ${b}L${x} ${y}" stroke="#ffc857" stroke-width=".5" stroke-dasharray="1.2 1" fill="none"/><g><path d="M-1.6 -.4h3.2v.8h-3.2zM-.4 -1.6h.8v3.2h-.8zM-1.6 -1h.8v2h-.8z" fill="#fff8df"/><animateMotion dur="2.3s" fill="freeze" rotate="auto" path="M${a} ${b}L${x} ${y}"/></g>`;
+  }
+  return `<svg class="argmap" viewBox="0 0 34 68" role="img" aria-label="Mapa de la Argentina con ${escapeHTML(PLACES[to][0])} marcada" shape-rendering="crispEdges"><rect width="34" height="68" fill="#0c2535"/><path d="${ARG_PATH}" fill="#3a7d5a"/>${extra}<rect class="pin" x="${x - 1}" y="${y - 1}" width="2" height="2" fill="#ffc857"/></svg>`;
+}
+function drawTravel(destination, fromId) {
+  clearTimeout(travelTimer);
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return drawCard();
+  const to = PLACE_OF[destination.id];
+  setProgress();
+  screen.innerHTML = `<div class="tag">EN VIAJE</div><div class="travel"><div class="map-box">${mapSVG(to, fromId ? PLACE_OF[fromId] : 'ba', true)}</div><div><h1>Viajando a ${escapeHTML(PLACES[to][0])}…</h1><p class="blink pixel">${escapeHTML(destination.label)}</p><p>${escapeHTML(destination.title)}</p></div></div>`;
+  setControls('<button class="alt" data-action="skip">SALTEAR VIAJE ▶</button>');
+  travelTimer = setTimeout(drawCard, 2600);
+  focusScreen();
+}
+function destinationArt(scene) {
+  const night = '<rect width="160" height="88" fill="#0b1c2c"/><rect y="32" width="160" height="26" fill="#12304a"/><rect y="58" width="160" height="30" fill="#1b4560"/><rect x="134" y="8" width="10" height="10" fill="#f5edcf"/><rect x="138" y="8" width="8" height="8" fill="#0b1c2c"/><g class="tw" fill="#fff8df"><rect x="14" y="10" width="2" height="2"/><rect x="40" y="20" width="2" height="2"/><rect x="72" y="8" width="2" height="2"/><rect x="104" y="18" width="2" height="2"/><rect x="120" y="30" width="2" height="2"/></g>';
+  const room = '<rect width="160" height="88" fill="#16303c"/><rect y="62" width="160" height="26" fill="#2a2418"/><rect y="60" width="160" height="2" fill="#0e1e27"/>';
+  const shelf = x => [0,1,2,3].map(r => `<rect x="${x}" y="${16 + r * 16}" width="48" height="12" fill="#241a12"/>` + [0,1,2,3,4,5].map(c => `<rect x="${x + 2 + c * 8}" y="${18 + r * 16}" width="6" height="10" fill="${['#ad6454','#d29b52','#486c68','#f5edcf'][(r + c) % 4]}"/>`).join('')).join('');
+  const art = {
+    city: night + '<rect x="6" y="44" width="34" height="38" fill="#2d4a58"/><rect x="44" y="26" width="40" height="56" fill="#3a5f68"/><rect x="90" y="38" width="30" height="44" fill="#2d4a58"/><rect x="124" y="50" width="32" height="32" fill="#3a5f68"/><g fill="#ffc857"><rect x="12" y="50" width="5" height="6"/><rect x="24" y="50" width="5" height="6"/><rect x="12" y="62" width="5" height="6"/><rect class="bl" x="52" y="32" width="5" height="6"/><rect x="66" y="32" width="5" height="6"/><rect class="bl" x="52" y="46" width="5" height="6"/><rect x="66" y="58" width="5" height="6"/><rect x="98" y="44" width="5" height="6"/><rect class="bl" x="110" y="56" width="5" height="6"/><rect x="132" y="56" width="5" height="6"/></g><rect y="82" width="160" height="6" fill="#1a2630"/><rect x="118" y="62" width="2" height="20" fill="#8f997e"/><rect class="fl" x="114" y="59" width="10" height="3" fill="#ffc857"/>',
+    court: night + '<path d="M22 36 80 12 138 36z" fill="#d7c9a2"/><path d="M34 34 80 17 126 34z" fill="#bfae82"/><rect x="22" y="36" width="116" height="6" fill="#e7dcc0"/><g fill="#f1e8cf"><rect x="30" y="42" width="8" height="30"/><rect x="46" y="42" width="8" height="30"/><rect x="62" y="42" width="8" height="30"/><rect x="90" y="42" width="8" height="30"/><rect x="106" y="42" width="8" height="30"/><rect x="122" y="42" width="8" height="30"/></g><rect x="72" y="52" width="16" height="20" fill="#2a1d14"/><rect class="bl" x="74" y="56" width="12" height="16" fill="#ffc857"/><rect x="18" y="72" width="124" height="4" fill="#d7c9a2"/><rect x="14" y="76" width="132" height="4" fill="#bfae82"/><rect x="10" y="80" width="140" height="8" fill="#9c8e68"/>',
+    files: room + shelf(10) + shelf(102) + '<rect x="79" y="0" width="2" height="22" fill="#8f997e"/><path d="M70 22h20l-4 8H74z" fill="#ffc857"/><path class="fl" d="M74 30h12l14 48H60z" fill="#ffc857" opacity=".12"/><rect x="66" y="66" width="28" height="10" fill="#6b4a2c"/><rect x="70" y="60" width="20" height="6" fill="#f5edcf"/>',
+    dossier: room + '<rect x="14" y="58" width="132" height="8" fill="#6b4a2c"/><rect x="20" y="66" width="8" height="22" fill="#4a3320"/><rect x="132" y="66" width="8" height="22" fill="#4a3320"/><rect x="48" y="44" width="40" height="14" fill="#f5edcf"/><rect x="52" y="40" width="40" height="14" fill="#e7dcc0"/><path d="M58 45h28M58 49h22" stroke="#486c68" stroke-width="2"/><rect x="98" y="42" width="24" height="16" fill="#d29b52"/><rect x="98" y="39" width="10" height="4" fill="#d29b52"/><rect x="128" y="46" width="14" height="12" fill="#ffc857"/><path d="M131 46v-5a4 4 0 0 1 8 0v5" stroke="#ffc857" stroke-width="3" fill="none"/><rect x="134" y="50" width="2" height="4" fill="#12202a"/><path d="M20 58h14l-3-6H23z" fill="#486c68"/><path d="M26 52V32l16-6" stroke="#8f997e" stroke-width="2" fill="none"/><path class="fl" d="M40 24l10 6-6 5z" fill="#ffc857"/>',
+    testimony: room + '<path class="fl" d="M70 0h20l16 78H54z" fill="#ffc857" opacity=".1"/><rect x="56" y="52" width="48" height="30" fill="#6b4a2c"/><rect x="52" y="48" width="56" height="6" fill="#8a6338"/><rect x="79" y="34" width="2" height="14" fill="#8f997e"/><rect x="76" y="28" width="8" height="8" fill="#c9d0cb"/><rect x="77" y="29" width="6" height="2" fill="#486c68"/><rect x="62" y="44" width="14" height="5" fill="#f5edcf"/><rect x="18" y="56" width="16" height="4" fill="#8a6338"/><rect x="20" y="60" width="2" height="14" fill="#8a6338"/><rect x="30" y="60" width="2" height="14" fill="#8a6338"/><rect x="130" y="16" width="14" height="14" fill="#f5edcf"/><rect x="136" y="18" width="2" height="6" fill="#12202a"/><rect x="136" y="22" width="5" height="2" fill="#12202a"/>',
+    hearing: room + '<rect x="40" y="38" width="80" height="24" fill="#6b4a2c"/><rect x="36" y="34" width="88" height="6" fill="#8a6338"/>' + [52,76,100].map(x => `<rect x="${x}" y="22" width="10" height="10" fill="#e6c19a"/><rect x="${x - 2}" y="32" width="14" height="8" fill="#1a1a22"/>`).join('') + '<rect x="76" y="44" width="8" height="8" fill="#ffc857"/><rect x="10" y="68" width="60" height="6" fill="#486c68"/><rect x="90" y="68" width="60" height="6" fill="#ad6454"/><rect x="14" y="74" width="4" height="10" fill="#243a44"/><rect x="142" y="74" width="4" height="10" fill="#243a44"/>',
+    desk: room + '<rect x="100" y="12" width="48" height="34" fill="#0b1c2c"/><rect x="100" y="12" width="48" height="34" fill="none" stroke="#8a6338" stroke-width="2"/><g class="bl" fill="#ffc857"><rect x="106" y="34" width="3" height="4"/><rect x="118" y="30" width="3" height="4"/><rect x="132" y="36" width="3" height="4"/></g><rect x="12" y="56" width="136" height="8" fill="#6b4a2c"/><rect x="24" y="46" width="22" height="5" fill="#ad6454"/><rect x="26" y="41" width="20" height="5" fill="#486c68"/><rect x="24" y="36" width="22" height="5" fill="#d29b52"/><rect x="62" y="50" width="26" height="6" fill="#f5edcf"/><path d="M108 56h12l-3-5h-6z" fill="#486c68"/><path d="M114 51V38l-8-4" stroke="#8f997e" stroke-width="2" fill="none"/><path class="fl" d="M102 32l8 4-4 5z" fill="#ffc857"/><rect x="20" y="64" width="8" height="24" fill="#4a3320"/><rect x="132" y="64" width="8" height="24" fill="#4a3320"/>',
+    route: night + '<path d="M0 60 30 44 62 58 100 40 160 62v26H0z" fill="#1b4a44"/><rect y="70" width="160" height="18" fill="#253b43"/><path d="M8 80h16m10 0h16m10 0h16m10 0h16m10 0h16" stroke="#ffc857" stroke-width="2"/><rect x="30" y="50" width="2" height="22" fill="#8f997e"/><rect x="22" y="48" width="22" height="7" fill="#ffc857"/><rect x="26" y="56" width="22" height="7" fill="#56f0ad"/><rect x="96" y="58" width="40" height="14" fill="#ad6454"/><rect x="100" y="61" width="8" height="5" fill="#f5edcf"/><rect x="112" y="61" width="8" height="5" fill="#f5edcf"/><rect x="124" y="61" width="8" height="5" fill="#f5edcf"/><rect x="102" y="70" width="8" height="6" fill="#0b1c2c"/><rect x="122" y="70" width="8" height="6" fill="#0b1c2c"/><rect class="fl" x="136" y="64" width="6" height="3" fill="#ffc857"/>'
+  };
+  return `<svg viewBox="0 0 160 88" role="img" aria-label="Ilustración de la parada" shape-rendering="crispEdges">${art[scene] || art.city}</svg>`;
+}
+let browseIndex = 0;
+let pickNote = '';
+const FRASES = [
+  {id:'e1', eje:'Órdenes y participación estatal', before:'Según el fallo de la Cámara Federal, los comandantes contaban con instrumentos legales para reprimir dentro de la ley, pero optaron por procedimientos', after:'basados en órdenes impartidas en sus respectivos comandos.', options:['públicos y judiciales','clandestinos e ilegales','improvisados, sin ninguna orden','autorizados por el Congreso'], correct:1, hint:'Volvé a leer la ficha B1, «Procedimientos clandestinos e ilegales».'},
+  {id:'e2', eje:'Clandestinidad y negación', before:'La CONADEP describe la metodología como detención seguida de desaparición, clandestinidad y', after:'a reconocer la responsabilidad de los organismos intervinientes.', options:['colaboración con las familias','publicación de listas de detenidos','juicio inmediato','negativa oficial'], correct:3, hint:'Volvé a leer la ficha C1, «Una metodología clandestina».'},
+  {id:'e3', eje:'Sistematicidad', before:'La CONADEP no considera esos hechos como excesos aislados: caracteriza', after:'en su conjunto como el exceso.', options:['al sistema y a la metodología','al accionar de algunos oficiales','a la conducta de las víctimas','a los casos más graves'], correct:0, hint:'Volvé a leer la ficha F3, «El sentido de “excesos”».'}
+];
+const INTERFERENCES = [
+  {id:'llamada', after:2, tone:'AMENAZA', title:'Llamada anónima', text:'Suena el teléfono del despacho. Una voz anónima te advierte que dejes de preguntar. La llamada busca intimidar al equipo y frenar la investigación.', counter:[], penalty:0,
+   choices:[
+    {label:'Registrar la llamada y comunicarla al equipo', correct:true, delta:3, feedback:'Buena decisión: dejás constancia de la presión y no abandonás la investigación.'},
+    {label:'Ignorarla y no dejar constancia', correct:false, delta:-2, feedback:'La amenaza queda sin registrar. En una investigación judicial, documentar la presión ayuda a que no pase inadvertida.'},
+    {label:'Suspender la investigación por precaución', correct:false, delta:-3, feedback:'La intimidación logra interrumpir el trabajo. Podés informar la amenaza y seguir investigando con el equipo.'}
+   ]},
+  {id:'excesos', after:5, tone:'ARGUMENTO DE LA DEFENSA', title:'«Fueron excesos aislados»', text:'La defensa intenta presentar lo ocurrido como una suma de decisiones individuales, no como un método sistemático.', counter:['F3','A4'], penalty:8, hint:'Conectá en la pizarra una síntesis de la CONADEP con testimonios que permitan comparar los casos.',
+   choices:[
+    {label:'Aceptar que cada hecho fue un exceso individual', correct:false, delta:-2, feedback:'Esa respuesta adopta el marco de la defensa sin contrastarlo con las fuentes.'},
+    {label:'Comparar varios testimonios con la síntesis de la CONADEP', correct:true, delta:3, feedback:'Es una estrategia sólida: la convergencia entre casos y la síntesis institucional permiten evaluar si hay un patrón. Revisá si ya conectaste esas fuentes en la pizarra.'},
+    {label:'Usar un solo testimonio para explicar todos los casos', correct:false, delta:-2, feedback:'Un testimonio aporta evidencia sobre un caso; para sostener una conclusión general necesitás compararlo con otras fuentes.'}
+   ]},
+  {id:'ordenes', after:7, tone:'ARGUMENTO DE LA DEFENSA', title:'«Nunca hubo órdenes»', text:'Se difunde que no existieron órdenes ni plan alguno, solo decisiones sueltas de cada oficial.', counter:['B1','B2'], penalty:8, hint:'Conectá en la pizarra las fuentes del fallo que describen órdenes y procedimientos clandestinos.',
+   choices:[
+    {label:'Responder que el rumor es falso, sin citar fuentes', correct:false, delta:-2, feedback:'Una afirmación no alcanza por sí sola: necesitás mostrar qué fuente respalda tu respuesta.'},
+    {label:'Volver al fallo y conectar las fuentes sobre órdenes y encubrimiento', correct:true, delta:3, feedback:'Correcto como estrategia: apoyate en lo que la Cámara describe sobre órdenes y procedimientos. La pizarra permite comprobar si esas fuentes ya están conectadas.'},
+    {label:'Retirar del alegato todas las fuentes sobre órdenes', correct:false, delta:-3, feedback:'Retirar evidencia pertinente deja la afirmación sin respaldo. Conviene examinar las fuentes y sus límites, no descartarlas por la presión.'}
+   ]},
+  {id:'victimas', after:8, tone:'ARGUMENTO DE LA DEFENSA', title:'«Todas las víctimas eran guerrilleros»', text:'Una campaña de prensa sostiene que todas las personas desaparecidas pertenecían a organizaciones armadas.', counter:['D1'], penalty:6, hint:'Revisá las fuentes que permiten examinar quiénes fueron afectados; no generalices sin evidencia.',
+   choices:[
+    {label:'Aceptar la afirmación porque circula en la prensa', correct:false, delta:-2, feedback:'La circulación de una afirmación no la convierte en evidencia. Hay que contrastarla con las fuentes del expediente.'},
+    {label:'Contrastar la afirmación con las fuentes sobre las víctimas', correct:true, delta:3, feedback:'Buena estrategia: contrastá la afirmación con los registros disponibles y no generalices más allá de lo que documentan.'},
+    {label:'Responder con una descalificación, sin pruebas', correct:false, delta:-2, feedback:'La respuesta necesita evidencia verificable. Volvé a las fuentes y precisá qué permiten afirmar.'}
+   ]}
+];
+let finishStep = 0;
+function currentProblem() { const index = PROBLEMS.findIndex(problem => problem.stops.some(id => !route.visited.includes(id))); return index < 0 ? null : { ...PROBLEMS[index], index }; }
+function currentList() {
+  const pr = currentProblem();
+  if (!pr) return DESTINATIONS.slice();
+  const list = pr.stops.filter(id => !route.visited.includes(id)).map(destinationById);
+  return route.visited.length ? list : list.filter(destination => ['cordoba','tucuman'].includes(destination.id));
+}
+function orderedRemaining() {
+  const remaining = DESTINATIONS.filter(destination => !route.visited.includes(destination.id));
+  const recommended = destination => route.focusAxis && destination.axes.includes(route.focusAxis);
+  return [...remaining.filter(recommended), ...remaining.filter(destination => !recommended(destination))];
+}
+function destinationCard(destination) {
+  return `<article class="destination-card single"><div class="postcard-art">${destinationArt(destination.scene)}</div><div class="destination-info"><span class="destination-kicker">${escapeHTML(destination.label)}</span><h2>${escapeHTML(destination.title)}</h2><p>${escapeHTML(destination.role)}</p></div></article>`;
+}
+function drawProblem() {
+  const pr = currentProblem();
+  if (!pr) { finishStep = 0; return drawFinish(); }
+  route.state = 'problem';
+  saveRoute();
+  setProgress();
+  const hi = route.playerName ? `${route.playerName}: ` : '';
+  screen.innerHTML = `<div class="tag">PROBLEMA ${pr.index + 1} DE ${PROBLEMS.length} · ${escapeHTML(pr.eje)}</div><h1>${escapeHTML(pr.title)}</h1>${strasseraGuide(hi + pr.intro, `Problema ${pr.index + 1}`)}<p class="small">Para resolverlo vamos a recorrer ${pr.stops.length} destinos.</p>`;
+  setControls('<button class="gold" data-action="destinations">ELEGIR DESTINO ▶</button>');
+  focusScreen();
+}
+function drawDestinations() {
+  const pr = currentProblem();
+  route.state = 'destinations';
+  saveRoute();
+  setProgress();
+  const list = currentList();
+  if (browseIndex >= list.length) browseIndex = 0;
+  if (browseIndex < 0) browseIndex = Math.max(0, list.length - 1);
+  const destination = list[browseIndex];
+  const hi = route.playerName ? `${route.playerName}: ` : '';
+  const left = pr ? pr.stops.filter(id => !route.visited.includes(id)).length : 0;
+  const guideText = hi + (!pr ? 'Ya recorriste todas las paradas. Si querés mejorar el expediente, podés volver a revisar cualquier destino.' : !route.visited.length ? 'Empecemos por el principio: cómo ocurrieron los operativos. Tenemos testimonios de Córdoba y de Tucumán. ¿Por cuál querés empezar?' : `Seguimos con el problema «${pr.title}». ${left === 1 ? 'Nos queda 1 destino' : `Nos quedan ${left} destinos`}; elegí por cuál seguir.`);
+  screen.innerHTML = `<div class="tag">${pr ? `PROBLEMA ${pr.index + 1} DE ${PROBLEMS.length} · ${escapeHTML(pr.eje)}` : 'REVISIÓN DEL EXPEDIENTE'}</div><h1>¿A dónde viajamos?</h1>${strasseraGuide(guideText)}
+    ${destination ? `<p class="browse-count">OPCIÓN ${browseIndex + 1} DE ${list.length}</p>${destinationCard(destination)}
+    <div class="browse-nav"><button type="button" class="alt" data-browse="-1" aria-label="Destino anterior"${list.length > 1 ? '' : ' disabled'}>◀</button><button type="button" class="gold" data-destination="${escapeHTML(destination.id)}">${route.visited.includes(destination.id) ? 'REVISAR ESTA PARADA ▶' : 'VIAJAR A ESTA PARADA ▶'}</button><button type="button" class="alt" data-browse="1" aria-label="Destino siguiente"${list.length > 1 ? '' : ' disabled'}>▶</button></div>` : ''}`;
+  screen.querySelectorAll('[data-destination]').forEach(button => button.addEventListener('click', () => chooseDestination(button.dataset.destination)));
+  screen.querySelectorAll('[data-browse]').forEach(button => button.addEventListener('click', () => {
+    const step = Number(button.dataset.browse);
+    const total = currentList().length;
+    browseIndex = (browseIndex + step + total) % total;
+    drawDestinations();
+    screen.querySelector(`[data-browse="${step}"]`)?.focus({preventScroll:true});
+  }));
+  setControls(`<button class="alt" data-action="debrief" ${route.visited.length ? '' : 'disabled'}>◀ VOLVER AL ÚLTIMO REPASO</button><button class="gold" data-action="finish">IR AL CIERRE ▶</button>`);
+  focusScreen();
+}
+function chooseDestination(id) {
+  const destination = destinationById(id);
+  if (!destination) return;
+  if (route.visited.includes(id)) { route.activeDestination = id; route.state = 'clues'; current = 0; saveRoute(); return drawCard(); }
+  browseIndex = 0;
+  const from = route.visited.at(-1);
+  route.visited.push(id);
+  route.activeDestination = id;
+  route.state = 'clues';
+  current = 0;
+  saveRoute();
+  drawTravel(destination, from);
+}
+function stopAnalysisFor(destinationId) {
+  if (!route.stopAnalysis || typeof route.stopAnalysis !== 'object') route.stopAnalysis = {};
+  const saved = route.stopAnalysis[destinationId];
+  return saved && typeof saved === 'object' ? saved : { axis:'', conclusion:'', limit:'', checked:false, feedback:null };
+}
+function renderStopAnalysis(destination) {
+  const a = stopAnalysisFor(destination.id);
+  const axes = STAGES.filter(stage => destination.axes.includes(stage.id));
+  const options = axes.map(stage => `<option value="${stage.id}" ${a.axis===stage.id?'selected':''}>${escapeHTML(stage.title)}</option>`).join('');
+  const feedback = a.checked && a.feedback ? `<div class="analysis-feedback ${a.feedback.complete?'':'needs-work'}" role="status"><p class="analysis-status">${a.feedback.complete?'CONCLUSIÓN GUARDADA · PARADA REVISADA':'CONCLUSIÓN GUARDADA · REVISÁ ESTOS PUNTOS'}</p><ul>${a.feedback.items.map(item=>`<li>${escapeHTML(item)}</li>`).join('')}</ul><p class="analysis-hint">Esta devolución revisa la estructura de la respuesta; no reemplaza la interpretación histórica ni la lectura de las fuentes.</p></div>` : '<p class="analysis-hint">La mesa aparece una sola vez al cerrar la parada. Usá las fuentes que consultaste para construir una conclusión propia.</p>';
+  return `<section class="analysis-lab" aria-labelledby="stop-analysis-title"><h2 id="stop-analysis-title">Mesa de análisis · Cierre de la parada</h2><p>Ya revisaste las pistas de este destino. Acá cerrás la parada: dejás asentado qué conclusión provisional sacás de las fuentes y qué límite reconocés.</p><div class="rule"><strong>¿Para qué sirve?</strong><br>Tu conclusión queda guardada en el expediente para recuperarla al final. También permite marcar esta etapa como revisada si vinculás la parada con el eje adecuado, mencionás una fuente y explicás un límite. No es una contraseña ni una frase mágica: la devolución solo revisa esos criterios básicos.</div><form id="stop-analysis-form"><label class="label" for="stop-axis">1. ¿Qué eje ayuda a comprender esta parada?</label><select id="stop-axis" required><option value="">Elegí el eje principal…</option>${options}<option value="context" ${a.axis==='context'?'selected':''}>Contexto / todavía no puedo concluir</option></select><label class="label" for="stop-conclusion">2. ¿Qué conclusión podés sostener a partir de las fuentes consultadas?</label><textarea id="stop-conclusion" required minlength="30" placeholder="Al comparar las fuentes de esta parada, puedo sostener que…">${escapeHTML(a.conclusion || '')}</textarea><label class="label" for="stop-limit">3. ¿Qué límite tiene esa conclusión o qué necesitarías cruzar para sostenerla mejor?</label><textarea id="stop-limit" required minlength="15" placeholder="Estas fuentes no alcanzan para afirmar… / Para comprobarlo, las cruzaría con…">${escapeHTML(a.limit || '')}</textarea><div class="note-actions"><button type="submit" class="gold">GUARDAR CONCLUSIÓN EN EL EXPEDIENTE ▶</button></div></form>${feedback}</section>`;
+}
+function drawDebrief() {
+  const destination = activeDestination();
+  if (!destination) return drawDestinations();
+  route.state = 'debrief'; current = -1; saveRoute(); setProgress();
+  const pr = PROBLEMS.find(problem => problem.stops.includes(destination.id));
+  const left = pr.stops.filter(id => !route.visited.includes(id)).length;
+  const more = PROBLEMS.some(problem => problem.stops.some(id => !route.visited.includes(id)));
+  const recap = destination.ids.map(id => {
+    const card = trackById(id);
+    return `<li><strong>${escapeHTML(card.id)} · ${escapeHTML(plainTitle(card))}</strong><span>${isPinned(card.id) ? 'Conectada en la pizarra' : selectionFor(card.id) ? 'Guardada en la pila' : 'Todavía no incorporada'}</span></li>`;
+  }).join('');
+  const nextButton = left ? '<button data-action="destinations">SEGUIR INVESTIGANDO ▶</button>' : more ? '<button class="gold" data-action="next-problem">SIGUIENTE CASO ▶</button>' : '<button class="gold" data-action="finish">CERRAR EXPEDIENTE ▶</button>';
+  screen.innerHTML = `<div class="tag">PARADA · ${escapeHTML(destination.title)}</div><h1>Lo que encontraste</h1><p class="small">Tus expedientes quedan en la pila y en la pizarra. Podés seguir sin completar formularios.</p><ul class="quick-recap">${recap}</ul>`;
+  setControls(`<button class="alt" data-action="prev">◀ VOLVER A LAS FUENTES</button>${nextButton}`);
+  focusScreen();
+}
+function renderAnalysis(card) {
+  const a = analysisFor(card.id);
+  const axes = relevantAxes(card);
+  const roles = [
+    ['direct','Evidencia directa: respalda una afirmación concreta'],
+    ['support','Evidencia de apoyo: cruza o precisa otras fuentes'],
+    ['context','Contexto: orienta, pero no prueba por sí solo']
+  ];
+  const previous = a.checked && a.feedback ? `<div class="analysis-feedback ${a.feedback.complete?'':'needs-work'}" role="status"><p class="analysis-status">${a.feedback.points}/4 criterios de análisis resueltos</p><ul>${a.feedback.feedback.map(item=>`<li>${escapeHTML(item)}</li>`).join('')}</ul><p><strong>La ficha señala:</strong> ${escapeHTML(card.use || 'Conviene cruzar esta fuente con otras antes de generalizar.')}</p><p class="analysis-hint">Devolución orientativa: comprueba la estructura de tu análisis, no puede verificar automáticamente toda interpretación histórica.</p></div>` : '<p class="analysis-hint">No hay una única frase correcta. La devolución te ayuda a revisar cuatro aspectos; la calidad histórica de tu interpretación requiere leer la fuente y justificarla.</p>';
+  return `<section class="analysis-lab" aria-labelledby="analysis-title"><h2 id="analysis-title">Mesa de análisis · Tomá una decisión</h2><p>Antes de incorporar la pista al alegato, decidí qué función cumple, vinculala con un eje y explicá qué permite afirmar y qué límite tiene.</p><form id="analysis-form"><div class="analysis-grid"><div><label class="label" for="analysis-role">1. ¿Qué función cumple?</label><select id="analysis-role" required><option value="">Elegí una función…</option>${roles.map(([value,label])=>`<option value="${value}" ${a.role===value?'selected':''}>${label}</option>`).join('')}</select></div><div><label class="label" for="analysis-axis">2. ¿Con qué eje se relaciona?</label><select id="analysis-axis" required><option value="">Elegí un eje…</option>${axes.map(axis=>`<option value="${axis.id}" ${a.axis===axis.id?'selected':''}>${escapeHTML(axis.title)}</option>`).join('')}<option value="context" ${a.axis==='context'?'selected':''}>Contexto / duda general</option></select></div></div><label class="label" for="analysis-claim">3. ¿Qué te permite sostener esta fuente?</label><textarea id="analysis-claim" required minlength="20" placeholder="La fuente permite sostener que…">${escapeHTML(a.claim || '')}</textarea><label class="label" for="analysis-limit">4. ¿Qué no demuestra por sí sola o qué habría que cruzar?</label><textarea id="analysis-limit" required minlength="12" placeholder="Por sí sola no demuestra… / La cruzaría con…">${escapeHTML(a.limit || '')}</textarea><div class="note-actions"><button type="submit" class="gold">COMPROBAR MI ANÁLISIS ▶</button></div></form>${previous}</section>`;
+}
+function drawCard() {
+  const card = activeCard();
+  const destination = activeDestination();
+  if (!card || !destination) { route.state = route.visited.length ? 'destinations' : 'intro'; saveRoute(); return route.state === 'destinations' ? drawDestinations() : drawStart(); }
+  const last = current >= destination.ids.length - 1;
+  const note = pickNote;
+  pickNote = '';
+  const locked = !selectionFor(card.id) && !route.fichas.includes(card.id);
+  const interview = card.type === 'Testimonio' ? TESTIMONY_INTERVIEWS[card.id] : null;
+  setProgress();
+  const mainContent = interview
+    ? `<section class="interview"><div class="interviewer">Entrevistador · pregunta de trabajo</div><p><strong>${escapeHTML(interview.question)}</strong></p><div class="interviewer">Respuesta · paráfrasis del relato</div><p class="answer">${escapeHTML(interview.answer)}</p><p class="paraphrase-note">Resumen basado en el legajo citado; no es una cita textual ni una entrevista real.</p></section>`
+    : `<blockquote class="quote">“${escapeHTML(card.fragment)}”</blockquote><p class="compact-summary">${escapeHTML(shortenText(card.claim, 175))}</p>`;
+  screen.innerHTML = `<div class="destination-ribbon"><span>PARADA ${route.visited.length} · ${escapeHTML(destination.title)}</span><span>PISTA ${current + 1} DE ${destination.ids.length}</span></div>
+    <span class="source-type">${escapeHTML(card.type)}</span><h1>${escapeHTML(card.title)}</h1>
+    ${mainContent}<p class="small">${escapeHTML(card.source)}</p>
+    <p class="question">${escapeHTML(shortenText(card.prompt, 90))}</p>
+    <details class="context"><summary>ABRIR FICHA COMPLETA</summary><p><strong>Resumen del documento:</strong> ${escapeHTML(card.claim)}</p><p class="small"><strong>Tipo y atribución:</strong> ${escapeHTML(card.attribution || TYPES[card.type])}</p><p><strong>Qué permite sostener y qué límite tiene:</strong> ${escapeHTML(card.use || 'Cruzá esta fuente con otras antes de generalizar.')}</p>${card.status ? `<p class="small">${escapeHTML(card.status)}</p>` : ''}</details>
+    <div class="pick-panel"><button class="${selectionFor(card.id) ? 'gold' : ''}" data-action="pick" ${locked ? 'disabled' : ''}>${selectionFor(card.id) ? 'RETIRAR DE LA PILA' : 'AÑADIR A LA PILA DE EXPEDIENTES'}</button><p class="small">${locked ? 'Abrí la ficha para desbloquear esta pista.' : 'Guardada en la pila. En la pizarra podés conectarla con otras fuentes.'}</p><button type="button" class="alt" data-open-board>▣ ABRIR PIZARRA · ${pinnedCards().length} PINCHADAS</button>${note ? `<p class="small" role="status">${escapeHTML(note)}</p>` : ''}</div>`;
+  screen.querySelector('[data-action="pick"]').addEventListener('click', () => togglePick(card.id));
+  screen.querySelector('[data-open-board]').addEventListener('click', openBoard);
+  const ficha = screen.querySelector('details.context');
+  ficha.addEventListener('toggle', () => {
+    if (!ficha.open || route.fichas.includes(card.id)) return;
+    route.fichas.push(card.id); saveRoute();
+    const button = screen.querySelector('[data-action="pick"]');
+    if (button) button.disabled = false;
+    const helper = screen.querySelector('.pick-panel .small');
+    if (helper) helper.textContent = 'Ya podés guardar esta pista en la pila y conectarla en la pizarra.';
+  });
+  setControls(`<button class="alt" data-action="prev" ${current === 0 ? 'disabled' : ''}>◀ ANTERIOR</button><button data-action="next">${last ? 'CERRAR ESTA PARADA ▶' : 'SIGUIENTE PISTA ▶'}</button>`);
+  focusScreen();
+}
+function drawFinish() {
+  route.state = 'finish';
+  saveRoute();
+  setProgress();
+  const result = scoreCase();
+  const checkLine = (passed, label) => `<li class="${passed ? 'met' : 'missing'}">${passed ? '●' : '○'} ${label}</li>`;
+  const scoreDetails = result.chosen.length ? result.chosen.map(card => {
+    const tier = DIRECT_EVIDENCE.has(card.id) ? 'directa' : SUPPORT_EVIDENCE.has(card.id) ? 'de apoyo' : 'contextual';
+    const explanation = card.id === 'F1' || card.id === 'F2' ? 'Aporta contexto sobre antecedentes; por sí sola no demuestra la aplicación generalizada posterior.' : card.id === 'G1' ? 'Aporta un límite sobre el alcance institucional de la CONADEP, no evidencia directa de la metodología represiva.' : tier === 'directa' ? 'Aporta evidencia directa para reconstruir al menos uno de los ejes.' : 'Aporta una precisión o contexto que conviene cruzar con evidencia directa.';
+    return `<li><strong>${escapeHTML(card.id)} · ${escapeHTML(plainTitle(card))}</strong><p>${explanation}</p><span class="small">${tier} · ${escapeHTML(card.source)}</span></li>`;
+  }).join('') : '<li>Todavía no pinchaste pistas en la pizarra.</li>';
+  const saved = notes.map(note => `<li><p><strong>${escapeHTML(({state:'Órdenes y participación estatal',clandestinity:'Clandestinidad y negación',system:'Sistematicidad',context:'Contexto / duda general'})[note.axis] || 'Nota')}</strong><br>${escapeHTML(note.text)}</p></li>`).join('');
+  const routeRecap = route.visited.length ? route.visited.map((id, index) => { const dest = destinationById(id); const savedConclusion = route.stopAnalysis?.[id]; return `<li><strong>Parada ${index + 1} · ${escapeHTML(dest?.title || id)}</strong><span>${escapeHTML(dest?.role || '')}</span>${savedConclusion?.checked ? `<blockquote><strong>Tu conclusión:</strong> ${escapeHTML(savedConclusion.conclusion)}<br><strong>Límite reconocido:</strong> ${escapeHTML(savedConclusion.limit)}<br><span class="small">Estado: ${savedConclusion.feedback?.complete ? 'parada revisada' : 'requiere revisión'}.</span></blockquote>` : '<span class="small">Todavía no guardaste una conclusión para esta parada.</span>'}</li>`; }).join('') : '<li>Todavía no elegiste destinos. Podés volver y recorrer las fuentes.</li>';
+  const pressures = route.events.length ? `<section class="rule"><h2>Presiones durante la investigación</h2><ul class="checklist">${INTERFERENCES.filter(ev => route.events.includes(ev.id)).map(ev => { const refuted = ev.counter.some(id => isPinned(id)); return checkLine(!ev.penalty || refuted, `${ev.title}: ${!ev.penalty ? 'denunciada, sin efecto en el porcentaje' : refuted ? 'refutada con tu alegato' : 'sin refutar'}.`); }).join('')}</ul></section>` : '';
+  const requisitos = `<section class="score-card" aria-labelledby="score-title"><h2 id="score-title">${result.score}% alcanzado</h2><p class="score-status ${result.ready ? 'ready' : 'not-ready'}">${result.ready ? 'EXPEDIENTE ALCANZADO · PODÉS ENTREGAR EL ALEGATO' : 'TODAVÍA NO ALCANZA · REVISÁ LAS EVIDENCIAS PENDIENTES'}</p><div class="score-track" role="meter" aria-label="Porcentaje alcanzado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${result.score}"><span style="width:${result.score}%"></span></div><p class="small">Umbral para presentar: 75% y todos los requisitos. El porcentaje reúne las fuentes conectadas en la pizarra, la cobertura de los tres ejes, la diversidad de fuentes y las decisiones tomadas durante el recorrido.</p></section>
+    ${stageBoard()}
+    <section class="rule"><h2>Requisitos del expediente</h2><ul class="checklist">${checkLine(result.checks.state, 'Órdenes y participación estatal: evidencia pertinente y una nota identificada con este eje.')}${checkLine(result.checks.clandestinity, 'Clandestinidad y negación: evidencia pertinente y una nota identificada con este eje.')}${checkLine(result.checks.system, `Sistematicidad: ${result.testimonyCount}/2 testimonios distintos, ${result.hasConadep ? 'sí' : 'no'} hay una síntesis de CONADEP y ${noteReflects('system') ? 'sí' : 'no'} hay una nota de este eje.`)}${checkLine(result.checks.diversity, `Tres pistas de al menos dos tipos: ${result.chosen.length} pistas conectadas, ${result.types.size} tipos de fuente.`)}${checkLine(result.checks.context, 'La bitácora tiene al menos una nota con tu lectura, una duda o un límite.')}</ul></section>
+    ${pressures}
+    <details class="score-review"><summary>Ver fuentes conectadas en la pizarra</summary><ul>${scoreDetails}</ul></details>`;
+  const redaccion = `${result.ready ? '<p class="rule">Tu expediente alcanzó el 75% con todos los requisitos. Cuando termines de redactar, pasá al último paso para completar y entregar el alegato.</p>' : '<p class="rule">Todavía no alcanzás el 75% con todos los requisitos: seguí investigando antes de entregar el alegato.</p>'}<p class="question">“Sostengo que se trató de terrorismo de Estado porque…”</p>
+    <div class="axes">
+      <label class="axis"><span class="label">Eje 1 · Órdenes y participación estatal</span><span class="prompt-help">¿Qué afirma la fuente sobre órdenes, mandos o intervención estatal? ¿Qué parte es inferencia tuya?</span><textarea data-finish="0" aria-label="Argumento sobre órdenes y participación estatal" placeholder="Nombrá la fuente y explicá qué evidencia aporta."></textarea></label>
+      <label class="axis"><span class="label">Eje 2 · Clandestinidad y negación</span><span class="prompt-help">¿Qué vínculo encontrás entre el ocultamiento de detenciones o centros y las respuestas oficiales?</span><textarea data-finish="1" aria-label="Argumento sobre clandestinidad y negación" placeholder="Relacioná fuentes y señalá sus voces por separado."></textarea></label>
+      <label class="axis"><span class="label">Eje 3 · Sistematicidad</span><span class="prompt-help">Compará dos testimonios de casos distintos y cruzalos con una síntesis de CONADEP. ¿Qué aporta cada voz?</span><textarea data-finish="2" aria-label="Argumento sobre sistematicidad" placeholder="Explicá la comparación y qué permite sostener."></textarea></label>
+    </div>
+    <details class="context"><summary>Preguntas para revisar el borrador</summary><ul><li>¿Qué frase o pasaje apoya cada idea y qué cambia al leer su contexto?</li><li>¿Se distingue qué dice cada testimonio, el fallo, el alegato y la síntesis de CONADEP?</li><li>¿Queda clara la conexión entre las evidencias y cuál es tu inferencia?</li><li>¿Qué límite, diferencia entre casos o pregunta queda abierta?</li></ul></details>
+    <details class="context"><summary>Mis notas de la bitácora</summary>${saved ? `<ul class="saved-notes">${saved}</ul>` : '<p>Todavía no hay notas. Escribilas en la bitácora.</p>'}</details>
+    <p class="small">“Terrorismo de Estado” es una conclusión que argumentás vos; no se atribuye a una fuente si el pasaje no lo dice. Este borrador se guarda en este navegador.</p>`;
+  const frasesBlock = `${!result.ready ? '<p class="rule">Todavía no alcanzás el 75% con todos los requisitos: seguí investigando antes de entregar el alegato.</p>' : ''}<p class="question">Completá el alegato: elegí la opción que coincide con lo que dicen las fuentes.</p>${FRASES.map((frase, i) => `<div class="frase" data-frase="${frase.id}"><span class="label">Eje ${i + 1} · ${escapeHTML(frase.eje)}</span><p>${escapeHTML(frase.before)} <strong class="blank">${route.frases[frase.id] ? escapeHTML(frase.options[frase.correct]) : '______'}</strong> ${escapeHTML(frase.after)}</p><div class="frase-options">${frase.options.map((option, j) => `<button type="button" class="alt" data-opt="${j}" ${route.frases[frase.id] ? 'disabled' : ''}>${escapeHTML(option)}</button>`).join('')}</div><p class="small frase-msg" role="status">${route.frases[frase.id] ? '✓ Correcto: coincide con la fuente.' : ''}</p></div>`).join('')}`;
+  const finishControls = () => `<button class="alt" data-action="${finishStep === 0 ? 'debrief' : 'fin-prev'}" ${finishStep === 0 && !route.visited.length ? 'disabled' : ''}>◀ ${finishStep === 0 ? 'VOLVER AL RECORRIDO' : 'ANTERIOR'}</button>${finishStep < 3 ? '<button data-action="fin-next">SIGUIENTE ▶</button>' : !result.ready ? '<button class="gold" data-action="destinations">SEGUIR INVESTIGANDO</button>' : `<button class="gold" data-action="deliver" ${FRASES.every(frase => route.frases[frase.id]) ? '' : 'disabled'}>ENTREGAR EL ALEGATO ▶</button>`}`;
+  finishStep = Math.max(0, Math.min(3, finishStep));
+  const parts = [`<section class="rule route-recap"><h2>Tu recorrido para construir el caso</h2><ol>${routeRecap}</ol></section>`, requisitos, redaccion, frasesBlock];
+  const titles = ['TU RECORRIDO', 'REQUISITOS DEL EXPEDIENTE', 'REDACCIÓN DEL ARGUMENTO', 'COMPLETÁ EL ALEGATO'];
+  const heads = ['¿Qué reunimos hasta ahora?', '¿Alcanza para presentar el juicio?', 'Armá tu argumento', 'Completá las frases del alegato'];
+  screen.innerHTML = `<div class="tag">CIERRE · PASO ${finishStep + 1} DE 4 · ${titles[finishStep]}</div><h1>${heads[finishStep]}</h1>${parts[finishStep]}`;
+  screen.querySelectorAll('[data-finish]').forEach(field => {
+    const index = Number(field.dataset.finish);
+    field.value = drafts.finish[index] || '';
+    field.addEventListener('input', () => { drafts.finish[index] = field.value; saveStore(DRAFT_KEY, drafts); });
+  });
+  screen.querySelectorAll('[data-frase]').forEach(box => {
+    const frase = FRASES.find(item => item.id === box.dataset.frase);
+    box.querySelectorAll('[data-opt]').forEach(button => button.addEventListener('click', () => {
+      if (Number(button.dataset.opt) === frase.correct) {
+        route.frases[frase.id] = true;
+        saveRoute();
+        box.querySelector('.blank').textContent = frase.options[frase.correct];
+        box.querySelector('.frase-msg').textContent = '✓ Correcto: coincide con la fuente.';
+        box.querySelectorAll('[data-opt]').forEach(b => { b.disabled = true; });
+        setControls(finishControls());
+      } else {
+        box.querySelector('.frase-msg').textContent = `Esa opción no coincide con la fuente. ${frase.hint}`;
+      }
+    }));
+  });
+  setControls(finishControls());
+  focusScreen();
+}
+
+function drawEnding() {
+  const result = scoreCase();
+  if (!result.ready || !FRASES.every(frase => route.frases[frase.id])) { finishStep = result.ready ? 3 : 1; return drawFinish(); }
+  route.state = 'ending';
+  saveRoute();
+  setProgress();
+  screen.innerHTML = `<div class="tag">FIN DEL PROCESO · SENTENCIA</div>
+    <h1>Alegato entregado: caso resuelto</h1>
+    <div class="postcard-art">${destinationArt('court')}</div>
+    ${strasseraGuide((route.playerName ? route.playerName + ': ' : '') + 'Reuniste las pruebas, distinguiste las voces de cada fuente y mostraste que no fueron hechos aislados. Con ese alegato, la Cámara puede dictar sentencia.', 'Cierre del juicio')}
+    <section class="score-card"><h2>Los responsables, tras las rejas</h2><p class="score-status ready">Tu alegato logró que los responsables de los crímenes del terrorismo de Estado fueran juzgados y condenados: Videla, Massera y Agosti quedan tras las rejas.</p><p class="small">Expediente alcanzado: ${result.score}%, con ${result.chosen.length} pistas en el alegato.</p></section>
+    <section class="rule"><h2>Sentencia del 9 de diciembre de 1985</h2><ul><li>Jorge Rafael Videla: reclusión perpetua.</li><li>Emilio Eduardo Massera: reclusión perpetua.</li><li>Orlando Ramón Agosti: 4 años y 6 meses de prisión.</li></ul></section>
+    <details class="context"><summary>Qué pasó en la realidad</summary><p>La Cámara Federal también condenó a Viola y a Lambruschini, y absolvió a Graffigna, Galtieri, Anaya y Lami Dozo. En 1985 los hechos se juzgaron como delitos del Código Penal; la justicia argentina los califica hoy como crímenes de lesa humanidad.</p><p>En 1986 y 1987 las leyes de Punto Final y Obediencia Debida frenaron nuevos juicios; entre 1989 y 1990 los indultos liberaron a los condenados; desde 2003 esas leyes se anularon y los juicios se reabrieron.</p></details>`;
+  setControls('<button class="alt" data-action="fin-back">◀ VOLVER AL EXPEDIENTE</button><button type="button" id="show-plaque" class="alt">VER LA PLACA</button><button type="button" id="reset-game" class="gold">JUGAR DE NUEVO</button>');
+  controls.querySelector('#show-plaque').addEventListener('click', showPlaque);
+  const reset = controls.querySelector('#reset-game');
+  let armed = false;
+  reset.addEventListener('click', () => {
+    if (!armed) { armed = true; reset.textContent = '¿SEGURO? SE BORRA TODO · TOCÁ DE NUEVO'; return; }
+    [NOTES_KEY, DRAFT_KEY, PICKS_KEY, ROUTE_KEY].forEach(key => { try { localStorage.removeItem(key); } catch {} });
+    location.reload();
+  });
+  focusScreen();
+  showPlaque();
+}
+const NPC_ENCOUNTERS = [
+  {id:'archivo', correct:1, name:'Auxiliar del archivo', role:'PERSONAJE FICTICIO · APOYO A LA INVESTIGACIÓN', sprite:'<svg viewBox="0 0 32 40" shape-rendering="crispEdges"><rect x="9" y="2" width="14" height="4" fill="#33251d"/><rect x="6" y="6" width="20" height="4" fill="#33251d"/><rect x="6" y="10" width="20" height="12" fill="#e7bd92"/><rect x="9" y="13" width="4" height="2" fill="#10202a"/><rect x="19" y="13" width="4" height="2" fill="#10202a"/><rect x="12" y="18" width="8" height="2" fill="#7d3c38"/><rect x="3" y="22" width="26" height="13" fill="#416a63"/><rect x="12" y="22" width="8" height="11" fill="#f5edcf"/><rect x="4" y="35" width="9" height="4" fill="#26323b"/><rect x="19" y="35" width="9" height="4" fill="#26323b"/></svg>', line:'Encontré dos fichas que se parecen en algunos detalles. ¿Eso alcanza para afirmar que todos los casos fueron iguales?', choices:['Sí, dos casos alcanzan','No necesariamente: compararía más fuentes y también sus diferencias'], feedback:['La semejanza es una pista, pero una conclusión general necesita más evidencia y debe atender a las diferencias.','Exacto: comparar permite buscar patrones sin borrar diferencias ni generalizar más de lo que las fuentes permiten.']},
+  {id:'mensajero', correct:1, name:'Mensajero de la fiscalía', role:'PERSONAJE FICTICIO · APOYO A LA INVESTIGACIÓN', sprite:'<svg viewBox="0 0 32 40" shape-rendering="crispEdges"><rect x="8" y="2" width="16" height="5" fill="#5b3b24"/><rect x="5" y="7" width="22" height="4" fill="#5b3b24"/><rect x="6" y="11" width="20" height="11" fill="#c99268"/><rect x="9" y="14" width="4" height="2" fill="#10202a"/><rect x="19" y="14" width="4" height="2" fill="#10202a"/><rect x="12" y="19" width="8" height="1" fill="#7d3c38"/><rect x="3" y="22" width="26" height="13" fill="#9a6746"/><rect x="10" y="24" width="12" height="8" fill="#e9d9b1"/><rect x="4" y="35" width="9" height="4" fill="#26323b"/><rect x="19" y="35" width="9" height="4" fill="#26323b"/></svg>', line:'Estoy armando un resumen para alguien que no leyó las fuentes. ¿Qué conviene escribir primero: la conclusión o de dónde sale?', choices:['Primero la conclusión, sin explicar','La afirmación y la fuente que la sostiene'], feedback:['Si la conclusión aparece sin respaldo, quien lee no puede evaluar cómo llegaste a ella.','Bien: una afirmación defendible tiene que mostrar qué fuente la sostiene y qué inferencia estás haciendo.']},
+  {id:'estudiante', correct:0, name:'Estudiante colaborador', role:'PERSONAJE FICTICIO · APOYO A LA INVESTIGACIÓN', sprite:'<svg viewBox="0 0 32 40" shape-rendering="crispEdges"><rect x="7" y="2" width="18" height="4" fill="#30261f"/><rect x="5" y="6" width="22" height="4" fill="#30261f"/><rect x="6" y="10" width="20" height="12" fill="#e1ad83"/><rect x="9" y="13" width="4" height="2" fill="#10202a"/><rect x="19" y="13" width="4" height="2" fill="#10202a"/><rect x="12" y="18" width="8" height="2" fill="#7d3c38"/><rect x="3" y="22" width="26" height="13" fill="#3d6792"/><rect x="11" y="23" width="10" height="9" fill="#f5edcf"/><rect x="4" y="35" width="9" height="4" fill="#26323b"/><rect x="19" y="35" width="9" height="4" fill="#26323b"/></svg>', line:'Una fuente dice algo importante, pero no responde toda la pregunta. ¿La descartamos o la usamos con cuidado?', choices:['La uso aclarando qué aporta y qué no demuestra','La descarto porque no responde todo'], feedback:['Esa es la idea: una fuente puede ser valiosa aunque tenga límites, siempre que no le atribuyamos más de lo que dice.','No hace falta descartarla: podés usarla para una afirmación acotada y cruzarla con otras.']}
+];
+function maybeNpcEncounter(done) {
+  const card = activeCard();
+  const dest = activeDestination();
+  if (!card || !dest) return done();
+  if (!route.npcSeen || typeof route.npcSeen !== 'object') route.npcSeen = {};
+  if (route.npcSeen[card.id]) return done();
+  route.npcSeen[card.id] = true;
+  const count = Number(route.npcEncounterCount) || 0;
+  // One brief, optional encounter now and then; never on every clue and at most three per run.
+  if (count >= 3 || Math.random() >= 0.17) { saveRoute(); return done(); }
+  const npc = NPC_ENCOUNTERS[Math.floor(Math.random() * NPC_ENCOUNTERS.length)];
+  route.npcEncounterCount = count + 1;
+  saveRoute();
+  popup.className = 'popup npc-dialog';
+  popup.innerHTML = `<div class="tag">ENCUENTRO IMPREVISTO · ${escapeHTML(dest.title)}</div><div class="npc-scene"><div class="sr-only" id="popup-title">Encuentro con un personaje ficticio</div><div class="npc-sprite" aria-hidden="true">${npc.sprite}</div><div><span class="guide-name">${escapeHTML(npc.name)}</span><p class="small">${escapeHTML(npc.role)}</p><p>${escapeHTML(npc.line)}</p></div></div><p class="small">Este personaje y su diálogo son ficticios: sirven para practicar el razonamiento y no constituyen un testimonio histórico. Elegí una respuesta; vas a recibir una devolución inmediata y podés seguir jugando en cualquier caso.</p><div class="npc-choices">${npc.choices.map((choice,index)=>`<button type="button" class="alt" data-npc-choice="${index}">${escapeHTML(choice)}</button>`).join('')}</div><div class="npc-feedback" id="npc-feedback" hidden role="status"></div><div class="note-actions"><button type="button" id="popup-ok" class="gold" disabled>SEGUIR INVESTIGANDO ▶</button></div>`;
+  popup.onclose = () => { popup.onclose = null; done(); };
+  popup.querySelectorAll('[data-npc-choice]').forEach(button => button.addEventListener('click', () => {
+    const index = Number(button.dataset.npcChoice);
+    const feedback = popup.querySelector('#npc-feedback');
+    const correct = index === npc.correct;
+    const delta = correct ? 4 : -2;
+    route.decisionPoints = (Number(route.decisionPoints) || 0) + delta;
+    if (!Array.isArray(route.decisionHistory)) route.decisionHistory = [];
+    route.decisionHistory.push({npc:npc.id, correct, delta, at:new Date().toISOString()});
+    saveRoute();
+    const pointsLabel = document.querySelector('#points-status');
+    const resultLine = correct ? '✓ CORRECTO' : '✗ REVISÁ ESTA DECISIÓN';
+    feedback.innerHTML = `<strong>${resultLine}</strong><br>${escapeHTML(npc.feedback[index])}`;
+    feedback.hidden = false;
+    setProgress();
+    announce(`${resultLine}. ${npc.feedback[index]}`);
+    popup.querySelectorAll('[data-npc-choice]').forEach(item => { item.disabled = true; });
+    popup.querySelector('#popup-ok').disabled = false;
+    popup.querySelector('#popup-ok').focus();
+  }));
+  popup.querySelector('#popup-ok').addEventListener('click', () => popup.close());
+  popup.showModal();
+  popup.querySelector('[data-npc-choice]')?.focus();
+}
+function showPopup(kind, html, label, onClose) {
+  popup.className = `popup ${kind}`;
+  popup.innerHTML = `${html}<div class="note-actions"><button type="button" id="popup-ok" class="gold">${label}</button></div>`;
+  popup.onclose = () => { popup.onclose = null; if (onClose) onClose(); };
+  popup.showModal();
+  popup.querySelector('#popup-ok').addEventListener('click', () => popup.close());
+  popup.querySelector('#popup-ok').focus();
+}
+function maybeInterfere(done) {
+  const ev = (route.pendingEvent && INTERFERENCES.find(item => item.id === route.pendingEvent)) || INTERFERENCES.find(item => item.after === route.visited.length && !route.events.includes(item.id));
+  if (!ev) return done();
+  route.pendingEvent = ev.id;
+  saveRoute();
+  popup.className = 'popup alert';
+  popup.innerHTML = `<div class="tag">${escapeHTML(ev.tone)}</div><h2 id="popup-title">${escapeHTML(ev.title)}</h2><p>${escapeHTML(ev.text)}</p><p class="small">¿Cómo respondés? La decisión importa, pero después vas a necesitar fuentes que sostengan la respuesta.</p><div class="interference-choices">${ev.choices.map((choice,index)=>`<button type="button" class="alt" data-interference-choice="${index}">${escapeHTML(choice.label)}</button>`).join('')}</div><div class="interference-feedback" id="interference-feedback" hidden role="status"></div><p class="small">Recreación pedagógica: el episodio y las opciones son una mecánica del juego, no una cita histórica.</p><div class="note-actions"><button type="button" id="popup-ok" class="gold" disabled>VOLVER A LA INVESTIGACIÓN ▶</button></div>`;
+  popup.onclose = () => { popup.onclose = null; done(); };
+  popup.querySelectorAll('[data-interference-choice]').forEach(button => button.addEventListener('click', () => {
+    if (button.disabled) return;
+    const index = Number(button.dataset.interferenceChoice);
+    const choice = ev.choices[index];
+    const delta = Number(choice.delta) || 0;
+    route.decisionPoints = Math.max(-12, Math.min(18, (Number(route.decisionPoints) || 0) + delta));
+    if (!route.eventChoices || typeof route.eventChoices !== 'object') route.eventChoices = {};
+    route.eventChoices[ev.id] = {index, correct:choice.correct, at:new Date().toISOString()};
+    if (!route.events.includes(ev.id)) route.events.push(ev.id);
+    route.pendingEvent = null;
+    saveRoute();
+    const refuted = ev.counter.some(id => isPinned(id));
+    const evidenceNote = ev.penalty ? (refuted ? 'Las fuentes que conectaste en la pizarra permiten responder a esta presión.' : `Todavía falta una respuesta documental: ${ev.hint}`) : 'La llamada queda registrada en la bitácora del juego; podés continuar con la investigación.';
+    const feedback = popup.querySelector('#interference-feedback');
+    feedback.innerHTML = `<strong>${choice.correct ? '✓ DECISIÓN ADECUADA' : '✗ DECISIÓN A REVISAR'}</strong><p>${escapeHTML(choice.feedback)}</p><p>${escapeHTML(evidenceNote)}</p>`;
+    feedback.hidden = false;
+    popup.querySelectorAll('[data-interference-choice]').forEach(item => { item.disabled = true; });
+    popup.querySelector('#popup-ok').disabled = false;
+    popup.querySelector('#popup-ok').focus();
+    setProgress();
+    announce(`${choice.correct ? 'Decisión adecuada' : 'Decisión a revisar'}. ${choice.feedback}`);
+  }));
+  popup.querySelector('#popup-ok').addEventListener('click', () => popup.close());
+  popup.showModal();
+  popup.querySelector('[data-interference-choice]')?.focus();
+}
+function showPlaque() {
+  showPopup('plaque', `<div class="plaque-box"><div class="tag">CIERRE DEL ALEGATO FISCAL · 1985</div><h2 id="popup-title" class="plaque-text">NUNCA MÁS</h2><p class="small">Frase con la que Julio César Strassera cerró su alegato ante la Cámara Federal.</p></div>`, 'CONTINUAR ▶');
+}
+function boardAxisName(id) { return ({state:'Órdenes y participación estatal',clandestinity:'Clandestinidad y negación',system:'Sistematicidad',context:'Contexto / pregunta abierta'})[id] || id; }
+function renderBoard() {
+  if (!route.pins || typeof route.pins !== 'object') route.pins = {};
+  if (!Array.isArray(route.connections)) route.connections = [];
+  const axisIds = ['state','clandestinity','system','context'];
+  const axisOptions = axisIds.map(id => `<option value="${id}">${escapeHTML(boardAxisName(id))}</option>`).join('');
+  const pile = cards.filter(card => picked.has(card.id));
+  const columns = axisIds.map(axis => {
+    const cardsInAxis = pinnedCards().filter(card => route.pins[card.id] === axis);
+    return `<section class="board-column"><h3>${escapeHTML(boardAxisName(axis))}</h3>${cardsInAxis.length ? cardsInAxis.map(card => `<article class="board-pin pinned"><strong>${escapeHTML(card.id)} · ${escapeHTML(plainTitle(card))}</strong><span class="small">${escapeHTML(card.type)}</span><p class="small">${escapeHTML(shortenText(card.claim,105))}</p><button type="button" class="alt" data-unpin="${card.id}">SACAR DE LA PIZARRA</button></article>`).join('') : '<p class="small">Todavía no hay pistas conectadas acá.</p>'}</section>`;
+  }).join('');
+  const pileMarkup = pile.length ? pile.filter(card => !isPinned(card.id)).map(card => `<article class="board-pin"><strong>${escapeHTML(card.id)} · ${escapeHTML(plainTitle(card))}</strong><span class="small">${escapeHTML(card.type)} · ${escapeHTML(card.source)}</span><p class="small">${escapeHTML(shortenText(card.claim,125))}</p><label class="label" for="pin-${card.id}">¿A qué eje la conectás?</label><select id="pin-${card.id}" data-pin-axis="${card.id}"><option value="">Elegí el eje…</option>${axisOptions}</select><button type="button" data-pin="${card.id}">PINCHAR EN LA PIZARRA</button></article>`).join('') : '<p class="small">La pila está vacía. Volvé a las fuentes y elegí cuáles querés guardar.</p>';
+  const pinned = pinnedCards();
+  const sourceOptions = pinned.map(card => `<option value="${card.id}">${escapeHTML(card.id)} · ${escapeHTML(plainTitle(card))}</option>`).join('');
+  const relationLabels = {corroborates:'Corroboración: una fuente refuerza o precisa a la otra',similar:'Semejanza: muestran rasgos comparables',context:'Contexto: una ayuda a interpretar la otra',contradicts:'Tensión o contradicción entre fuentes',limits:'Límite: una fuente obliga a matizar la otra'};
+  const connectionMarkup = route.connections.length ? route.connections.map((c,i)=>{const a=trackById(c.a),b=trackById(c.b);return `<article class="connection-note"><strong>${escapeHTML(c.a)} ↔ ${escapeHTML(c.b)}</strong><span>${escapeHTML(relationLabels[c.kind]||c.kind)}</span><p>${escapeHTML(c.reason)}</p><button type="button" class="alt" data-remove-connection="${i}">QUITAR CONEXIÓN</button></article>`}).join('') : '<p class="small">Todavía no justificaste conexiones entre expedientes.</p>';
+  boardDialog.innerHTML = `<div class="note-head"><div><div class="tag">MAPA DE EVIDENCIAS</div><h2 id="board-title">Pizarra de investigación</h2></div><button type="button" id="close-board" class="alt">CERRAR ✕</button></div><p class="board-intro">Las pistas que guardás quedan en la pila. Para incorporarlas al alegato, pinchalas bajo un eje. Después conectá dos expedientes y elegí qué relación encontrás: el hilo rojo representa una relación que vos tenés que justificar.</p><div class="board-columns">${columns}</div><section class="board-pile"><h3>EXPEDIENTES EN LA PILA · ${pile.length}</h3><p class="small">Elegí un eje para cada pista que todavía no esté en la pizarra.</p>${pileMarkup}</section><section class="connection-lab"><h3>🧵 TENDER UN HILO ROJO</h3><p class="small">Elegí dos expedientes ya pinchados y explicá qué relación encontrás entre ellos. No alcanza con unirlos: tenés que justificar el vínculo.</p><form id="connection-form"><label class="label" for="connection-a">Primer expediente</label><select id="connection-a" required ${pinned.length<2?'disabled':''}><option value="">Elegí una pista…</option>${sourceOptions}</select><label class="label" for="connection-b">Segundo expediente</label><select id="connection-b" required ${pinned.length<2?'disabled':''}><option value="">Elegí otra pista…</option>${sourceOptions}</select><label class="label" for="connection-kind">¿Qué relación encontrás?</label><select id="connection-kind" required ${pinned.length<2?'disabled':''}><option value="">Elegí el tipo de relación…</option>${Object.entries(relationLabels).map(([k,v])=>`<option value="${k}">${escapeHTML(v)}</option>`).join('')}</select><label class="label" for="connection-reason">Justificá el vínculo en una frase</label><textarea id="connection-reason" required minlength="18" placeholder="Estas fuentes se relacionan porque…" ${pinned.length<2?'disabled':''}></textarea><button type="submit" ${pinned.length<2?'disabled title="Necesitás pinchar al menos dos expedientes"':''}>JUSTIFICAR CONEXIÓN</button>${pinned.length<2?'<p class="small">Primero pinchá al menos dos expedientes en la pizarra.</p>':''}</form><div class="connection-list"><h4>HILOS JUSTIFICADOS · ${route.connections.length}</h4>${connectionMarkup}</div><div id="connection-feedback" class="interference-feedback" aria-live="polite" hidden></div></section>`;
+  boardDialog.querySelector('#close-board').addEventListener('click', () => boardDialog.close());
+  boardDialog.querySelectorAll('[data-pin]').forEach(button => button.addEventListener('click', () => {
+    const id = button.dataset.pin; const select = boardDialog.querySelector(`[data-pin-axis="${id}"]`); const axis = select?.value;
+    if (!axis) { announce('Elegí primero el eje al que querés conectar esta pista.'); select?.focus(); return; }
+    route.pins[id] = axis; saveRoute(); renderBoard(); setProgress(); announce(`${id} pinchada en la pizarra: ${boardAxisName(axis)}.`);
+  }));
+  boardDialog.querySelectorAll('[data-unpin]').forEach(button => button.addEventListener('click', () => {
+    const id = button.dataset.unpin; delete route.pins[id]; route.connections = route.connections.filter(c=>c.a!==id && c.b!==id); saveRoute(); renderBoard(); setProgress(); announce(`${id} volvió a la pila de expedientes. Las conexiones que dependían de ella se quitaron también.`);
+  }));
+  boardDialog.querySelector('#connection-form')?.addEventListener('submit', event => {
+    event.preventDefault(); const a=boardDialog.querySelector('#connection-a').value, b=boardDialog.querySelector('#connection-b').value, kind=boardDialog.querySelector('#connection-kind').value, reason=boardDialog.querySelector('#connection-reason').value.trim();
+    const feedback=boardDialog.querySelector('#connection-feedback'); feedback.hidden=false;
+    if (!a || !b || a===b || !kind || reason.length<18) { feedback.textContent='Elegí dos expedientes distintos y explicá la relación con una frase más precisa.'; return; }
+    if (route.connections.some(c=>(c.a===a&&c.b===b)||(c.a===b&&c.b===a))) { feedback.textContent='Ya existe un hilo entre estos expedientes. Podés quitarlo y volver a formularlo si querés revisar tu interpretación.'; return; }
+    route.connections.push({a,b,kind,reason,createdAt:Date.now()}); saveRoute();
+    const cardA=trackById(a), cardB=trackById(b); const sameAxis=route.pins[a]===route.pins[b];
+    let msg='Conexión registrada. La explicación queda en la pizarra para que puedas recuperarla al construir el alegato.';
+    if(kind==='similar') msg='Conexión registrada. Al comparar semejanzas, revisá también si hay diferencias importantes entre los dos casos.';
+    if(kind==='corroborates') msg='Conexión registrada. La corroboración es más sólida cuando podés señalar qué detalle concreto aporta cada fuente.';
+    if(kind==='context') msg='Conexión registrada. Recordá que el contexto ayuda a interpretar, pero no necesariamente prueba por sí solo el hecho particular.';
+    if(kind==='contradicts') msg='Conexión registrada. Una tensión entre fuentes no se resuelve automáticamente: anotá qué parte entra en conflicto y qué habría que comprobar.';
+    if(kind==='limits') msg='Conexión registrada. Reconocer límites permite formular una conclusión más precisa, no descartar automáticamente una fuente.';
+    if(sameAxis) msg+=' Las dos pistas están en el mismo eje; explicá qué agrega cada una.';
+    feedback.textContent=msg; announce(msg); renderBoard();
+  });
+  boardDialog.querySelectorAll('[data-remove-connection]').forEach(button=>button.addEventListener('click',()=>{route.connections.splice(Number(button.dataset.removeConnection),1);saveRoute();renderBoard();}));
+  updateBoardButton();
+}
+function openBoard() { renderBoard(); boardDialog.showModal(); boardDialog.querySelector('#close-board')?.focus(); }
+function trackById(id) { return cards.find(card => card.id === id); }
+let editingIndex = null;
+function renderNotes() {
+  document.querySelector('#note-count').textContent = `${notes.length} nota${notes.length === 1 ? '' : 's'}`;
+  document.querySelector('#open-journal').textContent = `✎ BITÁCORA · ${notes.length}`;
+  noteList.innerHTML = notes.length ? notes.map((note, index) => `<article class="note-item"><p><strong>${escapeHTML(({state:'Órdenes y participación estatal',clandestinity:'Clandestinidad y negación',system:'Sistematicidad',context:'Contexto / duda general'})[note.axis] || 'Sin eje asignado')}</strong></p><p>${escapeHTML(note.text)}</p><div class="note-actions"><button type="button" class="alt" data-edit="${index}">EDITAR</button><button type="button" class="gold" data-delete="${index}">BORRAR</button></div></article>`).reverse().join('') : '<p class="small">Todavía no escribiste notas.</p>';
+  noteList.querySelectorAll('[data-edit]').forEach(button => button.addEventListener('click', () => {
+    editingIndex = Number(button.dataset.edit);
+    noteText.value = notes[editingIndex].text;
+    noteAxis.value = ['state','clandestinity','system','context'].includes(notes[editingIndex].axis) ? notes[editingIndex].axis : 'context';
+    document.querySelector('#save-note').textContent = 'ACTUALIZAR NOTA';
+    document.querySelector('#cancel-edit').hidden = false;
+    noteText.focus();
+  }));
+  noteList.querySelectorAll('[data-delete]').forEach(button => button.addEventListener('click', () => {
+    notes.splice(Number(button.dataset.delete), 1);
+    editingIndex = null;
+    saveStore(NOTES_KEY, notes);
+    resetNoteForm();
+    renderNotes();
+    renderStageProgress();
+    setProgress();
+    announce('Nota borrada.');
+  }));
+}
+function resetNoteForm() {
+  editingIndex = null;
+  noteText.value = '';
+  const card = activeCard();
+  const inferredStage = card ? STAGES.find(stage => stage.clues.includes(card.id))?.id : null;
+  noteAxis.value = inferredStage || (STAGES.some(stage => stage.id === route.focusAxis) ? route.focusAxis : 'context');
+  document.querySelector('#save-note').textContent = 'GUARDAR NOTA';
+  document.querySelector('#cancel-edit').hidden = true;
+}
+function act(action) {
+  if (action === 'start') start();
+  if (action === 'destinations') drawDestinations();
+  if (action === 'finish') { finishStep = 0; drawFinish(); }
+  if (action === 'fin-prev') { finishStep--; drawFinish(); }
+  if (action === 'call') drawCall();
+  if (action === 'intro') drawStart();
+  if (action === 'next-problem') drawProblem();
+  if (action === 'intro-next') { route.introStep++; drawStart(); }
+  if (action === 'intro-prev') { route.introStep = prevDialogueIndex(route.introStep) ?? route.introStep; drawStart(); }
+  if (action === 'intro-skip') { clearTimeout(travelTimer); if (route.playerName) start(); else { route.introStep = NAME_IDX; drawStart(); } }
+  if (action === 'deliver') drawEnding();
+  if (action === 'fin-back') { finishStep = 3; drawFinish(); }
+  if (action === 'fin-next') { finishStep++; drawFinish(); }
+  if (action === 'debrief' && route.visited.length) drawDebrief();
+  if (action === 'skip') { clearTimeout(travelTimer); drawCard(); }
+  if (action === 'pick' && activeCard()) togglePick(activeCard().id);
+  if (action === 'prev' && route.state === 'clues' && current > 0) { current--; saveRoute(); drawCard(); }
+  else if (action === 'prev' && route.state === 'debrief' && activeDestination()) { route.state = 'clues'; current = activeDestination().ids.length - 1; saveRoute(); drawCard(); }
+  if (action === 'next' && route.state === 'clues' && current < activeDestination().ids.length - 1) {
+    maybeNpcEncounter(() => { current++; saveRoute(); drawCard(); });
+  }
+  else if (action === 'next' && route.state === 'clues') maybeNpcEncounter(() => maybeInterfere(drawDebrief));
+}
+
+noteForm.addEventListener('submit', event => {
+  event.preventDefault();
+  const text = noteText.value.trim();
+  if (!text) return;
+  if (editingIndex === null) notes.push({ text, axis: noteAxis.value, createdAt: new Date().toISOString() }); else notes[editingIndex] = { ...notes[editingIndex], text, axis: noteAxis.value, updatedAt: new Date().toISOString() };
+  saveStore(NOTES_KEY, notes);
+  resetNoteForm();
+  renderNotes();
+  renderStageProgress();
+  setProgress();
+  announce(`Nota guardada en este navegador. Eje: ${noteAxis.options[noteAxis.selectedIndex].text}.`);
+});
+document.querySelector('#cancel-edit').addEventListener('click', resetNoteForm);
+document.querySelector('#open-journal').addEventListener('click', event => {
+  returnFocus = event.currentTarget;
+  resetNoteForm();
+  dialog.showModal();
+  noteText.focus();
+});
+document.querySelector('#open-board').addEventListener('click', openBoard);
+document.querySelector('#close-journal').addEventListener('click', () => dialog.close());
+dialog.addEventListener('close', () => { if (returnFocus?.isConnected) returnFocus.focus({preventScroll:true}); });
+dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+
+async function init() {
+  try {
+    cards = PISTAS_DATA;
+    const destinationIds = DESTINATIONS.flatMap(destination => destination.ids);
+    if (cards.length !== 20 || new Set(destinationIds).size !== 20 || cards.some(card => !destinationIds.includes(card.id))) throw new Error('El recorrido de destinos no coincide con las veinte pistas del archivo.');
+    route.visited = Array.isArray(route.visited) ? route.visited.filter((id, index, all) => destinationById(id) && all.indexOf(id) === index) : [];
+    route.voiceChoices = route.voiceChoices && typeof route.voiceChoices === 'object' ? route.voiceChoices : {};
+    route.analysis = route.analysis && typeof route.analysis === 'object' ? route.analysis : {};
+    for (const [id, value] of Object.entries(route.analysis)) { if (!cards.length || !value || typeof value !== 'object') delete route.analysis[id]; }
+    route.stopAnalysis = route.stopAnalysis && typeof route.stopAnalysis === 'object' ? route.stopAnalysis : {};
+    for (const [id, value] of Object.entries(route.stopAnalysis)) { if (!destinationById(id) || !value || typeof value !== 'object') delete route.stopAnalysis[id]; }
+    route.pins = route.pins && typeof route.pins === 'object' ? route.pins : {};
+    for (const [id, axis] of Object.entries(route.pins)) { if (!cards.some(card => card.id === id) || !picked.has(id) || !['state','clandestinity','system','context'].includes(axis)) delete route.pins[id]; }
+    route.eventChoices = route.eventChoices && typeof route.eventChoices === 'object' ? route.eventChoices : {};
+    route.npcSeen = route.npcSeen && typeof route.npcSeen === 'object' ? route.npcSeen : {};
+    route.npcEncounterCount = Math.max(0, Math.min(3, Number(route.npcEncounterCount) || 0));
+    route.decisionPoints = Number.isFinite(Number(route.decisionPoints)) ? Math.max(-6, Math.min(12, Number(route.decisionPoints))) : 0;
+    route.decisionHistory = Array.isArray(route.decisionHistory) ? route.decisionHistory.slice(-3) : [];
+    route.fichas = Array.isArray(route.fichas) ? route.fichas : [];
+    route.frases = route.frases && typeof route.frases === 'object' ? route.frases : {};
+    route.events = Array.isArray(route.events) ? route.events.filter(id => INTERFERENCES.some(ev => ev.id === id)) : [];
+    route.state = ['intro','call','problem','destinations','clues','debrief','finish','ending'].includes(route.state) ? route.state : 'intro';
+    route.activeDestination = route.visited.includes(route.activeDestination) ? route.activeDestination : route.visited.at(-1) || null;
+    route.focusAxis = STAGES.some(stage => stage.id === route.focusAxis) ? route.focusAxis : 'state';
+    current = route.state === 'clues' && activeDestination() ? Math.max(0, Math.min(activeDestination().ids.length - 1, Number(route.step) || 0)) : -1;
+    if ((route.state === 'clues' || route.state === 'debrief') && !activeDestination()) route.state = route.visited.length ? 'destinations' : 'intro';
+    renderNotes();
+    updateBoardButton();
+    saveRoute();
+    if (route.state === 'destinations') drawDestinations();
+    else if (route.state === 'clues') drawCard();
+    else if (route.state === 'debrief') drawDebrief();
+    else if (route.state === 'problem') drawProblem();
+    else if (route.state === 'call') drawCall();
+    else if (route.state === 'ending') drawEnding();
+    else if (route.state === 'finish') drawFinish();
+    else drawStart();
+    if (route.pendingEvent && !route.events.includes(route.pendingEvent)) setTimeout(() => maybeInterfere(() => { if (route.state === 'clues') drawDebrief(); }), 0);
+  } catch (error) {
+    screen.innerHTML = `<h1>No se pudo abrir el expediente</h1><p>${escapeHTML(error.message)}</p><p>Volvé a cargar la página.</p>`;
+    setControls('');
+  }
+}
+init();
+
+</script>
+</body>
+</html>
